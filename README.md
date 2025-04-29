@@ -1,40 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# ServiceCo Toolkit
+
+A production-ready starter kit to build service company websites using Next.js 13 with the Pages Router, TypeScript, Contentful as CMS, Storybook for component documentation, and Jest for unit testing.
+
+## Features
+
+- **Next.js 13** (Pages Router) - The React framework with hybrid static & server rendering
+- **TypeScript** - Static type checking for better code quality
+- **ESLint + Prettier** - Code linting and formatting
+- **Jest + Testing Library** - Unit testing framework
+- **Storybook** - Component documentation and development
+- **Husky + Lint-staged** - Git hooks for code quality
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- `npm run dev` - Run development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Lint code with ESLint
+- `npm run lint:fix` - Fix ESLint errors automatically
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check if code needs formatting
+- `npm run test` - Run tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage reporting
+- `npm run storybook` - Start Storybook server
+- `npm run build-storybook` - Build Storybook for deployment
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+/
+├── .husky/             # Git hooks
+├── .storybook/         # Storybook configuration
+├── components/         # React components
+├── pages/              # Next.js pages
+│   ├── api/            # API routes
+│   └── _app.tsx        # App component
+├── public/             # Static assets
+└── ... configuration files
+```
 
-## Learn More
+## Storybook
 
-To learn more about Next.js, take a look at the following resources:
+Run the Storybook server to view and develop components in isolation:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+```bash
+npm run storybook
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This will start the Storybook server at [http://localhost:6006](http://localhost:6006).
 
-## Deploy on Vercel
+## Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Run unit tests with Jest:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+```bash
+npm run test
+```
+
+## License
+
+This project is licensed under the MIT License.

@@ -62,12 +62,20 @@ export function getButtonClasses({
 }
 
 /**
- * Reusable button with Tailwind variants and accessibility.
+ * This Button component is reusable, with Tailwind-based variants, sizes, and accessibility.
  *
  * - Variants: primary, secondary, tertiary
  * - Sizes: sm, md, lg
- * - Accessible and keyboard friendly
+ * - Keyboard and screen reader friendly
+ *
+ * This component is currently handcrafted for flexibility and consistency.
+ *
+ * Once a design system (e.g. ShadCN, Tailwind UI) is adopted:
+ * - It could be replaced by the system’s button primitive
+ * - OR this component could wrap it to maintain app-specific variants
+ * - OR we may keep this for isolated use-cases or content editors (e.g. Contentful actions)
  */
+
 function Button({
   children,
   variant = 'primary',

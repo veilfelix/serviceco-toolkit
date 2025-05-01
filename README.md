@@ -9,7 +9,7 @@ A production-ready starter kit to build service company websites using Next.js 1
 - **ESLint + Prettier** - Code linting and formatting
 - **Jest + Testing Library** - Unit testing framework
 - **Storybook** - Component documentation and development
-- **Husky + Lint-staged** - Git hooks for code quality
+- **Husky** - Git hooks for code quality
 
 ## Getting Started
 

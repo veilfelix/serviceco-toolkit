@@ -1,7 +1,8 @@
 import React, { JSX } from 'react'
 
 /**
- * This Footer component is a temporary placeholder to ease development by providing the app with a basic Layout
+ * This Footer component is a temporary placeholder to ease development by providing the app with a basic Layout.
+ * Hence why no unit test was implemented for that component.
  */
 export default function Footer(): JSX.Element {
   return (

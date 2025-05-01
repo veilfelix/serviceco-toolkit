@@ -1,6 +1,6 @@
 import React, { JSX } from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
 
 type LayoutProps = {
   children: React.ReactNode

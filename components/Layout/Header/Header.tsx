@@ -2,7 +2,8 @@ import React, { JSX } from 'react'
 import Link from 'next/link'
 
 /**
- * This Header component is a temporary placeholder to ease development by providing the app with a basic Layout
+ * This Header component is a temporary placeholder to ease development by providing the app with a basic Layout.
+ * Hence why no unit test was implemented for that component.
  */
 export default function Header(): JSX.Element {
   return (

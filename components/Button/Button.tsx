@@ -31,7 +31,7 @@ export function getButtonClasses({
   size = 'md',
   disabled = false,
   className = '',
-}: Pick<ButtonProps, 'variant' | 'size' | 'disabled' | 'className'>) {
+}: Pick<ButtonProps, 'variant' | 'size' | 'disabled' | 'className'>): string {
   // Base styles always applied
   const baseStyles = 'inline-flex items-center justify-center rounded font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2'
 

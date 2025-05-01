@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { ButtonHTMLAttributes, JSX } from 'react'
 import { cn } from '@/utils/classNames'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
@@ -76,7 +76,7 @@ function Button({
   className = '',
   type = 'button',
   ...rest
-}: ButtonProps) {
+}: ButtonProps): JSX.Element {
   const buttonClasses = getButtonClasses({ variant, size, disabled, className })
 
   return (

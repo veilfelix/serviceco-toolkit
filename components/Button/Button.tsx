@@ -75,7 +75,6 @@ export function getButtonClasses({
  * - OR this component could wrap it to maintain app-specific variants
  * - OR we may keep this for isolated use-cases or content editors (e.g. Contentful actions)
  */
-
 function Button({
   children,
   variant = 'primary',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Container from './Container'
 
 const meta: Meta<typeof Container> = {
-  title: 'UI/Container',
+  title: 'Components/UI/Container',
   component: Container,
   tags: ['autodocs'],
 }

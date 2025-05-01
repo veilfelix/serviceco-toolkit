@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Seo from './Seo'
 
 const meta: Meta<typeof Seo> = {
-  title: 'SEO/Seo',
+  title: 'Components/SEO/Seo',
   component: Seo,
   parameters: {
     layout: 'fullscreen',

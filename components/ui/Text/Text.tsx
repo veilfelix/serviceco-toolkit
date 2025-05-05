@@ -17,5 +17,5 @@ type TextProps = {
  * - Or kept for use in markdown/contentful-rendered pages
  */
 export default function Text({ as: Tag = 'p', children, className }: TextProps): JSX.Element {
-  return <Tag className={cn('prose prose-sm text-foreground', className)}>{children}</Tag>
+  return <Tag className={cn('text-foreground', className)}>{children}</Tag>
 }

@@ -1,4 +1,7 @@
+import Container from '@/components/ui/Container/Container'
 import Link from 'next/link'
+import Heading from '@/components/ui/Heading/Heading'
+import Text from '@/components/ui/Text/Text'
 
 /**
  * Custom 404 Page (Not Found).
@@ -11,12 +14,12 @@ import Link from 'next/link'
  */
 export default function Custom404() {
   return (
-    <div className="container text-center py-16">
-      <h1 className="text-5xl font-bold mb-4">404 - Page Not Found</h1>
-      <p className="mb-8">Oops! The page you are looking for doesn&apos;t exist.</p>
+    <Container className="py-16 text-center">
+      <Heading as="h1" className="mb-4">404 - Page Not Found</Heading>
+      <Text as="p" className="mb-8">Oops! The page you are looking for doesn&apos;t exist.</Text>
       <Link href="/" className="text-blue-600 underline">
         Back to home page
       </Link>
-    </div>
+    </Container>
   )
 }

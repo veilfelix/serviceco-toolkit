@@ -6,7 +6,6 @@ describe('Text', () => {
     render(<Text>This is a paragraph.</Text>)
     const element = screen.getByText('This is a paragraph.')
     expect(element.tagName).toBe('P')
-    expect(element).toHaveClass('prose')
   })
 
   it('can render as a span', () => {
@@ -18,7 +17,6 @@ describe('Text', () => {
   it('merges additional classes', () => {
     render(<Text className="text-red-500">Styled text</Text>)
     const element = screen.getByText('Styled text')
-    expect(element).toHaveClass('prose')
     expect(element).toHaveClass('text-red-500')
   })
 })

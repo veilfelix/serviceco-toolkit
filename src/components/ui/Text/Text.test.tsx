@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import Text from './Text'
+import Text from '@/components/ui/Text/Text'
+import React from 'react'
 
 describe('Text', () => {
   it('renders as a paragraph by default', () => {

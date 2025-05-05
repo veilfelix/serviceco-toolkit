@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Footer from './Footer'
+import Footer from '@/components/Layout/Footer/Footer'
 
 const meta: Meta<typeof Footer> = {
   title: 'Components/Layout/Footer',

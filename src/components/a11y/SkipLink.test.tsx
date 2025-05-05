@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import SkipLink from './SkipLink'
+import SkipLink from '@/components/a11y/SkipLink'
+import React from 'react'
 
 describe('SkipLink', () => {
   it('renders a skip link with correct href and label', () => {

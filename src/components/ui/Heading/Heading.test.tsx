@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import Heading from './Heading'
+import Heading from '@/components/ui/Heading/Heading'
+import React from 'react'
 
 describe('Heading', () => {
   it('renders as an h2 by default', () => {

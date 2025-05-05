@@ -1,6 +1,6 @@
 # ServiceCo Toolkit
 
-A production-ready starter kit to build service company websites using Next.js 13 with the Pages Router, TypeScript, Contentful as CMS, Storybook for component documentation, and Jest for unit testing.
+A starter kit to build service company websites using Next.js 13 with the Pages Router, TypeScript, Contentful as CMS, Storybook for component documentation, and Jest for unit testing.
 
 ## Features
 
@@ -81,47 +81,48 @@ Below is a list of useful commands to run, test, and validate the project during
 
 ```
 /
-├── .husky/                         # Git hooks (e.g., pre-commit hook to run lint/tests)
-│   └── pre-commit                  # Executes lint + tests before commit
-├── .storybook/                     # Storybook configuration (used for component documentation/dev)
-│   ├── main.ts                     # Entry point and plugin config
-│   └── preview.ts                  # Global decorators and styling
-├── components/                     # All reusable UI and layout components
-│   ├── a11y/                       # Accessibility utilities
-│   │   └── SkipLink.tsx            # Screen reader-only skip to main content link
-│   ├── Layout/                     # App-wide layout (Header, Footer, Layout wrapper)
-│   ├── Seo/                        # Reusable SEO <Head> injection component
-│   └── ui/                         # Generic design primitives (Heading, Text, Container)
-│       ├── Button/                 # Button component (component, stories, tests)
-│       │   ├── Button.tsx          # Button component
-│       │   ├── Button.stories.tsx  # Button stories for Storybook
-│       │   └── Button.test.tsx     # Button unit tests using Jest and @testing-library
-│       ├── Heading/                # Semantic h1–h6 wrapper with consistent styles
-│       ├── Text/                   # Paragraph or inline content with prose styles
-│       └── Container/              # Centralized max-width content wrapper
-├── hooks/                          # Custom React hooks (empty for now)
-├── lib/                            # Application logic or API fetchers
-│   └── api/                        # Placeholder for Contentful or internal API utils
-├── pages/                          # Next.js route pages (automatically routed)
-│   ├── _app.tsx                    # Global layout and providers
-│   ├── _document.tsx               # Custom HTML structure, <html lang="..."> etc.
-│   ├── 404.tsx                     # Custom Not Found page
-│   ├── 500.tsx                     # Custom Error page
-│   ├── index.tsx                   # Homepage route (/)
-│   └── api/hello.ts                # Example Next.js API route
-├── public/                         # Static files (served as-is)
-│   └── favicon.ico                 # Site favicon
-├── styles/                         # Global styles
-│   └── globals.css                 # Tailwind + CSS custom properties for base theme
-├── utils/                          # Utility functions
-│   └── classNames.ts               # Helper to combine conditional Tailwind classNames
-├── jest.config.ts                  # Jest configuration
-├── jest.setup.ts                   # Jest test setup file (e.g., mocks, extensions)
-├── next.config.ts                  # Next.js global configuration
-├── postcss.config.js               # Tailwind + PostCSS plugin configuration
-├── tailwind.config.js              # Tailwind theme extensions (colors, spacing, fonts)
-├── tsconfig.json                   # TypeScript compiler options
-├── tsconfig.tsbuildinfo            # TypeScript incremental build cache
-├── package.json                    # Project scripts and dependencies
-├── README.md                       # You’re reading it 😉
+├── .husky/                             # Git hooks (e.g., pre-commit hook to run lint/tests)
+│   └── pre-commit                      # Executes lint + tests before commit
+├── .storybook/                         # Storybook configuration (used for component documentation/dev)
+│   ├── main.ts                         # Entry point and plugin config
+│   └── preview.ts                      # Global decorators and styling
+├── public/                             # Static files (served as-is)
+│   └── favicon.ico                     # Site favicon
+├── src/                                # All source files live here after migration
+│   ├── components/                     # All reusable UI and layout components
+│   │   ├── a11y/                       # Accessibility utilities
+│   │   │   └── SkipLink.tsx            # Screen reader-only skip to main content link
+│   │   ├── Layout/                     # App-wide layout (Header, Footer, Layout wrapper)
+│   │   ├── Seo/                        # Reusable SEO <Head> injection component
+│   │   └── ui/                         # Generic design primitives (Heading, Text, Container)
+│   │       ├── Button/                 # Button component (component, stories, tests)
+│   │       │   ├── Button.tsx          # Button component
+│   │       │   ├── Button.stories.tsx  # Button stories for Storybook
+│   │       │   └── Button.test.tsx     # Button unit tests using Jest and @testing-library
+│   │       ├── Heading/                # Semantic h1–h6 wrapper with consistent styles
+│   │       ├── Text/                   # Paragraph or inline content with prose styles
+│   │       └── Container/              # Centralized max-width content wrapper
+│   ├── hooks/                          # Custom React hooks (empty for now)
+│   ├── lib/                            # Application logic or API fetchers
+│   │   └── api/                        # Placeholder for Contentful or internal API utils
+│   ├── pages/                          # Next.js route pages (automatically routed)
+│   │   ├── _app.tsx                    # Global layout and providers
+│   │   ├── _document.tsx               # Custom HTML structure, <html lang="..."> etc.
+│   │   ├── 404.tsx                     # Custom Not Found page
+│   │   ├── 500.tsx                     # Custom Error page
+│   │   ├── index.tsx                   # Homepage route (/)
+│   │   └── api/hello.ts                # Example Next.js API route
+│   ├── styles/                         # Global styles
+│   │   └── globals.css                 # Tailwind + CSS custom properties for base theme
+│   └── utils/                          # Utility functions
+│       └── classNames.ts               # Helper to combine conditional Tailwind classNames
+├── jest.config.ts                      # Jest configuration
+├── jest.setup.ts                       # Jest test setup file (e.g., mocks, extensions)
+├── next.config.ts                      # Next.js global configuration
+├── postcss.config.js                   # Tailwind + PostCSS plugin configuration
+├── tailwind.config.js                  # Tailwind theme extensions (colors, spacing, fonts)
+├── tsconfig.json                       # TypeScript compiler options
+├── tsconfig.tsbuildinfo                # TypeScript incremental build cache
+├── package.json                        # Project scripts and dependencies
+├── README.md                           # You’re reading it 😉
 ```

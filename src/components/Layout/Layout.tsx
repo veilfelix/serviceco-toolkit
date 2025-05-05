@@ -1,7 +1,7 @@
 import React, { JSX } from 'react'
-import Header from './Header/Header'
-import Footer from './Footer/Footer'
-import SkipLink from '../a11y/SkipLink'
+import Header from '@/components/Layout/Header/Header'
+import Footer from '@/components/Layout/Footer/Footer'
+import SkipLink from '@/components/a11y/SkipLink'
 
 type LayoutProps = {
   children: React.ReactNode

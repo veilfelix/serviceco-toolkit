@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Seo from './Seo'
+import Seo from '@/components/Seo/Seo'
 
 const meta: Meta<typeof Seo> = {
   title: 'Components/SEO/Seo',

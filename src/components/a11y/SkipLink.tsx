@@ -1,4 +1,4 @@
-import React, { JSX } from 'react'
+import { JSX } from 'react'
 
 /**
  * A visually hidden skip link for screen reader and keyboard users.

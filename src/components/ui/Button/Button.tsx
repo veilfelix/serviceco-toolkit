@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, JSX } from 'react'
+import { ButtonHTMLAttributes, JSX } from 'react'
 import { cn } from '@/utils/classNames'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'

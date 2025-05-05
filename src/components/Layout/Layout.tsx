@@ -1,4 +1,4 @@
-import React, { JSX } from 'react'
+import { JSX } from 'react'
 import Header from '@/components/Layout/Header/Header'
 import Footer from '@/components/Layout/Footer/Footer'
 import SkipLink from '@/components/a11y/SkipLink'

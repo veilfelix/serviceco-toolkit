@@ -5,7 +5,7 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.(ts|tsx|js|jsx)$': 'babel-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { configFile: './babel-jest.config.js' }],
   },
   moduleNameMapper: {
     '^@/components/(.*)$': '<rootDir>/src/components/$1',

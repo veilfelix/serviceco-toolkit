@@ -1,4 +1,4 @@
-import React, { JSX } from 'react'
+import { JSX } from 'react'
 
 /**
  * This Footer component is a temporary placeholder to ease development by providing the app with a basic Layout.

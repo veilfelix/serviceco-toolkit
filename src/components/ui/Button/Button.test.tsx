@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import Button, { ButtonVariant } from '@/components/ui/Button/Button'
-import React from 'react'
 
 describe('Button', () => {
   it('renders correctly with given text', () => {

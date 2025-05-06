@@ -9,7 +9,9 @@ A starter kit to build service company websites using Next.js 13 with the Pages 
 - **ESLint + Prettier** - Code linting and formatting
 - **Jest + Testing Library** - Unit testing framework
 - **Storybook** - Component documentation and development
+- **Modular Design System** - React components styled with Tailwind, Radix UI, and CSS tokens for accessibility and full customization
 - **Husky** - Git hooks for code quality
+- **Bundle Analyzer** - Interactive visual reports to inspect the weight and composition of client, server, and edge bundles (`npm run analyze`)
 
 
 ##  Getting Started
@@ -72,7 +74,7 @@ Below is a list of useful commands to run, test, and validate the project during
 
 |Command|Description|
 |---|---|
-|`npm run analyze`|Runs `next build` with bundle analyzer enabled.|
+|`npm run analyze`|Runs `next build` with bundle analyzer (@next/bundle-analyzer) enabled.|
 
 > Tip: On Windows, environment variables like `ANALYZE=true` are handled via `cross-env`.
 

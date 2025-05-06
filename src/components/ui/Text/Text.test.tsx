@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Text from '@/components/ui/Text/Text'
+import Text from './Text'
 
 describe('Text', () => {
   it('renders as a paragraph by default', () => {
@@ -14,7 +14,7 @@ describe('Text', () => {
     expect(element.tagName).toBe('SPAN')
   })
 
-  it('merges additional classes', () => {
+  it('applies custom class names', () => {
     render(<Text className="text-red-500">Styled text</Text>)
     const element = screen.getByText('Styled text')
     expect(element).toHaveClass('text-red-500')

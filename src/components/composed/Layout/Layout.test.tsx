@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Layout from '@/components/Layout/Layout'
+import Layout from '@/components/composed/Layout/Layout'
 
 // Mock Header and Footer to isolate Layout rendering
 jest.mock('./Header/Header', () => {

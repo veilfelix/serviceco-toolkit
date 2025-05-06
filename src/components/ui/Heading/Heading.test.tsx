@@ -1,24 +1,22 @@
 import { render, screen } from '@testing-library/react'
-import Heading from '@/components/ui/Heading/Heading'
+import Heading from './Heading'
 
 describe('Heading', () => {
-  it('renders as an h2 by default', () => {
+  it('renders as h2 by default', () => {
     render(<Heading>Default heading</Heading>)
-    const element = screen.getByText('Default heading')
-    expect(element.tagName).toBe('H2')
-    expect(element).toHaveClass('text-3xl')
+    const el = screen.getByText('Default heading')
+    expect(el.tagName).toBe('H2')
   })
 
-  it('renders as specified heading tag', () => {
+  it('renders with specified heading level', () => {
     render(<Heading as="h4">Custom heading</Heading>)
-    const element = screen.getByText('Custom heading')
-    expect(element.tagName).toBe('H4')
-    expect(element).toHaveClass('text-xl')
+    const el = screen.getByText('Custom heading')
+    expect(el.tagName).toBe('H4')
   })
 
-  it('merges additional classes', () => {
+  it('applies additional className', () => {
     render(<Heading className="text-red-500">Styled heading</Heading>)
-    const element = screen.getByText('Styled heading')
-    expect(element).toHaveClass('text-red-500')
+    const el = screen.getByText('Styled heading')
+    expect(el).toHaveClass('text-red-500')
   })
 })

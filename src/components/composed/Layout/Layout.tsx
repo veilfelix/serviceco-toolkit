@@ -1,6 +1,6 @@
 import { JSX } from 'react'
-import Header from '@/components/Layout/Header/Header'
-import Footer from '@/components/Layout/Footer/Footer'
+import Header from '@/components/composed/Layout/Header/Header'
+import Footer from '@/components/composed/Layout/Footer/Footer'
 import SkipLink from '@/components/a11y/SkipLink'
 
 type LayoutProps = {

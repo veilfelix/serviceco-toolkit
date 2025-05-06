@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import Layout from '@/components/Layout/Layout'
+import Layout from '@/components/composed/Layout/Layout'
 import '@/styles/globals.css'
 import { JSX } from 'react'
 

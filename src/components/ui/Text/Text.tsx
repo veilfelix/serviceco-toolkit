@@ -1,21 +1,35 @@
 import { JSX } from 'react'
 import { cn } from '@/utils/classNames'
 
-type TextProps = {
+export type TextProps = {
+  /**
+   * The HTML tag used to render the text
+   */
   as?: 'p' | 'span' | 'div'
+  /**
+   * The textual content to render
+   */
   children: React.ReactNode
+  /**
+   * Additional class names to apply to the element
+   */
   className?: string
 }
 
 /**
- * Text is a lightweight wrapper for paragraph-like content, styled with Tailwind’s `prose` utility.
+ * A generic text component that uses system tokens for consistent styling.
  *
- * It ensures consistent spacing, font size, and readable line lengths for body content.
+ * Applies default foreground color, and can be rendered as `p`, `span`, or `div`.
  *
- * If a design system is introduced later:
- * - This can be replaced or wrapped with a standard `Text` component
- * - Or kept for use in markdown/contentful-rendered pages
+ * Example:
+ * ```tsx
+ * <Text as="p">Some paragraph text</Text>
+ * ```
  */
-export default function Text({ as: Tag = 'p', children, className }: TextProps): JSX.Element {
-  return <Tag className={cn('text-foreground', className)}>{children}</Tag>
+export default function Text({
+  as: Tag = 'p',
+  children,
+  className,
+}: TextProps): JSX.Element {
+  return <Tag className={cn('text-[hsl(var(--foreground))]', className)}>{children}</Tag>
 }

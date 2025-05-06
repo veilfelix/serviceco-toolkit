@@ -1,25 +1,37 @@
 import { JSX } from 'react'
 import { cn } from '@/utils/classNames'
 
-type HeadingProps = {
+export type HeadingProps = {
+  /**
+   * The semantic tag to use for the heading (h1–h6)
+   */
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  /**
+   * Heading content
+   */
   children: React.ReactNode
+  /**
+   * Additional class names
+   */
   className?: string
 }
 
 /**
- * This heading component is a basic typographic component used to render semantic HTML headings (h1–h6).
+ * A semantic and styled heading component (h1–h6).
  *
- * This lightweight version is meant as a foundation. Once a design system like ShadCN or Tailwind UI is adopted,
- * we may choose to:
- * - Replace this with a system-provided `<Heading />` component
- * - OR wrap their component to preserve consistent sizing and spacing
- * - OR keep this for simple use-cases and markdown content rendering
+ * Automatically applies consistent typography tokens via TailwindCSS.
  *
- * For now, this helps enforce consistent heading sizes and tag usage across the app.
+ * Example:
+ * ```tsx
+ * <Heading as="h2">Section title</Heading>
+ * ```
  */
-export default function Heading({ as: Tag = 'h2', children, className }: HeadingProps): JSX.Element {
-  const base = 'font-bold text-foreground'
+export default function Heading({
+  as: Tag = 'h2',
+  children,
+  className,
+}: HeadingProps): JSX.Element {
+  const base = 'font-bold text-[hsl(var(--foreground))]'
   const sizes = {
     h1: 'text-4xl md:text-5xl',
     h2: 'text-3xl md:text-4xl',

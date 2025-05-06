@@ -1,24 +1,39 @@
 import { JSX } from 'react'
 import { cn } from '@/utils/classNames'
 
-type ContainerProps = {
+export type ContainerProps = {
+  /**
+   * The content to render inside the container
+   */
   children: React.ReactNode
+
+  /**
+   * Additional classes to apply on the container wrapper
+   */
   className?: string
 }
 
 /**
- * Container is a layout utility component that constrains content to a maximum width
- * and applies consistent horizontal padding.
+ * A layout wrapper that centers content and applies horizontal padding and max-width.
  *
- * It is often used to wrap page content and ensure readability across screen sizes.
- *
- * In a future design system:
- * - We might remove this and use layout primitives provided by the system
- * - OR update the classes here to match the grid/breakpoint system of the chosen library
+ * Example:
+ * ```tsx
+ * <Container>
+ *   <YourComponent />
+ * </Container>
+ * ```
  */
-export default function Container({ children, className }: ContainerProps): JSX.Element {
+export default function Container({
+  children,
+  className,
+}: ContainerProps): JSX.Element {
   return (
-    <div className={cn('container mx-auto px-4 sm:px-6 lg:px-8', className)}>
+    <div
+      className={cn(
+        'w-full max-w-screen-xl mx-auto px-[var(--spacing-md)] sm:px-[var(--spacing-md)] lg:px-[var(--spacing-lg)]',
+        className
+      )}
+    >
       {children}
     </div>
   )

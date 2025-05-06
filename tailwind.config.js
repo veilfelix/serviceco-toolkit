@@ -34,7 +34,26 @@ module.exports = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-      }
+      },
+      borderRadius: {
+        sm: 'var(--radius-sm)',
+        md: 'var(--radius-md)',
+        lg: 'var(--radius-lg)',
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)', ...require('tailwindcss/defaultTheme').fontFamily.sans],
+      },
+      spacing: {
+        xs: 'var(--spacing-xs)',
+        sm: 'var(--spacing-sm)',
+        md: 'var(--spacing-md)',
+        lg: 'var(--spacing-lg)',
+      },
+      fontSize: {
+        sm: 'var(--font-sm)',
+        base: 'var(--font-base)',
+        lg: 'var(--font-lg)',
+      },
     },
   },
   plugins: [

@@ -6,6 +6,7 @@ import { X } from 'lucide-react'
  * Accessible Dialog (modal) using Radix UI with Tailwind styling and token-based theming.
  *
  * Example:
+ * 
  * ```tsx
  * <Dialog>
  *   <Dialog.Trigger>Open</Dialog.Trigger>

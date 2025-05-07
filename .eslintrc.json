@@ -3,7 +3,6 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/explicit-module-boundary-types": "warn",
     "@typescript-eslint/no-unused-vars": "error",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
     "react/react-in-jsx-scope": "off",
@@ -11,7 +10,6 @@
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "max-len": ["warn", { "code": 150 }],
     "prefer-const": "error",
     "quotes": ["error", "single"],
     "semi": ["error", "never"],

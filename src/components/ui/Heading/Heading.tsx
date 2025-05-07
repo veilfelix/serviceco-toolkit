@@ -22,6 +22,7 @@ export type HeadingProps = {
  * Automatically applies consistent typography tokens via TailwindCSS.
  *
  * Example:
+ * 
  * ```tsx
  * <Heading as="h2">Section title</Heading>
  * ```

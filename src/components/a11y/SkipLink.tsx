@@ -8,10 +8,6 @@ import { JSX } from 'react'
  * Accessibility best practices recommend this for all layout templates.
  *
  * This component is small but **critical** for accessibility (WCAG 2.1).
- *
- * In a future design system:
- * - It may be visually styled to match the brand
- * - Or kept as-is if your design system includes a11y primitives
  */
 export default function SkipLink(): JSX.Element {
   return (

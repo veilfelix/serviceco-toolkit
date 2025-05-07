@@ -16,7 +16,7 @@ A starter kit to build service company websites using Next.js 13 with the Pages 
 
 ##  Getting Started
 
-### Clone the repository and install dependencies:
+### 1. Clone the repository and install dependencies:
 
 ```bash
 git clone https://github.com/veilfelix/serviceco-toolkit.git
@@ -24,13 +24,56 @@ cd serviceco-toolkit
 npm install
 ```
 
-### Run the development server
+### 2. Set up environment variables
+
+Create a `.env.local` file at the root of the project with the following values:
+
+```env
+CONTENTFUL_SPACE_ID=your_space_id
+CONTENTFUL_ACCESS_TOKEN=your_delivery_token
+CONTENTFUL_PREVIEW_TOKEN=your_preview_token
+```
+
+> You can find these keys in your Contentful dashboard, under **Settings → API keys**
+
+
+### 3. Run the development server
 
 ```bash
 npm run dev
 ```
 
 Visit [http://localhost:3000](http://localhost:3000/) to see the application.
+
+
+## Contentful Setup
+
+There are two ways to connect Contentful to this project:
+
+### Option 1 — Collaborating on this repo
+
+Use the same space and credentials provided by the project owner. No need to configure the content model.
+
+### Option 2 — Using your own Contentful space (after forking)
+
+If you’re starting your own project based on this starter kit, here’s the minimum structure you’ll need in Contentful:
+
+#### Content model: `Page`
+
+|Field ID|Type|Description|
+|---|---|---|
+|`title`|Text|Page title (shown in the UI)|
+|`slug`|Text|Used in the URL (e.g. `/about`)|
+|`description`|Rich text|Page content|
+|`heroImage`|Media|Optional top banner|
+|`metaTitle`|Text|SEO title|
+|`metaDescription`|Text|SEO description (max ~155 chars)|
+|`metaImage`|Media|Social sharing image|
+|`noIndex`|Boolean|Prevents indexing by Google|
+
+> Make sure the **slug field** is unique and does **not** use Contentful's URL pattern validation option. Instead, you should use the "Custom" option with `^[a-z0-9]+(?:-[a-z0-9]+)*$`.
+
+Once your content type is ready and your `.env.local` is filled in, you're good to go.
 
 
 ## Project Commands
@@ -76,8 +119,6 @@ Below is a list of useful commands to run, test, and validate the project during
 |---|---|
 |`npm run analyze`|Runs `next build` with bundle analyzer (@next/bundle-analyzer) enabled.|
 
-> Tip: On Windows, environment variables like `ANALYZE=true` are handled via `cross-env`.
-
 
 ## Project Structure
 
@@ -110,10 +151,12 @@ Below is a list of useful commands to run, test, and validate the project during
 │   │       └── ...
 │   ├── hooks/                              # Custom React hooks (empty for now)
 │   ├── lib/                                # Application logic or API fetchers
-│   │   └── api/                            # Placeholder for Contentful or internal API utils
+│   │   └── api/                            # Contentful or internal API utils
+│   │       └── contentful.ts               # Contentful client instance for fetching data from CMS
 │   ├── pages/                              # Next.js route pages (automatically routed)
 │   │   ├── _app.tsx                        # Global layout and providers
 │   │   ├── _document.tsx                   # Custom HTML structure, <html lang="..."> etc.
+│   │   ├── [slug].tsx                      # Dynamic page route for CMS-driven content (e.g., About Us, Services)
 │   │   ├── 404.tsx                         # Custom Not Found page
 │   │   ├── 500.tsx                         # Custom Error page
 │   │   ├── index.tsx                       # Homepage route (/)

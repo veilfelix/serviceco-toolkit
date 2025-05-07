@@ -17,6 +17,7 @@ export type ContainerProps = {
  * A layout wrapper that centers content and applies horizontal padding and max-width.
  *
  * Example:
+ *
  * ```tsx
  * <Container>
  *   <YourComponent />

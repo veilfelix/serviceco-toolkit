@@ -28,6 +28,7 @@ export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
  * A customizable checkbox component using TailwindCSS and design system tokens.
  *
  * Example:
+ *
  * ```tsx
  * <Checkbox label="Remember me" />
  * <Checkbox label="I agree to the terms and conditions" required />

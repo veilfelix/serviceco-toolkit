@@ -64,6 +64,7 @@ export interface AvatarFallbackProps extends HTMLAttributes<HTMLDivElement> {
  * Avatar component that displays a user's profile picture, initials, or fallback icon.
  *
  * Example:
+ *
  * ```tsx
  * <Avatar>
  *   <Avatar.Image src="/path/to/image.jpg" alt="User Name" />

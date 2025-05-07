@@ -24,6 +24,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * A customizable button component using TailwindCSS and design system tokens.
  *
  * Example:
+ *
  * ```tsx
  * <Button variant="primary" size="md">Click Me</Button>
  * ```

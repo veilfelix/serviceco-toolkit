@@ -16,6 +16,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
  * Card component with a compound component pattern for flexible layout.
  *
  * Example:
+ *
  * ```tsx
  * <Card>
  *   <Card.Header>

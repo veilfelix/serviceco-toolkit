@@ -16,7 +16,7 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
  * A customizable textarea component using TailwindCSS and design system tokens.
  *
  * Example:
- * 
+ *
  * ```tsx
  * <Textarea placeholder="Enter your message" />
  * <Textarea placeholder="Enter your message" error={true} />

@@ -22,6 +22,7 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
  * A customizable badge component using TailwindCSS and design system tokens.
  *
  * Example:
+ *
  * ```tsx
  * <Badge>Default</Badge>
  * <Badge variant="secondary">Secondary</Badge>

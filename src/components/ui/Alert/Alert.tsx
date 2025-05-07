@@ -38,6 +38,7 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
  * A customizable alert component for showing messages, notifications, and feedback.
  *
  * Example:
+ * 
  * ```tsx
  * <Alert variant="success" title="Success!">
  *   Your changes have been saved successfully.

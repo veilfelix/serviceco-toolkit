@@ -29,6 +29,7 @@ export interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement>
  * Maintains full a11y and keyboard navigation support.
  *
  * Example:
+ *
  * ```tsx
  * <ButtonLink href="/about" variant="secondary" size="lg">
  *   Learn more

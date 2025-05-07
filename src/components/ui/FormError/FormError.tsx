@@ -16,7 +16,7 @@ export interface FormErrorProps extends HTMLAttributes<HTMLParagraphElement> {
  * A form error message component with appropriate styling.
  *
  * Example:
- * 
+ *
  * ```tsx
  * <FormError>This field is required</FormError>
  * ```

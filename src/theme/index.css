@@ -15,24 +15,23 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-  
+
     /* Radii */
     --radius-sm: 4px;
     --radius-md: 6px;
     --radius-lg: 8px;
-  
+
     /* Fonts */
     --font-sans: 'Inter', sans-serif;
-  
+
     /* Spacing */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
-  
+
     /* Font Sizes */
     --font-sm: 0.875rem;
     --font-base: 1rem;
     --font-lg: 1.125rem;
   }
-  

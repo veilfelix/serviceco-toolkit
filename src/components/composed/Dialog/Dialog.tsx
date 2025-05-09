@@ -24,7 +24,7 @@ export const Dialog = {
    */
   Overlay: (props: RadixDialog.DialogOverlayProps) => (
     <RadixDialog.Overlay
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+      className="fixed inset-0 bg-[var(--dialog-overlay-background)] backdrop-blur-[var(--dialog-overlay-blur)] z-[var(--dialog-overlay-z-index)]"
       {...props}
     />
   ),
@@ -47,13 +47,13 @@ export const Dialog = {
       <Dialog.Overlay />
       <RadixDialog.Content
         className={cn(
-          'fixed left-1/2 top-1/2 z-50 grid w-[90vw] max-w-md -translate-x-1/2 -translate-y-1/2 gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-fade-in rounded-md',
+          'fixed left-1/2 top-1/2 z-[var(--dialog-content-z-index)] grid w-[var(--dialog-content-width)] max-w-[var(--dialog-content-max-width)] -translate-x-1/2 -translate-y-1/2 gap-[var(--dialog-content-gap)] border bg-background p-[var(--dialog-content-padding)] shadow-lg duration-200 data-[state=open]:animate-fade-in rounded-[var(--dialog-content-border-radius)]',
           className
         )}
         {...rest}
       >
         {title && (
-          <RadixDialog.Title className="text-lg font-semibold text-foreground">
+          <RadixDialog.Title className="text-[var(--dialog-title-font-size)] font-[var(--dialog-title-font-weight)] text-foreground">
             {title}
           </RadixDialog.Title>
         )}
@@ -64,10 +64,10 @@ export const Dialog = {
         )}
         {children}
         <RadixDialog.Close 
-          className="absolute right-4 top-4 text-foreground/60 hover:text-foreground"
+          className="absolute right-[var(--dialog-close-right)] top-[var(--dialog-close-top)] text-[var(--dialog-close-text-color)] hover:text-foreground"
           aria-label="Close"
         >
-          <X className="h-4 w-4" />
+          <X className="h-[var(--dialog-close-icon-size)] w-[var(--dialog-close-icon-size)]" />
         </RadixDialog.Close>
       </RadixDialog.Content>
     </RadixDialog.Portal>

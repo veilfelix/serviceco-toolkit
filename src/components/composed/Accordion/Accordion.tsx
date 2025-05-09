@@ -76,13 +76,13 @@ export const Accordion = {
   Trigger: ({
     className,
     children,
-    icon = <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />,
+    icon = <ChevronDown className="h-[var(--accordion-icon-size)] w-[var(--accordion-icon-size)] shrink-0 transition-transform duration-[var(--accordion-icon-transition)]" />,
     ...props
   }: AccordionTriggerProps) => (
     <RadixAccordion.Header className="flex">
       <RadixAccordion.Trigger
         className={cn(
-          'flex flex-1 items-center justify-between py-4 text-[var(--font-base)] font-medium transition-all',
+          'flex flex-1 items-center justify-between py-[var(--accordion-trigger-padding-y)] text-[var(--font-base)] font-[var(--accordion-trigger-font-weight)] transition-all',
           'hover:underline',
           '[&[data-state=open]>svg]:rotate-180',
           className
@@ -107,7 +107,7 @@ export const Accordion = {
       )}
       {...props}
     >
-      <div className="pb-4 pt-0">{children}</div>
+      <div className="pb-[var(--accordion-content-padding-bottom)] pt-0">{children}</div>
     </RadixAccordion.Content>
   ),
 }

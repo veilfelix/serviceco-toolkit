@@ -32,7 +32,7 @@ describe('Avatar', () => {
     )
     
     let avatar = container.firstChild as HTMLElement
-    expect(avatar.className).toContain('h-6 w-6')
+    expect(avatar.className).toContain('h-[var(--avatar-size-xs)] w-[var(--avatar-size-xs)]')
     
     rerender(
       <Avatar size="sm">
@@ -40,7 +40,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     avatar = container.firstChild as HTMLElement
-    expect(avatar.className).toContain('h-8 w-8')
+    expect(avatar.className).toContain('h-[var(--avatar-size-sm)] w-[var(--avatar-size-sm)]')
     
     rerender(
       <Avatar size="md">
@@ -48,7 +48,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     avatar = container.firstChild as HTMLElement
-    expect(avatar.className).toContain('h-10 w-10')
+    expect(avatar.className).toContain('h-[var(--avatar-size-md)] w-[var(--avatar-size-md)]')
     
     rerender(
       <Avatar size="lg">
@@ -56,7 +56,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     avatar = container.firstChild as HTMLElement
-    expect(avatar.className).toContain('h-12 w-12')
+    expect(avatar.className).toContain('h-[var(--avatar-size-lg)] w-[var(--avatar-size-lg)]')
     
     rerender(
       <Avatar size="xl">
@@ -64,7 +64,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     avatar = container.firstChild as HTMLElement
-    expect(avatar.className).toContain('h-16 w-16')
+    expect(avatar.className).toContain('h-[var(--avatar-size-xl)] w-[var(--avatar-size-xl)]')
   })
 
   it('applies shape classes correctly', () => {
@@ -94,7 +94,7 @@ describe('Avatar', () => {
     )
     
     const avatar = container.firstChild as HTMLElement
-    expect(avatar.className).toContain('ring-2')
+    expect(avatar.className).toContain('ring-[var(--avatar-border-width)]')
   })
 
   it('renders status indicator when status is not "none"', () => {
@@ -107,7 +107,7 @@ describe('Avatar', () => {
     // Check for the status indicator
     let statusIndicator = container.querySelector('span')
     expect(statusIndicator).toBeInTheDocument()
-    expect(statusIndicator?.className).toContain('bg-green-500')
+    expect(statusIndicator?.className).toContain('bg-[hsl(var(--avatar-status-color-online))]')
     
     rerender(
       <Avatar status="offline">
@@ -123,7 +123,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     statusIndicator = container.querySelector('span')
-    expect(statusIndicator?.className).toContain('bg-yellow-500')
+    expect(statusIndicator?.className).toContain('bg-[hsl(var(--avatar-status-color-away))]')
     
     rerender(
       <Avatar status="busy">
@@ -131,7 +131,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     statusIndicator = container.querySelector('span')
-    expect(statusIndicator?.className).toContain('bg-red-500')
+    expect(statusIndicator?.className).toContain('bg-[hsl(var(--avatar-status-color-busy))]')
   })
 
   it('does not render status indicator when status is "none"', () => {
@@ -173,8 +173,7 @@ describe('Avatar', () => {
   })
 
   it('applies random color for random colorScheme', () => {
-    // Since the random color is deterministic based on the content,
-    // we can check that it applies some background color class
+    // Since now we're using a semantic token for the random color
     render(
       <Avatar>
         <Avatar.Fallback colorScheme="random">R</Avatar.Fallback>
@@ -182,7 +181,7 @@ describe('Avatar', () => {
     )
     
     const fallback = screen.getByText('R')
-    expect(fallback.className).toMatch(/bg-(blue|green|purple|yellow|pink|indigo)-100/)
+    expect(fallback.className).toContain('bg-[hsl(var(--avatar-fallback-color-')
   })
 
   it('merges custom className with default styles for Avatar', () => {

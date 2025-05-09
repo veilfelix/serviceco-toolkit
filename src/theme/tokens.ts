@@ -34,19 +34,177 @@ export const tokens = {
     badgeSuccessText: 'hsl(var(--badge-success-text))',
     badgeWarningBg: 'hsl(var(--badge-warning-bg))',
     badgeWarningText: 'hsl(var(--badge-warning-text))',
-    // Switch Sizes
-    switchSmTrackHeight: 'var(--switch-sm-track-height)',
-    switchSmTrackWidth: 'var(--switch-sm-track-width)',
-    switchSmThumbSize: 'var(--switch-sm-thumb-size)',
-    switchSmTranslate: 'var(--switch-sm-translate)',
-    switchMdTrackHeight: 'var(--switch-md-track-height)',
-    switchMdTrackWidth: 'var(--switch-md-track-width)',
-    switchMdThumbSize: 'var(--switch-md-thumb-size)',
-    switchMdTranslate: 'var(--switch-md-translate)',
-    switchLgTrackHeight: 'var(--switch-lg-track-height)',
-    switchLgTrackWidth: 'var(--switch-lg-track-width)',
-    switchLgThumbSize: 'var(--switch-lg-thumb-size)',
-    switchLgTranslate: 'var(--switch-lg-translate)',
+    // Dialog Colors
+    dialogOverlayBackground: 'var(--dialog-overlay-background)',
+    dialogCloseTextColor: 'var(--dialog-close-text-color)',
+    // Avatar Status Colors
+    avatarStatusOnline: 'hsl(var(--avatar-status-color-online))',
+    avatarStatusAway: 'hsl(var(--avatar-status-color-away))',
+    avatarStatusBusy: 'hsl(var(--avatar-status-color-busy))',
+    avatarFallbackColorBlueBg: 'hsl(var(--avatar-fallback-color-blue-bg))',
+    avatarFallbackColorBlueText: 'hsl(var(--avatar-fallback-color-blue-text))',
+    avatarFallbackColorGreenBg: 'rgb(var(--avatar-fallback-color-green-bg))',
+    avatarFallbackColorGreenText: 'rgb(var(--avatar-fallback-color-green-text))',
+    avatarFallbackColorYellowBg: 'rgb(var(--avatar-fallback-color-yellow-bg))',
+    avatarFallbackColorYellowText: 'rgb(var(--avatar-fallback-color-yellow-text))',
+    avatarFallbackColorRedBg: 'rgb(var(--avatar-fallback-color-red-bg))',
+    avatarFallbackColorRedText: 'rgb(var(--avatar-fallback-color-red-text))',
+  },
+  // Switch Sizes
+  switch: {
+    sm: {
+      trackHeight: 'var(--switch-sm-track-height)',
+      trackWidth: 'var(--switch-sm-track-width)',
+      thumbSize: 'var(--switch-sm-thumb-size)',
+      translate: 'var(--switch-sm-translate)',
+    },
+    md: {
+      trackHeight: 'var(--switch-md-track-height)',
+      trackWidth: 'var(--switch-md-track-width)',
+      thumbSize: 'var(--switch-md-thumb-size)',
+      translate: 'var(--switch-md-translate)',
+    },
+    lg: {
+      trackHeight: 'var(--switch-lg-track-height)',
+      trackWidth: 'var(--switch-lg-track-width)',
+      thumbSize: 'var(--switch-lg-thumb-size)',
+      translate: 'var(--switch-lg-translate)',
+    },
+  },
+  // Accordion
+  accordion: {
+    triggerPaddingY: 'var(--accordion-trigger-padding-y)',
+    triggerFontWeight: 'var(--accordion-trigger-font-weight)',
+    triggerHoverOpacity: 'var(--accordion-trigger-hover-opacity)',
+    iconSize: 'var(--accordion-icon-size)',
+    iconTransition: 'var(--accordion-icon-transition)',
+    contentPaddingBottom: 'var(--accordion-content-padding-bottom)',
+    animationDuration: 'var(--accordion-animation-duration)',
+  },
+  // Dialog
+  dialog: {
+    overlayBlur: 'var(--dialog-overlay-blur)',
+    overlayZIndex: 'var(--dialog-overlay-z-index)',
+    contentZIndex: 'var(--dialog-content-z-index)',
+    contentWidth: 'var(--dialog-content-width)',
+    contentMaxWidth: 'var(--dialog-content-max-width)',
+    contentGap: 'var(--dialog-content-gap)',
+    contentPadding: 'var(--dialog-content-padding)',
+    contentBorderRadius: 'var(--dialog-content-border-radius)',
+    titleFontSize: 'var(--dialog-title-font-size)',
+    titleFontWeight: 'var(--dialog-title-font-weight)',
+    closeRight: 'var(--dialog-close-right)',
+    closeTop: 'var(--dialog-close-top)',
+    closeIconSize: 'var(--dialog-close-icon-size)',
+  },
+  // Tabs
+  tabs: {
+    listHeight: 'var(--tabs-list-height)',
+    listPadding: 'var(--tabs-list-padding)',
+    listBorderRadius: 'var(--tabs-list-border-radius)',
+    triggerBorderRadius: 'var(--tabs-trigger-border-radius)',
+    contentBorderRadius: 'var(--tabs-content-border-radius)',
+  },
+  // Popover
+  popover: {
+    contentZIndex: 'var(--popover-content-z-index)',
+    contentWidth: 'var(--popover-content-width)',
+    contentPadding: 'var(--popover-content-padding)',
+    closeRight: 'var(--popover-close-right)',
+    closeTop: 'var(--popover-close-top)',
+    closeSize: 'var(--popover-close-size)',
+    closeBorderRadius: 'var(--popover-close-border-radius)',
+    closeIconSize: 'var(--popover-close-icon-size)',
+  },
+  // Header
+  header: {
+    paddingY: 'var(--header-padding-y)',
+    titleFontWeight: 'var(--header-title-font-weight)',
+    navItemGap: 'var(--header-nav-item-gap)',
+  },
+  // Button
+  button: {
+    fontWeight: 'var(--button-font-weight)',
+    transition: 'var(--button-transition)',
+    focusOutline: 'var(--button-focus-outline)',
+    focusRingWidth: 'var(--button-focus-ring-width)',
+    focusRingOffset: 'var(--button-focus-ring-offset)',
+    disabledOpacity: 'var(--button-disabled-opacity)',
+    disabledEvents: 'var(--button-disabled-events)',
+    borderRadius: 'var(--button-border-radius)',
+    paddingY: {
+      sm: 'var(--button-padding-y-sm)',
+      md: 'var(--button-padding-y-md)',
+      lg: 'var(--button-padding-y-lg)',
+    },
+    hoverBackgroundOpacity: 'var(--button-hover-background-opacity)',
+    disabledCursor: 'var(--button-disabled-cursor)',
+  },
+  // Card
+  card: {
+    shadow: 'var(--card-shadow)',
+    header: {
+      gap: 'var(--card-header-gap)',
+    },
+    title: {
+      lineHeight: 'var(--card-title-line-height)',
+      letterSpacing: 'var(--card-title-letter-spacing)',
+      fontWeight: 'var(--card-title-font-weight)',
+    },
+    footer: {
+      paddingTop: 'var(--card-footer-padding-top)',
+    },
+    content: {
+      paddingTop: 'var(--card-content-padding-top)',
+    },
+  },
+  // Input
+  input: {
+    width: 'var(--input-width)',
+    borderRadius: 'var(--input-border-radius)',
+    borderWidth: 'var(--input-border-width)',
+    background: 'var(--input-background)',
+    paddingY: 'var(--input-padding-y)',
+    ringOffsetColor: 'var(--input-ring-offset-color)',
+    focusOutline: 'var(--input-focus-outline)',
+    focusRingWidth: 'var(--input-focus-ring-width)',
+    focusRingOffset: 'var(--input-focus-ring-offset)',
+    disabledCursor: 'var(--input-disabled-cursor)',
+    disabledOpacity: 'var(--input-disabled-opacity)',
+  },
+  // Avatar
+  avatar: {
+    shrink: 'var(--avatar-shrink)',
+    overflow: 'var(--avatar-overflow)',
+    size: {
+      xs: 'var(--avatar-size-xs)',
+      sm: 'var(--avatar-size-sm)',
+      md: 'var(--avatar-size-md)',
+      lg: 'var(--avatar-size-lg)',
+      xl: 'var(--avatar-size-xl)',
+    },
+    borderWidth: 'var(--avatar-border-width)',
+    status: {
+      borderRadius: 'var(--avatar-status-border-radius)',
+      borderWidth: 'var(--avatar-status-border-width)',
+      size: {
+        xs: 'var(--avatar-status-size-xs)',
+        sm: 'var(--avatar-status-size-sm)',
+        md: 'var(--avatar-status-size-md)',
+        lg: 'var(--avatar-status-size-lg)',
+        xl: 'var(--avatar-status-size-xl)',
+      },
+    },
+    image: {
+      height: 'var(--avatar-image-height)',
+      width: 'var(--avatar-image-width)',
+      fit: 'var(--avatar-image-fit)',
+    },
+    fallback: {
+      height: 'var(--avatar-fallback-height)',
+      width: 'var(--avatar-fallback-width)',
+      fontWeight: 'var(--avatar-fallback-font-weight)',
+    },
   },
   radii: {
     sm: 'var(--radius-sm)',

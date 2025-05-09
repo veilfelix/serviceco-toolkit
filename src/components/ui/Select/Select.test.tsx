@@ -65,7 +65,7 @@ describe('Select', () => {
     const { container } = render(<Select options={defaultOptions} error />)
     
     const selectElement = container.firstChild as HTMLElement
-    expect(selectElement.className).toContain('border-[hsl(var(--destructive))]')
+    expect(selectElement.className).toContain('border-destructive')
   })
 
   it('applies size classes correctly', () => {

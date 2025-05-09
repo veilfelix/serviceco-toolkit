@@ -28,17 +28,17 @@ export function getButtonClassNames({
   ].join(' ')
 
   const sizeStyles: Record<ButtonSize, string> = {
-    sm: 'px-[var(--spacing-sm)] py-[var(--button-padding-y-sm)] text-[var(--font-sm)]',
-    md: 'px-[var(--spacing-md)] py-[var(--button-padding-y-md)] text-[var(--font-base)]',
-    lg: 'px-[var(--spacing-lg)] py-[var(--button-padding-y-lg)] text-[var(--font-lg)]',
+    sm: 'px-sm py-[var(--button-padding-y-sm)] text-sm',
+    md: 'px-md py-[var(--button-padding-y-md)] text-base',
+    lg: 'px-lg py-[var(--button-padding-y-lg)] text-lg',
   }
 
   const variantStyles: Record<ButtonVariant, string> = {
-    primary: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/[var(--button-hover-background-opacity)]',
+    primary: 'bg-primary text-primary-foreground hover:bg-primary/[var(--button-hover-background-opacity)]',
     secondary:
-      'bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] border border-[hsl(var(--border))] hover:bg-[hsl(var(--secondary))]/[var(--button-hover-background-opacity)]',
+      'bg-secondary text-secondary-foreground border border-border hover:bg-secondary/[var(--button-hover-background-opacity)]',
     tertiary:
-      'bg-transparent text-[hsl(var(--primary))] border border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/10',
+      'bg-transparent text-primary border border-primary hover:bg-primary/10',
   }
 
   return cn(base, sizeStyles[size], variantStyles[variant], disabled && 'cursor-[var(--button-disabled-cursor)]', className)

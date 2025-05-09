@@ -62,8 +62,8 @@ export const Accordion = {
   Item: ({ className, ...props }: AccordionItemProps) => (
     <RadixAccordion.Item
       className={cn(
-        'border-b border-b-[hsl(var(--border))]',
-        '[&:first-child]:border-t [&:first-child]:border-t-[hsl(var(--border))]',
+        'border-b border-b-border',
+        '[&:first-child]:border-t [&:first-child]:border-t-border',
         className
       )}
       {...props}
@@ -82,7 +82,7 @@ export const Accordion = {
     <RadixAccordion.Header className="flex">
       <RadixAccordion.Trigger
         className={cn(
-          'flex flex-1 items-center justify-between py-[var(--accordion-trigger-padding-y)] text-[var(--font-base)] font-[var(--accordion-trigger-font-weight)] transition-all',
+          'flex flex-1 items-center justify-between py-[var(--accordion-trigger-padding-y)] text-base font-[var(--accordion-trigger-font-weight)] transition-all',
           'hover:underline',
           '[&[data-state=open]>svg]:rotate-180',
           className
@@ -101,7 +101,7 @@ export const Accordion = {
   Content: ({ className, children, ...props }: AccordionContentProps) => (
     <RadixAccordion.Content
       className={cn(
-        'overflow-hidden text-[var(--font-base)] transition-all',
+        'overflow-hidden text-base transition-all',
         'data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
         className
       )}

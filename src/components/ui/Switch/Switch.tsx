@@ -108,9 +108,9 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           />
           <div 
             className={cn(
-              'peer-focus-visible:ring-2 peer-focus-visible:ring-[hsl(var(--ring))] peer-focus-visible:ring-offset-2',
+              'peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2',
               'rounded-full transition-colors',
-              'bg-[hsl(var(--input))] peer-checked:bg-[hsl(var(--primary))]',
+              'bg-input peer-checked:bg-primary',
               'peer-disabled:opacity-50 peer-disabled:cursor-not-allowed',
               sizeStyles[visualSize].track
             )}
@@ -140,7 +140,7 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         <label 
           htmlFor={id}
           className={cn(
-            'text-[var(--font-base)] text-foreground select-none',
+            'text-base text-foreground select-none',
             disabled && 'opacity-50 cursor-not-allowed',
             labelClassName
           )}

@@ -82,21 +82,21 @@ function Avatar({
   ...props
 }: AvatarProps): JSX.Element {
   const sizeStyles: Record<AvatarSize, string> = {
-    xs: 'h-[var(--avatar-size-xs)] w-[var(--avatar-size-xs)] text-[var(--font-sm)]',
-    sm: 'h-[var(--avatar-size-sm)] w-[var(--avatar-size-sm)] text-[var(--font-sm)]',
-    md: 'h-[var(--avatar-size-md)] w-[var(--avatar-size-md)] text-[var(--font-base)]',
-    lg: 'h-[var(--avatar-size-lg)] w-[var(--avatar-size-lg)] text-[var(--font-lg)]',
-    xl: 'h-[var(--avatar-size-xl)] w-[var(--avatar-size-xl)] text-[var(--font-lg)]',
+    xs: 'h-[var(--avatar-size-xs)] w-[var(--avatar-size-xs)] text-sm',
+    sm: 'h-[var(--avatar-size-sm)] w-[var(--avatar-size-sm)] text-sm',
+    md: 'h-[var(--avatar-size-md)] w-[var(--avatar-size-md)] text-base',
+    lg: 'h-[var(--avatar-size-lg)] w-[var(--avatar-size-lg)] text-lg',
+    xl: 'h-[var(--avatar-size-xl)] w-[var(--avatar-size-xl)] text-lg',
   }
 
   const shapeStyles: Record<'circle' | 'square', string> = {
     circle: 'rounded-full',
-    square: 'rounded-[var(--radius-md)]',
+    square: 'rounded-md',
   }
 
   const statusStyles: Record<Exclude<NonNullable<AvatarProps['status']>, 'none'>, string> = {
     online: 'bg-[hsl(var(--avatar-status-color-online))]',
-    offline: 'bg-[hsl(var(--muted-foreground))]',
+    offline: 'bg-muted-foreground',
     away: 'bg-[hsl(var(--avatar-status-color-away))]',
     busy: 'bg-[hsl(var(--avatar-status-color-busy))]',
   }  
@@ -115,7 +115,7 @@ function Avatar({
         'relative inline-flex [flex-shrink:var(--avatar-shrink)] [overflow:var(--avatar-overflow)]',
         sizeStyles[size],
         shapeStyles[shape],
-        bordered && 'ring-[var(--avatar-border-width)] ring-[hsl(var(--background))]',
+        bordered && 'ring-[var(--avatar-border-width)] ring-background',
         className
       )}
       {...props}
@@ -125,7 +125,7 @@ function Avatar({
       {status !== 'none' && (
         <span
           className={cn(
-            'absolute bottom-0 right-0 block rounded-[var(--avatar-status-border-radius)] ring-[var(--avatar-status-border-width)] ring-[hsl(var(--background))]',
+            'absolute bottom-0 right-0 block rounded-[var(--avatar-status-border-radius)] ring-[var(--avatar-status-border-width)] ring-background',
             statusStyles[status],
             statusSizeStyles[size]
           )}
@@ -159,9 +159,9 @@ function AvatarFallback({
   ...props
 }: AvatarFallbackProps): JSX.Element {
   const colorSchemes: Record<AvatarFallbackProps['colorScheme'] & string, string> = {
-    gray: 'bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))]',
-    primary: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]',
-    secondary: 'bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]',
+    gray: 'bg-muted text-muted-foreground',
+    primary: 'bg-primary text-primary-foreground',
+    secondary: 'bg-secondary text-secondary-foreground',
     random: '',
   }
 

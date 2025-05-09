@@ -27,12 +27,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <textarea
         className={cn(
-          'flex min-h-[80px] w-full rounded border border-[hsl(var(--input))] bg-transparent px-[var(--spacing-md)] py-[var(--spacing-sm)] text-[var(--font-base)] ring-offset-background',
-          'placeholder:text-[hsl(var(--muted-foreground))]',
-          'focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2',
+          'flex min-h-[80px] w-full rounded border border-input bg-transparent px-md py-sm text-base ring-offset-background',
+          'placeholder:text-muted-foreground',
+          'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
           'disabled:cursor-not-allowed disabled:opacity-50',
           'resize-vertical',
-          error && 'border-[hsl(var(--destructive))] focus:ring-[hsl(var(--destructive))]',
+          error && 'border-destructive focus:ring-destructive',
           className
         )}
         ref={ref}

@@ -83,7 +83,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     avatar = container.firstChild as HTMLElement
-    expect(avatar.className).toContain('rounded-[var(--radius-md)]')
+    expect(avatar.className).toContain('rounded-md')
   })
 
   it('applies bordered style when bordered is true', () => {
@@ -115,7 +115,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     statusIndicator = container.querySelector('span')
-    expect(statusIndicator?.className).toContain('bg-[hsl(var(--muted-foreground))]')
+    expect(statusIndicator?.className).toContain('bg-muted-foreground')
     
     rerender(
       <Avatar status="away">
@@ -153,7 +153,7 @@ describe('Avatar', () => {
     )
     
     let fallback = screen.getByText('G')
-    expect(fallback.className).toContain('bg-[hsl(var(--muted))]')
+    expect(fallback.className).toContain('bg-muted')
     
     rerender(
       <Avatar>
@@ -161,7 +161,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     fallback = screen.getByText('P')
-    expect(fallback.className).toContain('bg-[hsl(var(--primary))]')
+    expect(fallback.className).toContain('bg-primary')
     
     rerender(
       <Avatar>
@@ -169,7 +169,7 @@ describe('Avatar', () => {
       </Avatar>
     )
     fallback = screen.getByText('S')
-    expect(fallback.className).toContain('bg-[hsl(var(--secondary))]')
+    expect(fallback.className).toContain('bg-secondary')
   })
 
   it('applies random color for random colorScheme', () => {

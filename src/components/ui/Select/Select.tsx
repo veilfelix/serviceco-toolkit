@@ -68,20 +68,20 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     ref
   ): JSX.Element => {
     const sizeStyles = {
-      sm: 'h-8 px-[var(--spacing-sm)] text-[var(--font-sm)]',
-      md: 'h-10 px-[var(--spacing-md)] text-[var(--font-base)]',
-      lg: 'h-12 px-[var(--spacing-lg)] text-[var(--font-lg)]',
+      sm: 'h-8 px-sm text-sm',
+      md: 'h-10 px-md text-base',
+      lg: 'h-12 px-lg text-lg',
     }
     
     return (
       <select
         className={cn(
-          'appearance-none rounded border border-[hsl(var(--input))] bg-transparent',
-          'text-foreground focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2',
+          'appearance-none rounded border border-input bg-transparent',
+          'text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
           'disabled:cursor-not-allowed disabled:opacity-50',
-          'pr-[var(--spacing-lg)]',
+          'pr-lg',
           sizeStyles[size],
-          error && 'border-[hsl(var(--destructive))] focus:ring-[hsl(var(--destructive))]',
+          error && 'border-destructive focus:ring-destructive',
           className
         )}
         ref={ref}

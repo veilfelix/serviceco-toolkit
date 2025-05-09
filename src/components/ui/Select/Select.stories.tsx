@@ -137,7 +137,7 @@ export const FormExample: Story = {
   render: () => (
     <div className="p-4 space-y-4 w-64">
       <div className="space-y-1">
-        <label className="text-[var(--font-base)] font-medium">Country</label>
+        <label className="text-base font-medium">Country</label>
         <Select
           options={[
             { value: 'us', label: 'United States' },
@@ -149,7 +149,7 @@ export const FormExample: Story = {
       </div>
       
       <div className="space-y-1">
-        <label className="text-[var(--font-base)] font-medium">State/Province</label>
+        <label className="text-base font-medium">State/Province</label>
         <Select
           options={[
             { value: 'ny', label: 'New York' },

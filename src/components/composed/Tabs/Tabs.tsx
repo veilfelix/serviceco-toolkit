@@ -58,7 +58,7 @@ export const Tabs = {
   List: ({ className, children, ...props }: TabsListProps) => (
     <RadixTabs.List
       className={cn(
-        'flex h-[var(--tabs-list-height)] items-center justify-start rounded-[var(--tabs-list-border-radius)] bg-[hsl(var(--muted))] p-[var(--tabs-list-padding)] text-[hsl(var(--muted-foreground))]',
+        'flex h-[var(--tabs-list-height)] items-center justify-start rounded-[var(--tabs-list-border-radius)] bg-muted p-[var(--tabs-list-padding)] text-muted-foreground',
         className
       )}
       {...props}
@@ -72,11 +72,11 @@ export const Tabs = {
   Trigger: ({ className, children, ...props }: TabsTriggerProps) => (
     <RadixTabs.Trigger
       className={cn(
-        'inline-flex items-center justify-center whitespace-nowrap rounded-[var(--tabs-trigger-border-radius)] px-[var(--spacing-md)] py-[var(--spacing-xs)]',
-        'text-[var(--font-base)] font-medium transition-all',
+        'inline-flex items-center justify-center whitespace-nowrap rounded-[var(--tabs-trigger-border-radius)] px-md py-xs',
+        'text-base font-medium transition-all',
         'disabled:pointer-events-none disabled:opacity-50',
-        'data-[state=active]:bg-[hsl(var(--background))] data-[state=active]:text-[hsl(var(--foreground))]',
-        'data-[state=active]:shadow-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))] focus:ring-offset-2',
+        'data-[state=active]:bg-background data-[state=active]:text-foreground',
+        'data-[state=active]:shadow-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
         className
       )}
       {...props}
@@ -90,7 +90,7 @@ export const Tabs = {
   Content: ({ className, children, ...props }: TabsContentProps) => (
     <RadixTabs.Content
       className={cn(
-        'mt-[var(--spacing-md)] rounded-[var(--tabs-content-border-radius)] focus:outline-none',
+        'mt-md rounded-[var(--tabs-content-border-radius)] focus:outline-none',
         'data-[state=active]:animate-in data-[state=active]:fade-in-50 data-[state=active]:zoom-in-95',
         'data-[state=inactive]:animate-out data-[state=inactive]:fade-out-0 data-[state=inactive]:zoom-out-95',
         className

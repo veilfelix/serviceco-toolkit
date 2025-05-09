@@ -49,10 +49,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <input
           type="checkbox"
           className={cn(
-            'h-4 w-4 rounded border border-[hsl(var(--input))]',
-            'text-[hsl(var(--primary))] focus:ring-[hsl(var(--ring))]',
+            'h-4 w-4 rounded border border-input',
+            'text-primary focus:ring-ring',
             'disabled:cursor-not-allowed disabled:opacity-50',
-            error && 'border-[hsl(var(--destructive))] focus:ring-[hsl(var(--destructive))]',
+            error && 'border-destructive focus:ring-destructive',
             inputClassName
           )}
           ref={ref}
@@ -63,8 +63,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           <label 
             htmlFor={id} 
             className={cn(
-              'text-[var(--font-base)] text-foreground select-none',
-              error && 'text-[hsl(var(--destructive))]',
+              'text-base text-foreground select-none',
+              error && 'text-destructive',
               props.disabled && 'opacity-50 cursor-not-allowed',
               labelClassName
             )}

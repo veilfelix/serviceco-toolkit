@@ -17,5 +17,5 @@ export type RichTextProps = {
  * Use it for rendering content coming from CMS like Contentful.
  */
 export default function RichText({ children, className }: RichTextProps): JSX.Element {
-  return <div className={cn('prose prose-sm text-[hsl(var(--foreground))] max-w-none', className)}>{children}</div>
+  return <div className={cn('prose prose-sm text-foreground max-w-none', className)}>{children}</div>
 }

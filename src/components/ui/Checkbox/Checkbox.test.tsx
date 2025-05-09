@@ -54,10 +54,10 @@ describe('Checkbox', () => {
     )
     
     const checkbox = container.querySelector('input') as HTMLElement
-    expect(checkbox.className).toContain('border-[hsl(var(--destructive))]')
+    expect(checkbox.className).toContain('border-destructive')
     
     const label = screen.getByText('Error checkbox')
-    expect(label.className).toContain('text-[hsl(var(--destructive))]')
+    expect(label.className).toContain('text-destructive')
   })
 
   it('merges custom className with default styles', () => {

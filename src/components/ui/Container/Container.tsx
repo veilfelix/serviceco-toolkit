@@ -31,7 +31,7 @@ export default function Container({
   return (
     <div
       className={cn(
-        'w-full max-w-screen-xl mx-auto px-[var(--spacing-md)] sm:px-[var(--spacing-md)] lg:px-[var(--spacing-lg)]',
+        'w-full max-w-screen-xl mx-auto px-md sm:px-md lg:px-lg',
         className
       )}
     >

@@ -118,11 +118,11 @@ export const CustomizedBadges: Story = {
       </div>
       
       <div>
-        <Badge variant="outline" className="rounded-md px-[var(--spacing-md)]">Custom shape</Badge>
+        <Badge variant="outline" className="rounded-md px-md">Custom shape</Badge>
       </div>
       
       <div>
-        <Badge variant="success" className="text-[var(--font-base)]">Larger text</Badge>
+        <Badge variant="success" className="text-base">Larger text</Badge>
       </div>
     </div>
   ),

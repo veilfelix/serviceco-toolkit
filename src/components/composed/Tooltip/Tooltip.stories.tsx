@@ -132,7 +132,7 @@ export const RichContent: Story = {
       <div className="flex flex-col gap-1 max-w-[200px]">
         <h4 className="font-bold">Tooltips can have rich content</h4>
         <p>Including multiple paragraphs and formatting.</p>
-        <p className="text-[hsl(var(--muted-foreground))]">Even with colors!</p>
+        <p className="text-muted-foreground">Even with colors!</p>
       </div>
     ),
   },

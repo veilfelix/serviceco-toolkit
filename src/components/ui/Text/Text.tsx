@@ -31,5 +31,5 @@ export default function Text({
   children,
   className,
 }: TextProps): JSX.Element {
-  return <Tag className={cn('text-[hsl(var(--foreground))]', className)}>{children}</Tag>
+  return <Tag className={cn('text-foreground', className)}>{children}</Tag>
 }

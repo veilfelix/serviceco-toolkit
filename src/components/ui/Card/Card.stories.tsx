@@ -100,11 +100,11 @@ export const CompleteCard: Story = {
 // Card with custom styling
 export const CustomStyling: Story = {
   args: {
-    className: 'border-[hsl(var(--primary))] bg-[hsl(var(--secondary))]',
+    className: 'border-primary bg-secondary',
     children: (
       <>
         <Card.Header className="border-b border-[hsl(var(--primary))/30">
-          <Card.Title className="text-[hsl(var(--primary))]">Custom Card</Card.Title>
+          <Card.Title className="text-primary">Custom Card</Card.Title>
           <Card.Description>With custom styling applied</Card.Description>
         </Card.Header>
         <Card.Content>

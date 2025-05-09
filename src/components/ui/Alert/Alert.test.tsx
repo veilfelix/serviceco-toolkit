@@ -80,23 +80,23 @@ describe('Alert', () => {
     const { rerender, container } = render(<Alert variant="default">Default alert</Alert>)
     
     let alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-[hsl(var(--muted))]')
+    expect(alert.className).toContain('bg-muted')
     
     rerender(<Alert variant="success">Success alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-[hsl(var(--alert-success-bg))]')
+    expect(alert.className).toContain('bg-alert-success-bg')
     
     rerender(<Alert variant="warning">Warning alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-[hsl(var(--alert-warning-bg))]')
+    expect(alert.className).toContain('bg-alert-warning-bg')
     
     rerender(<Alert variant="error">Error alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-[hsl(var(--alert-error-bg))]')
+    expect(alert.className).toContain('bg-alert-error-bg')
     
     rerender(<Alert variant="info">Info alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-[hsl(var(--alert-info-bg))]')
+    expect(alert.className).toContain('bg-alert-info-bg')
   })
 
   it('applies custom className correctly', () => {

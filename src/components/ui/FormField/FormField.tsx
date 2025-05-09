@@ -68,7 +68,7 @@ export default function FormField({
   
   return (
     <div 
-      className={cn('flex flex-col gap-1 mb-[var(--spacing-md)]', className)}
+      className={cn('flex flex-col gap-1 mb-md', className)}
       {...rest}
     >
       <Label 
@@ -83,7 +83,7 @@ export default function FormField({
       {children}
       
       {helperText && !hasError && (
-        <p className="text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]">
+        <p className="text-sm text-muted-foreground">
           {helperText}
         </p>
       )}

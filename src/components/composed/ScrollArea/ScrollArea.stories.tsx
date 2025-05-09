@@ -56,7 +56,7 @@ export const Playground: Story = {
     orientation: 'vertical',
     type: 'auto',
     scrollbarStyle: 'default',
-    className: 'h-[300px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[300px] w-[300px] rounded-md border',
     children: (
       <div className="p-4">
         <h4 className="mb-4 text-lg font-medium">Lorem Ipsum</h4>
@@ -70,7 +70,7 @@ export const Playground: Story = {
 export const VerticalScroll: Story = {
   args: {
     orientation: 'vertical',
-    className: 'h-[200px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[200px] w-[300px] rounded-md border',
     children: (
       <div className="p-4">
         <h4 className="mb-4 text-lg font-medium">Vertical Scrolling</h4>
@@ -91,13 +91,13 @@ export const VerticalScroll: Story = {
 export const HorizontalScroll: Story = {
   args: {
     orientation: 'horizontal',
-    className: 'h-[300px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[300px] w-[300px] rounded-md border',
     children: (
       <div className="flex gap-4 p-4">
         {Array(10).fill(0).map((_, i) => (
           <div 
             key={i} 
-            className="flex h-[250px] w-[200px] flex-shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[hsl(var(--muted))]"
+            className="flex h-[250px] w-[200px] flex-shrink-0 items-center justify-center rounded-md bg-muted"
           >
             <span className="text-2xl font-bold">Card {i + 1}</span>
           </div>
@@ -111,7 +111,7 @@ export const HorizontalScroll: Story = {
 export const BothScroll: Story = {
   args: {
     orientation: 'both',
-    className: 'h-[300px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[300px] w-[300px] rounded-md border',
     children: (
       <div style={{ width: '600px' }}>
         <div className="p-4">
@@ -127,7 +127,7 @@ export const BothScroll: Story = {
 export const AlwaysVisibleScrollbar: Story = {
   args: {
     type: 'always',
-    className: 'h-[300px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[300px] w-[300px] rounded-md border',
     children: (
       <div className="p-4">
         <h4 className="mb-4 text-lg font-medium">Always Visible Scrollbar</h4>
@@ -142,7 +142,7 @@ export const AlwaysVisibleScrollbar: Story = {
 export const HoverScrollbar: Story = {
   args: {
     type: 'hover',
-    className: 'h-[300px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[300px] w-[300px] rounded-md border',
     children: (
       <div className="p-4">
         <h4 className="mb-4 text-lg font-medium">Hover-Only Scrollbar</h4>
@@ -157,7 +157,7 @@ export const HoverScrollbar: Story = {
 export const MinimalScrollbar: Story = {
   args: {
     scrollbarStyle: 'minimal',
-    className: 'h-[300px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[300px] w-[300px] rounded-md border',
     children: (
       <div className="p-4">
         <h4 className="mb-4 text-lg font-medium">Minimal Scrollbar</h4>
@@ -171,7 +171,7 @@ export const MinimalScrollbar: Story = {
 // Example use case: List
 export const ListExample: Story = {
   args: {
-    className: 'h-[300px] w-[300px] rounded-[var(--radius-md)] border',
+    className: 'h-[300px] w-[300px] rounded-md border',
     children: (
       <div className="p-4">
         <h4 className="mb-4 text-lg font-medium">User List</h4>
@@ -179,7 +179,7 @@ export const ListExample: Story = {
           {Array(20).fill(0).map((_, i) => (
             <li 
               key={i} 
-              className="rounded-[var(--radius-sm)] bg-[hsl(var(--muted))] p-2"
+              className="rounded-sm bg-muted p-2"
             >
               User {i + 1}
             </li>
@@ -193,9 +193,9 @@ export const ListExample: Story = {
 // Example use case: Code block
 export const CodeBlockExample: Story = {
   args: {
-    className: 'h-[300px] w-[500px] rounded-[var(--radius-md)] bg-slate-950 text-slate-50',
+    className: 'h-[300px] w-[500px] rounded-md bg-slate-950 text-slate-50',
     children: (
-      <pre className="p-4 font-mono text-[var(--font-sm)]">
+      <pre className="p-4 font-mono text-sm">
         {`// Example React component
 import { useState, useEffect } from 'react';
 
@@ -252,8 +252,8 @@ export default ExampleComponent;`}
 // Viewport className example
 export const ViewportClassName: Story = {
   args: {
-    className: 'h-[300px] w-[300px] border rounded-[var(--radius-md)]',
-    viewportClassName: 'bg-[hsl(var(--secondary))] p-4',
+    className: 'h-[300px] w-[300px] border rounded-md',
+    viewportClassName: 'bg-secondary p-4',
     children: (
       <div>
         <h4 className="mb-4 text-lg font-medium">Viewport Styling</h4>
@@ -273,7 +273,7 @@ export const ViewportClassName: Story = {
 // Design Tokens applied
 export const CustomTokens: Story = {
   args: {
-    className: 'h-[300px] w-[300px] border rounded-[var(--radius-lg)] bg-[hsl(var(--secondary))]',
+    className: 'h-[300px] w-[300px] border rounded-lg bg-secondary',
     scrollbarStyle: 'default',
     type: 'always',
     orientation: 'vertical',

@@ -36,7 +36,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={cn(
-          'rounded-[var(--radius-lg)] border border-[hsl(var(--border))] bg-[hsl(var(--background))] text-[hsl(var(--foreground))] shadow-[var(--card-shadow)]',
+          'rounded-lg border border-border bg-background text-foreground shadow-[var(--card-shadow)]',
           className
         )}
         {...props}
@@ -65,7 +65,7 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
     return (
       <div
         ref={ref}
-        className={cn('flex flex-col space-y-[var(--card-header-gap)] p-[var(--spacing-md)]', className)}
+        className={cn('flex flex-col space-y-[var(--card-header-gap)] p-md', className)}
         {...props}
       >
         {children}
@@ -92,7 +92,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
     return (
       <h3
         ref={ref}
-        className={cn('text-[var(--font-lg)] font-[var(--card-title-font-weight)] leading-[var(--card-title-line-height)] tracking-[var(--card-title-letter-spacing)]', className)}
+        className={cn('text-lg font-[var(--card-title-font-weight)] leading-[var(--card-title-line-height)] tracking-[var(--card-title-letter-spacing)]', className)}
         {...props}
       >
         {children}
@@ -119,7 +119,7 @@ const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
     return (
       <p
         ref={ref}
-        className={cn('text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]', className)}
+        className={cn('text-sm text-muted-foreground', className)}
         {...props}
       >
         {children}
@@ -146,7 +146,7 @@ const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
     return (
       <div
         ref={ref}
-        className={cn('p-[var(--spacing-md)] pt-[var(--card-content-padding-top)]', className)}
+        className={cn('p-md pt-[var(--card-content-padding-top)]', className)}
         {...props}
       >
         {children}
@@ -173,7 +173,7 @@ const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
     return (
       <div
         ref={ref}
-        className={cn('flex items-center p-[var(--spacing-md)] pt-[var(--card-footer-padding-top)]', className)}
+        className={cn('flex items-center p-md pt-[var(--card-footer-padding-top)]', className)}
         {...props}
       >
         {children}

@@ -24,7 +24,7 @@ export const Dialog = {
    */
   Overlay: (props: RadixDialog.DialogOverlayProps) => (
     <RadixDialog.Overlay
-      className="fixed inset-0 bg-[var(--dialog-overlay-background)] backdrop-blur-[var(--dialog-overlay-blur)] z-[var(--dialog-overlay-z-index)]"
+      className="fixed inset-0 bg-dialog-overlay-background backdrop-blur-[var(--dialog-overlay-blur)] z-[var(--dialog-overlay-z-index)]"
       {...props}
     />
   ),
@@ -64,7 +64,7 @@ export const Dialog = {
         )}
         {children}
         <RadixDialog.Close 
-          className="absolute right-[var(--dialog-close-right)] top-[var(--dialog-close-top)] text-[var(--dialog-close-text-color)] hover:text-foreground"
+          className="absolute right-[var(--dialog-close-right)] top-[var(--dialog-close-top)] text-dialog-close-text-color hover:text-foreground"
           aria-label="Close"
         >
           <X className="h-[var(--dialog-close-icon-size)] w-[var(--dialog-close-icon-size)]" />

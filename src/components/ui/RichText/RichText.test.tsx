@@ -6,7 +6,7 @@ describe('RichText', () => {
     render(<RichText><p>This is rich text.</p></RichText>)
     const element = screen.getByText('This is rich text.')
     expect(element.tagName).toBe('P')
-    expect(element.closest('div')).toHaveClass('prose', 'max-w-none', 'text-[hsl(var(--foreground))]')
+    expect(element.closest('div')).toHaveClass('prose', 'max-w-none', 'text-foreground')
   })
 
   it('applies additional class names if provided', () => {

@@ -27,11 +27,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         className={cn(
-          'flex w-[var(--input-width)] rounded-[var(--input-border-radius)] border-[var(--input-border-width)] border-[hsl(var(--input))] bg-[var(--input-background)] px-[var(--spacing-md)] py-[var(--input-padding-y)] text-[var(--font-base)] ring-offset-[var(--input-ring-offset-color)]',
-          'placeholder:text-[hsl(var(--muted-foreground))]',
-          'focus:outline-[var(--input-focus-outline)] focus:ring-[var(--input-focus-ring-width)] focus:ring-[hsl(var(--ring))] focus:ring-offset-[var(--input-focus-ring-offset)]',
+          'flex w-[var(--input-width)] rounded-[var(--input-border-radius)] border-[var(--input-border-width)] border-input bg-[var(--input-background)] px-md py-[var(--input-padding-y)] text-base ring-offset-[var(--input-ring-offset-color)]',
+          'placeholder:text-muted-foreground',
+          'focus:outline-[var(--input-focus-outline)] focus:ring-[var(--input-focus-ring-width)] focus:ring-ring focus:ring-offset-[var(--input-focus-ring-offset)]',
           'disabled:cursor-[var(--input-disabled-cursor)] disabled:opacity-[var(--input-disabled-opacity)]',
-          error && 'border-[hsl(var(--destructive))] focus:ring-[hsl(var(--destructive))]',
+          error && 'border-destructive focus:ring-destructive',
           className
         )}
         ref={ref}

@@ -57,18 +57,18 @@ export default function Alert({
   ...props
 }: AlertProps): JSX.Element {
   const variantStyles: Record<AlertVariant, string> = {
-    default: 'bg-[hsl(var(--muted))] text-[hsl(var(--foreground))] border-[hsl(var(--border))]',
-    success: 'bg-[hsl(var(--alert-success-bg))] text-[hsl(var(--alert-success-text))] border-[hsl(var(--alert-success-border))]',
-    warning: 'bg-[hsl(var(--alert-warning-bg))] text-[hsl(var(--alert-warning-text))] border-[hsl(var(--alert-warning-border))]',
-    error: 'bg-[hsl(var(--alert-error-bg))] text-[hsl(var(--alert-error-text))] border-[hsl(var(--alert-error-border))]',
-    info: 'bg-[hsl(var(--alert-info-bg))] text-[hsl(var(--alert-info-text))] border-[hsl(var(--alert-info-border))]',
+    default: 'bg-muted text-foreground border-border',
+    success: 'bg-alert-success-bg text-alert-success-text border-alert-success-border',
+    warning: 'bg-alert-warning-bg text-alert-warning-text border-alert-warning-border',
+    error: 'bg-alert-error-bg text-alert-error-text border-alert-error-border',
+    info: 'bg-alert-info-bg text-alert-info-text border-alert-info-border',
   }
 
   return (
     <div
       role="alert"
       className={cn(
-        'relative rounded-[var(--radius-md)] border p-[var(--spacing-md)]',
+        'relative rounded-md border p-md',
         variantStyles[variant],
         className
       )}
@@ -79,10 +79,10 @@ export default function Alert({
         
         <div className="flex-1">
           {title && (
-            <h5 className="mb-1 font-medium text-[var(--font-base)]">{title}</h5>
+            <h5 className="mb-1 font-medium text-base">{title}</h5>
           )}
           
-          <div className="text-[var(--font-base)]">{children}</div>
+          <div className="text-base">{children}</div>
         </div>
         
         {dismissible && onDismiss && (
@@ -92,7 +92,7 @@ export default function Alert({
             onClick={onDismiss}
             className={cn(
               'inline-flex h-5 w-5 items-center justify-center rounded-full',
-              'opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))]',
+              'opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring',
               'transition-opacity'
             )}
           >

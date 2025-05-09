@@ -18,6 +18,10 @@ module.exports = {
           },
         },
       },
+      /**
+       * Design tokens mapped for Tailwind utility classes.
+       * These can be used directly like `bg-primary`, `text-foreground`, `rounded-md`, `p-spacing-md` etc.
+       */
       colors: {
         // Colors
         background: 'hsl(var(--background))',
@@ -83,6 +87,22 @@ module.exports = {
         md: 'var(--spacing-md)',
         lg: 'var(--spacing-lg)',
       },
+      fontSize: {
+        sm: 'var(--font-sm)',
+        base: 'var(--font-base)',
+        lg: 'var(--font-lg)',
+        xl: 'var(--font-xl)',
+        '2xl': 'var(--font-2xl)',
+        '3xl': 'var(--font-3xl)',
+        '4xl': 'var(--font-4xl)',
+        '5xl': 'var(--font-5xl)',
+      },
+      /**
+       * Component-specific tokens not intended for direct Tailwind class usage.
+       * These are meant to be consumed via `var(--token-name)` inside component class definitions or inline styles.
+       * Example: `style={{ zIndex: 'var(--dialog-content-z-index)' }}` or `className="rounded-[var(--card-title-letter-spacing)]"`.
+       */
+      // switchSize
       switchSize: {
         'sm-track-height': 'var(--switch-sm-track-height)',
         'sm-track-width': 'var(--switch-sm-track-width)',
@@ -96,16 +116,6 @@ module.exports = {
         'lg-track-width': 'var(--switch-lg-track-width)',
         'lg-thumb-size': 'var(--switch-lg-thumb-size)',
         'lg-translate': 'var(--switch-lg-translate)',
-      },
-      fontSize: {
-        sm: 'var(--font-sm)',
-        base: 'var(--font-base)',
-        lg: 'var(--font-lg)',
-        xl: 'var(--font-xl)',
-        '2xl': 'var(--font-2xl)',
-        '3xl': 'var(--font-3xl)',
-        '4xl': 'var(--font-4xl)',
-        '5xl': 'var(--font-5xl)',
       },
       // Accordion
       accordion: {

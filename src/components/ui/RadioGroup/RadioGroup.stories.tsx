@@ -87,8 +87,8 @@ export const WithDisabledOption: Story = {
 export const FormField: Story = {
   render: ({ value, onChange }) => (
     <div className="p-4 w-80">
-      <div className="mb-[var(--spacing-sm)]">
-        <label className="text-[var(--font-base)] font-medium">Subscription Plan</label>
+      <div className="mb-sm">
+        <label className="text-base font-medium">Subscription Plan</label>
       </div>
       <RadioGroup value={value} onChange={onChange}>
         <RadioGroup.Item value="basic" label="Basic - $9.99/month" />
@@ -105,7 +105,7 @@ export const CustomStyling: Story = {
     <RadioGroup 
       value={value} 
       onChange={onChange}
-      className="bg-[hsl(var(--secondary))] p-[var(--spacing-md)] rounded-[var(--radius-md)]"
+      className="bg-secondary p-md rounded-md"
     >
       <RadioGroup.Item 
         value="option1" 

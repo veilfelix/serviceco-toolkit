@@ -1,4 +1,21 @@
+/**
+ * Breakpoints must be updated in three places:
+ * - theme/index.css
+ * - theme/tokens.ts
+ * - tailwind.config.js
+ * These values are used in JS/TS logic and should match Tailwind's config.
+ */
+export const breakpoints = {
+  xs: '480px',
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
+}
+
 export const tokens = {
+  breakpoints,
   colors: {
     // Colors
     background: 'hsl(var(--background))',

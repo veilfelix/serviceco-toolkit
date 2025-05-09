@@ -4,6 +4,19 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],  
   theme: {
+    // Breakpoints (named 'screens' here) must be updated in three places:
+    // - theme/index.css
+    // - theme/tokens.ts
+    // - tailwind.config.js
+    // This config controls responsive behavior in Tailwind utilities.
+    screens: {
+      xs: '480px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       typography: {
         DEFAULT: {

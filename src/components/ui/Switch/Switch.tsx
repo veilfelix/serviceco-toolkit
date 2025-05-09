@@ -70,19 +70,19 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     
     const sizeStyles = {
       sm: {
-        track: 'h-4 w-7',
-        thumb: 'h-3 w-3',
-        translate: 'translate-x-3',
+        track: 'h-[var(--switch-sm-track-height)] w-[var(--switch-sm-track-width)]',
+        thumb: 'h-[var(--switch-sm-thumb-size)] w-[var(--switch-sm-thumb-size)]',
+        translate: 'translate-x-[var(--switch-sm-translate)]',
       },
       md: {
-        track: 'h-5 w-9',
-        thumb: 'h-4 w-4',
-        translate: 'translate-x-4',
+        track: 'h-[var(--switch-md-track-height)] w-[var(--switch-md-track-width)]',
+        thumb: 'h-[var(--switch-md-thumb-size)] w-[var(--switch-md-thumb-size)]',
+        translate: 'translate-x-[var(--switch-md-translate)]',
       },
       lg: {
-        track: 'h-6 w-11',
-        thumb: 'h-5 w-5',
-        translate: 'translate-x-5',
+        track: 'h-[var(--switch-lg-track-height)] w-[var(--switch-lg-track-width)]',
+        thumb: 'h-[var(--switch-lg-thumb-size)] w-[var(--switch-lg-thumb-size)]',
+        translate: 'translate-x-[var(--switch-lg-translate)]',
       },
     }
     

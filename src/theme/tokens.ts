@@ -1,5 +1,6 @@
 export const tokens = {
   colors: {
+    // Colors
     background: 'hsl(var(--background))',
     foreground: 'hsl(var(--foreground))',
     primary: 'hsl(var(--primary))',
@@ -15,6 +16,37 @@ export const tokens = {
     border: 'hsl(var(--border))',
     input: 'hsl(var(--input))',
     ring: 'hsl(var(--ring))',
+    // Alert Colors
+    alertSuccessBg: 'hsl(var(--alert-success-bg))',
+    alertSuccessText: 'hsl(var(--alert-success-text))',
+    alertSuccessBorder: 'hsl(var(--alert-success-border))',
+    alertWarningBg: 'hsl(var(--alert-warning-bg))',
+    alertWarningText: 'hsl(var(--alert-warning-text))',
+    alertWarningBorder: 'hsl(var(--alert-warning-border))',
+    alertErrorBg: 'hsl(var(--alert-error-bg))',
+    alertErrorText: 'hsl(var(--alert-error-text))',
+    alertErrorBorder: 'hsl(var(--alert-error-border))',
+    alertInfoBg: 'hsl(var(--alert-info-bg))',
+    alertInfoText: 'hsl(var(--alert-info-text))',
+    alertInfoBorder: 'hsl(var(--alert-info-border))',
+    // Badge Colors
+    badgeSuccessBg: 'hsl(var(--badge-success-bg))',
+    badgeSuccessText: 'hsl(var(--badge-success-text))',
+    badgeWarningBg: 'hsl(var(--badge-warning-bg))',
+    badgeWarningText: 'hsl(var(--badge-warning-text))',
+    // Switch Sizes
+    switchSmTrackHeight: 'var(--switch-sm-track-height)',
+    switchSmTrackWidth: 'var(--switch-sm-track-width)',
+    switchSmThumbSize: 'var(--switch-sm-thumb-size)',
+    switchSmTranslate: 'var(--switch-sm-translate)',
+    switchMdTrackHeight: 'var(--switch-md-track-height)',
+    switchMdTrackWidth: 'var(--switch-md-track-width)',
+    switchMdThumbSize: 'var(--switch-md-thumb-size)',
+    switchMdTranslate: 'var(--switch-md-translate)',
+    switchLgTrackHeight: 'var(--switch-lg-track-height)',
+    switchLgTrackWidth: 'var(--switch-lg-track-width)',
+    switchLgThumbSize: 'var(--switch-lg-thumb-size)',
+    switchLgTranslate: 'var(--switch-lg-translate)',
   },
   radii: {
     sm: 'var(--radius-sm)',
@@ -34,5 +66,10 @@ export const tokens = {
     sm: 'var(--font-sm)',
     base: 'var(--font-base)',
     lg: 'var(--font-lg)',
+    xl: 'var(--font-xl)',
+    '2xl': 'var(--font-2xl)',
+    '3xl': 'var(--font-3xl)',
+    '4xl': 'var(--font-4xl)',
+    '5xl': 'var(--font-5xl)',
   },
 }

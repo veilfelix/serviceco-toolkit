@@ -34,12 +34,12 @@ export default function Heading({
 }: HeadingProps): JSX.Element {
   const base = 'font-bold text-[hsl(var(--foreground))]'
   const sizes = {
-    h1: 'text-4xl md:text-5xl',
-    h2: 'text-3xl md:text-4xl',
-    h3: 'text-2xl md:text-3xl',
-    h4: 'text-xl md:text-2xl',
-    h5: 'text-lg md:text-xl',
-    h6: 'text-base md:text-lg',
+    h1: 'text-[var(--font-4xl)] md:text-[var(--font-5xl)]',
+    h2: 'text-[var(--font-3xl)] md:text-[var(--font-4xl)]',
+    h3: 'text-[var(--font-2xl)] md:text-[var(--font-3xl)]',
+    h4: 'text-[var(--font-xl)] md:text-[var(--font-2xl)]',
+    h5: 'text-[var(--font-lg)] md:text-[var(--font-xl)]',
+    h6: 'text-[var(--font-base)] md:text-[var(--font-lg)]',
   }
 
   return <Tag className={cn(base, sizes[Tag], className)}>{children}</Tag>

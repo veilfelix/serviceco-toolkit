@@ -111,15 +111,15 @@ describe('Switch', () => {
     )
 
     let trackElement = container.querySelector('div[class*="rounded-full transition-colors"]')
-    expect(trackElement?.className).toContain('h-4')
+    expect(trackElement?.className).toContain('h-[var(--switch-sm-track-height)]')
 
     rerender(<Switch checked={false} onCheckedChange={mockOnCheckedChange} visualSize="md" />)
     trackElement = container.querySelector('div[class*="rounded-full transition-colors"]')
-    expect(trackElement?.className).toContain('h-5')
+    expect(trackElement?.className).toContain('h-[var(--switch-md-track-height)]')
 
     rerender(<Switch checked={false} onCheckedChange={mockOnCheckedChange} visualSize="lg" />)
     trackElement = container.querySelector('div[class*="rounded-full transition-colors"]')
-    expect(trackElement?.className).toContain('h-6')
+    expect(trackElement?.className).toContain('h-[var(--switch-lg-track-height)]')
   })
 
   it('uses provided id or generates one if not provided', () => {

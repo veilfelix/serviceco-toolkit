@@ -13,7 +13,7 @@ export default function SkipLink(): JSX.Element {
   return (
     <a
       href="#main-content"
-      className="sr-only focus:not-sr-only absolute top-2 left-2 bg-white text-blue-600 p-2 rounded z-50"
+      className="sr-only focus:not-sr-only absolute top-2 left-2 bg-[hsl(var(--background))] text-[hsl(var(--primary))] p-2 rounded-[var(--radius-sm)] z-50"
     >
       Skip to main content
     </a>

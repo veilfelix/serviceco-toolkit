@@ -31,15 +31,15 @@ describe('Badge', () => {
   it('applies success variant styles when specified', () => {
     const { container } = render(<Badge variant="success">Success Badge</Badge>)
     const badge = container.firstChild as HTMLElement
-    expect(badge.className).toContain('bg-green-500')
-    expect(badge.className).toContain('text-white')
+    expect(badge.className).toContain('bg-[hsl(var(--badge-success-bg))]')
+    expect(badge.className).toContain('text-[hsl(var(--badge-success-text))]')
   })
 
   it('applies warning variant styles when specified', () => {
     const { container } = render(<Badge variant="warning">Warning Badge</Badge>)
     const badge = container.firstChild as HTMLElement
-    expect(badge.className).toContain('bg-yellow-500')
-    expect(badge.className).toContain('text-black')
+    expect(badge.className).toContain('bg-[hsl(var(--badge-warning-bg))]')
+    expect(badge.className).toContain('text-[hsl(var(--badge-warning-text))]')
   })
 
   it('applies danger variant styles when specified', () => {

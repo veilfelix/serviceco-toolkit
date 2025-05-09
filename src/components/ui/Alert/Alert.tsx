@@ -57,10 +57,10 @@ export default function Alert({
 }: AlertProps): JSX.Element {
   const variantStyles: Record<AlertVariant, string> = {
     default: 'bg-[hsl(var(--muted))] text-[hsl(var(--foreground))] border-[hsl(var(--border))]',
-    success: 'bg-green-50 text-green-800 border-green-200',
-    warning: 'bg-yellow-50 text-yellow-800 border-yellow-200',
-    error: 'bg-red-50 text-[hsl(var(--destructive))] border-red-200',
-    info: 'bg-blue-50 text-blue-800 border-blue-200',
+    success: 'bg-[hsl(var(--alert-success-bg))] text-[hsl(var(--alert-success-text))] border-[hsl(var(--alert-success-border))]',
+    warning: 'bg-[hsl(var(--alert-warning-bg))] text-[hsl(var(--alert-warning-text))] border-[hsl(var(--alert-warning-border))]',
+    error: 'bg-[hsl(var(--alert-error-bg))] text-[hsl(var(--alert-error-text))] border-[hsl(var(--alert-error-border))]',
+    info: 'bg-[hsl(var(--alert-info-bg))] text-[hsl(var(--alert-info-text))] border-[hsl(var(--alert-info-border))]',
   }
 
   return (

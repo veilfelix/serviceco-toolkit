@@ -84,19 +84,19 @@ describe('Alert', () => {
     
     rerender(<Alert variant="success">Success alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-green-50')
+    expect(alert.className).toContain('bg-[hsl(var(--alert-success-bg))]')
     
     rerender(<Alert variant="warning">Warning alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-yellow-50')
+    expect(alert.className).toContain('bg-[hsl(var(--alert-warning-bg))]')
     
     rerender(<Alert variant="error">Error alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-red-50')
+    expect(alert.className).toContain('bg-[hsl(var(--alert-error-bg))]')
     
     rerender(<Alert variant="info">Info alert</Alert>)
     alert = container.firstChild as HTMLElement
-    expect(alert.className).toContain('bg-blue-50')
+    expect(alert.className).toContain('bg-[hsl(var(--alert-info-bg))]')
   })
 
   it('applies custom className correctly', () => {

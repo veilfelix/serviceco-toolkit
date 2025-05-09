@@ -7,9 +7,9 @@ import Link from 'next/link'
  */
 export default function Header(): JSX.Element {
   return (
-    <header className="bg-blue-600 text-white py-4">
+    <header className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] py-4">
       <div className="container flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold">
+        <Link href="/" className="text-[var(--font-xl)] font-bold">
           ServiceCo
         </Link>
         <nav className="space-x-4">

@@ -15,8 +15,8 @@ describe('Heading', () => {
   })
 
   it('applies additional className', () => {
-    render(<Heading className="text-red-500">Styled heading</Heading>)
+    render(<Heading className="text-[hsl(var(--destructive))]">Styled heading</Heading>)
     const el = screen.getByText('Styled heading')
-    expect(el).toHaveClass('text-red-500')
+    expect(el).toHaveClass('text-[hsl(var(--destructive))]')
   })
 })

@@ -6,8 +6,8 @@ import { JSX } from 'react'
  */
 export default function Footer(): JSX.Element {
   return (
-    <footer className="bg-gray-100 text-gray-600 py-4 mt-8">
-      <div className="container text-center text-sm">
+    <footer className="bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))] py-4 mt-8">
+      <div className="container text-center text-[var(--font-sm)]">
         © {new Date().getFullYear()} ServiceCo. All rights reserved.
       </div>
     </footer>

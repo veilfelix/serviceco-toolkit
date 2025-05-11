@@ -59,7 +59,6 @@ type Story = StoryObj<typeof Checkbox>
 export const Playground: Story = {
   args: {
     label: 'I agree to the terms and conditions',
-    checked: false,
     disabled: false,
     error: false,
     id: 'playground-checkbox',

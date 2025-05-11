@@ -35,8 +35,8 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(
     return (
       <label
         className={cn(
-          'text-base font-medium text-foreground mb-xs block',
-          error && 'text-destructive',
+          'text-base font-medium mb-xs block',
+          error ? 'text-destructive' : 'text-foreground',
           className
         )}
         ref={ref}

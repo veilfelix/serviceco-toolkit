@@ -28,16 +28,19 @@ export default function Page({ page }: { page: any }) {
         image={page.metaImage?.fields.file.url}
         noIndex={page.noIndex}
       />
-      <Container>
+      <Container fullWidth>
         {page.heroImage && (
           <Image
             src={`https:${page.heroImage.fields.file.url}`}
             alt={page.heroImage.fields.title || ''}
-            width={1920}
-            height={1080}
+            width={2560}
+            height={400}
+            className="w-full h-[400px] object-cover"
           />
         )}
-        <Heading as="h1" className="mt-8 mb-4">{page.title}</Heading>
+      </Container>
+      <Container>
+        <Heading as="h1" className="mt-8">{page.title}</Heading>
         <Card>
           <Card.Content className="pt-6">
             <RichText>{documentToReactComponents(page.description)}</RichText>

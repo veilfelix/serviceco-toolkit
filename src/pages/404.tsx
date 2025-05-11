@@ -15,8 +15,8 @@ import ButtonLink from '@/components/ui/ButtonLink/ButtonLink'
 export default function Custom404() {
   return (
     <Container className="py-16 text-center">
-      <Heading as="h1" className="mb-4">404 - Page Not Found</Heading>
-      <Text as="p" className="mb-8">Oops! The page you are looking for doesn&apos;t exist.</Text>
+      <Heading as="h1">404 - Page Not Found</Heading>
+      <Text as="p">Oops! The page you are looking for doesn&apos;t exist.</Text>
       <ButtonLink href="/" variant='primary' size='lg'>
         Back to home page
       </ButtonLink>

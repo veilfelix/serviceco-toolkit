@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Tooltip } from '@/components/composed/Tooltip/Tooltip'
 import Button from '@/components/ui/Button/Button'
+import type { Decorator } from '@storybook/react'
 
 const meta: Meta<typeof Tooltip.Content> = {
   title: 'Components/Composed/Tooltip',
@@ -40,17 +41,23 @@ const meta: Meta<typeof Tooltip.Content> = {
     },
   },
   decorators: [
-    (Story) => (
-      <Tooltip.Provider>
-        <Tooltip.Root>
-          <Tooltip.Trigger asChild>
-            <Button>Hover me</Button>
-          </Tooltip.Trigger>
-          <Story />
-        </Tooltip.Root>
-      </Tooltip.Provider>
-    ),
-  ],
+    ((Story, context) => {
+      if (context.name !== 'MultipleTooltips') {
+        return (
+          <Tooltip.Provider>
+            <Tooltip.Root>
+              <Tooltip.Trigger asChild>
+                <Button>Hover me</Button>
+              </Tooltip.Trigger>
+              <Story />
+            </Tooltip.Root>
+          </Tooltip.Provider>
+        )
+      }
+  
+      return <Story />
+    }) as Decorator,
+  ],  
 }
 
 export default meta
@@ -140,6 +147,7 @@ export const RichContent: Story = {
 
 // Multiple tooltips example
 export const MultipleTooltips: Story = {
+  name: 'MultipleTooltips',
   render: () => (
     <div className="flex gap-4">
       <Tooltip.Provider>

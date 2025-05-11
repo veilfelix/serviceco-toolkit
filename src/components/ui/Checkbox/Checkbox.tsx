@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, forwardRef, JSX } from 'react'
 import { cn } from '@/utils/classNames'
+import Label from '../Label/Label'
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   /**
@@ -42,6 +43,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     label, 
     error, 
     id,
+    required,
     ...props 
   }, ref): JSX.Element => {
     return (
@@ -49,10 +51,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <input
           type="checkbox"
           className={cn(
-            'h-4 w-4 rounded border border-input',
-            'text-primary focus:ring-ring',
+            'h-4 w-4 rounded border',
             'disabled:cursor-not-allowed disabled:opacity-50',
-            error && 'border-destructive focus:ring-destructive',
+            error ? 'text-destructive border-destructive focus:ring-destructive' : 'text-primary border-input focus:ring-ring',
             inputClassName
           )}
           ref={ref}
@@ -60,17 +61,19 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {...props}
         />
         {label && (
-          <label 
+          <Label 
             htmlFor={id} 
+            required={required}
             className={cn(
-              'text-base text-foreground select-none',
-              error && 'text-destructive',
+              'text-base select-none',
+              error ? 'text-destructive' : 'text-foreground',
               props.disabled && 'opacity-50 cursor-not-allowed',
               labelClassName
             )}
+            error={!!error}
           >
             {label}
-          </label>
+          </Label>
         )}
       </div>
     )

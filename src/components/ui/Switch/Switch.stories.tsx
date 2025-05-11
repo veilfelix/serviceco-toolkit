@@ -67,7 +67,7 @@ export const Playground: Story = {
     <Switch checked={checked} onCheckedChange={onCheckedChange} {...args} />
   ),
   args: {
-    label: 'Toggle me lol',
+    label: 'Toggle me',
     visualSize: 'md',
     labelPosition: 'right',
   },

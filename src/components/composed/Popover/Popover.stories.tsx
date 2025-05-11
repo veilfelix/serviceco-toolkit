@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button/Button'
 import Input from '@/components/ui/Input/Input'
 import Label from '@/components/ui/Label/Label'
 import { Settings, Calendar } from 'lucide-react'
+import type { Decorator } from '@storybook/react'
 
 const meta: Meta<typeof Popover.Content> = {
   title: 'Components/Composed/Popover',
@@ -41,15 +42,21 @@ const meta: Meta<typeof Popover.Content> = {
     },
   },
   decorators: [
-    (Story) => (
-      <Popover.Root>
-        <Popover.Trigger asChild>
-          <Button>Open Popover</Button>
-        </Popover.Trigger>
-        <Story />
-      </Popover.Root>
-    ),
-  ],
+    ((Story, context) => {
+      if (context.args?.children) {
+        return (
+          <Popover.Root>
+            <Popover.Trigger asChild>
+              <Button>Open Popover</Button>
+            </Popover.Trigger>
+            <Story />
+          </Popover.Root>
+        )
+      }
+
+      return <Story />
+    }) as Decorator,
+  ]
 }
 
 export default meta

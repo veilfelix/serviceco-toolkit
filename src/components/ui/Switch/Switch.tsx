@@ -1,11 +1,11 @@
 import { InputHTMLAttributes, forwardRef, JSX, useId } from 'react'
 import { cn } from '@/utils/classNames'
 
-export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'checked'> {
+export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   /**
    * Whether the switch is checked
    */
-  checked: boolean
+  checked?: boolean
   /**
    * Callback when the switch is toggled
    */
@@ -40,34 +40,36 @@ export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
  * A customizable switch/toggle component using TailwindCSS and design system tokens.
  *
  * Example:
- * 
+ *
  * ```tsx
  * const [checked, setChecked] = useState(false)
- * 
- * <Switch 
- *   checked={checked} 
- *   onCheckedChange={setChecked} 
+ *
+ * <Switch
+ *   checked={checked}
+ *   onCheckedChange={setChecked}
  *   label="Airplane mode"
  * />
  * ```
  */
 const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({
-    checked,
-    onCheckedChange,
-    label,
-    disabled = false,
-    visualSize = 'md',
-    className = '',
-    labelClassName = '',
-    labelPosition = 'right',
-    id: propId,
-    ...props
-  }, ref): JSX.Element => {
+  (
+    {
+      checked = false,
+      onCheckedChange,
+      label,
+      disabled = false,
+      visualSize = 'md',
+      className = '',
+      labelClassName = '',
+      labelPosition = 'right',
+      id: propId,
+      ...props
+    },
+    ref
+  ): JSX.Element => {
     const generatedId = useId()
     const id = propId ?? generatedId
 
-    
     const sizeStyles = {
       sm: {
         track: 'h-[var(--switch-sm-track-height)] w-[var(--switch-sm-track-width)]',
@@ -85,16 +87,23 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         translate: 'translate-x-[var(--switch-lg-translate)]',
       },
     }
-    
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (!disabled) {
+      if (!disabled && onCheckedChange) {
         onCheckedChange(e.target.checked)
       }
     }
-    
-    const switchElement = (
-      <div className={cn('inline-flex items-center', className)}>
-        <span className="sr-only">{label || 'Switch'}</span>
+
+    return (
+      <label
+        htmlFor={id}
+        className={cn(
+          'inline-flex items-center gap-2 cursor-pointer',
+          labelPosition === 'left' ? 'flex-row-reverse' : 'flex-row',
+          disabled && 'cursor-not-allowed opacity-50',
+          className
+        )}
+      >
         <div className="relative">
           <input
             type="checkbox"
@@ -106,48 +115,34 @@ const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             className="peer sr-only"
             {...props}
           />
-          <div 
+          <div
             className={cn(
+              'block rounded-full transition-colors bg-input',
+              'peer-checked:bg-primary',
               'peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2',
-              'rounded-full transition-colors',
-              'bg-input peer-checked:bg-primary',
               'peer-disabled:opacity-50 peer-disabled:cursor-not-allowed',
               sizeStyles[visualSize].track
             )}
           />
-          <div 
+          <div
             className={cn(
-              'absolute top-[2px] left-[2px]',
-              'rounded-full bg-white transition-transform',
-              'peer-checked:' + sizeStyles[visualSize].translate,
-              sizeStyles[visualSize].thumb
+              'absolute top-[2px] left-[2px] rounded-full bg-white transition-transform',
+              sizeStyles[visualSize].thumb,
+              checked && sizeStyles[visualSize].translate
             )}
           />
         </div>
-      </div>
-    )
-    
-    if (!label) {
-      return switchElement
-    }
-    
-    return (
-      <div className={cn(
-        'flex items-center gap-2',
-        labelPosition === 'left' ? 'flex-row-reverse' : 'flex-row',
-      )}>
-        {switchElement}
-        <label 
-          htmlFor={id}
-          className={cn(
-            'text-base text-foreground select-none',
-            disabled && 'opacity-50 cursor-not-allowed',
-            labelClassName
-          )}
-        >
-          {label}
-        </label>
-      </div>
+        {label && (
+          <span
+            className={cn(
+              'text-base text-foreground select-none',
+              labelClassName
+            )}
+          >
+            {label}
+          </span>
+        )}
+      </label>
     )
   }
 )

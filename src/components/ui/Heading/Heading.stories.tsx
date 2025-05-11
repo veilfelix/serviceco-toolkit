@@ -44,6 +44,6 @@ export const CustomClass: Story = {
   args: {
     as: 'h3',
     children: 'Heading with extra classes',
-    className: 'text-destructive underline',
+    className: 'underline',
   },
 }

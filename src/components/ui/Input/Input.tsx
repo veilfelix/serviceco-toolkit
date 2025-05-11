@@ -27,11 +27,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         className={cn(
-          'flex w-[var(--input-width)] rounded-[var(--input-border-radius)] border-[var(--input-border-width)] border-input bg-[var(--input-background)] px-md py-[var(--input-padding-y)] text-base ring-offset-[var(--input-ring-offset-color)]',
+          'flex w-[var(--input-width)] rounded-[var(--input-border-radius)] bg-[var(--input-background)] px-md py-[var(--input-padding-y)] text-base ring-offset-[var(--input-ring-offset-color)]',
           'placeholder:text-muted-foreground',
-          'focus:outline-[var(--input-focus-outline)] focus:ring-[var(--input-focus-ring-width)] focus:ring-ring focus:ring-offset-[var(--input-focus-ring-offset)]',
+          'focus:outline-none focus:ring-2 focus:ring-offset-2',
           'disabled:cursor-[var(--input-disabled-cursor)] disabled:opacity-[var(--input-disabled-opacity)]',
-          error && 'border-destructive focus:ring-destructive',
+          error ? 'border-destructive focus:ring-destructive' : 'border-input focus:ring-ring',
           className
         )}
         ref={ref}

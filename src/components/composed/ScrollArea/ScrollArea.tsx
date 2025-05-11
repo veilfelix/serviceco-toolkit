@@ -49,7 +49,7 @@ const ScrollArea = forwardRef<
     ref
   ) => {
     const isMinimal = scrollbarStyle === 'minimal'
-    const scrollbarSize = isMinimal ? '2px' : '10px'
+    const scrollbarSize = isMinimal ? '4px' : '10px'
 
     const commonScrollbarClasses = cn(
       'flex touch-none select-none transition-colors',

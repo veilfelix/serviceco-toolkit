@@ -65,7 +65,7 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
     return (
       <div
         ref={ref}
-        className={cn('flex flex-col space-y-[var(--card-header-gap)] p-md', className)}
+        className={cn('flex flex-col space-y-[var(--card-header-gap)] p-md pb-0', className)}
         {...props}
       >
         {children}
@@ -92,7 +92,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
     return (
       <h3
         ref={ref}
-        className={cn('text-lg font-[var(--card-title-font-weight)] leading-[var(--card-title-line-height)] tracking-[var(--card-title-letter-spacing)]', className)}
+        className={cn('text-lg font-[theme(card.title-font-weight)]] leading-[theme(card.title-line-height)]] tracking-[theme(card.title-letter-spacing)]]', className)}
         {...props}
       >
         {children}
@@ -146,7 +146,7 @@ const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
     return (
       <div
         ref={ref}
-        className={cn('p-md pt-[var(--card-content-padding-top)]', className)}
+        className={cn('p-md pt-[theme(card.footer-content-top)]]', className)}
         {...props}
       >
         {children}
@@ -173,7 +173,7 @@ const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
     return (
       <div
         ref={ref}
-        className={cn('flex items-center p-md pt-[var(--card-footer-padding-top)]', className)}
+        className={cn('flex items-center p-md pt-[theme(card.footer-padding-top)]', className)}
         {...props}
       >
         {children}

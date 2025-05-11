@@ -72,7 +72,7 @@ describe('Select', () => {
     const { rerender, container } = render(<Select options={defaultOptions} size="sm" />)
     
     let selectElement = container.firstChild as HTMLElement
-    expect(selectElement.className).toContain('h-8')
+    expect(selectElement.className).toContain('h-10')
     
     rerender(<Select options={defaultOptions} size="md" />)
     selectElement = container.firstChild as HTMLElement

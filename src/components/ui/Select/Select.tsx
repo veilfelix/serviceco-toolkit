@@ -68,27 +68,27 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     ref
   ): JSX.Element => {
     const sizeStyles = {
-      sm: 'h-8 px-sm text-sm',
+      sm: 'h-10 px-sm text-sm',
       md: 'h-10 px-md text-base',
-      lg: 'h-12 px-lg text-lg',
+      lg: 'h-12 px-md text-lg',
     }
     
     return (
       <select
         className={cn(
-          'appearance-none rounded border border-input bg-transparent',
-          'text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+          'appearance-none rounded border bg-transparent',
+          'text-foreground focus:outline-none focus:ring-2 focus:ring-offset-2',
           'disabled:cursor-not-allowed disabled:opacity-50',
           'pr-lg',
           sizeStyles[size],
-          error && 'border-destructive focus:ring-destructive',
+          error ? 'border-destructive focus:ring-destructive' : 'border-input focus:ring-ring',
           className
         )}
         ref={ref}
         defaultValue={props.defaultValue ?? ''}
         style={{
           backgroundImage: 'url(\'data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e\')',
-          backgroundPosition: `right ${size === 'sm' ? '0.5rem' : '1rem'} center`,
+          backgroundPosition: 'calc(100% - 0.33rem) center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: '1.5em 1.5em',
         }}

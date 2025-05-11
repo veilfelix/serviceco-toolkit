@@ -253,7 +253,7 @@ export default ExampleComponent;`}
 export const ViewportClassName: Story = {
   args: {
     className: 'h-[300px] w-[300px] border rounded-md',
-    viewportClassName: 'bg-secondary p-4',
+    viewportClassName: 'bg-secondary p-12',
     children: (
       <div>
         <h4 className="mb-4 text-lg font-medium">Viewport Styling</h4>

@@ -84,7 +84,7 @@ describe('ScrollArea', () => {
       </ScrollArea>
     )
     const root = container.firstChild as HTMLElement
-    expect(root.style.getPropertyValue('--scrollbar-size')).toBe('2px')
+    expect(root.style.getPropertyValue('--scrollbar-size')).toBe('4px')
 
     const scrollbar = container.querySelector('[data-orientation="vertical"]') as HTMLElement
     expect(scrollbar).toBeInTheDocument()

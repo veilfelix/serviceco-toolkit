@@ -33,7 +33,6 @@ const meta: Meta<typeof RadioGroup> = {
   },
   decorators: [
     (Story) => {
-      // Add state management for the story
       const [value, setValue] = useState('option1')
       return <Story args={{ value, onChange: setValue }} />
     },
@@ -122,21 +121,6 @@ export const CustomStyling: Story = {
         label="Custom Option 3"
         labelClassName="font-semibold"
       />
-    </RadioGroup>
-  ),
-}
-
-// Horizontal layout
-export const HorizontalLayout: Story = {
-  render: ({ value, onChange }) => (
-    <RadioGroup 
-      value={value} 
-      onChange={onChange}
-      className="flex-row space-y-0 space-x-4"
-    >
-      <RadioGroup.Item value="option1" label="Option 1" />
-      <RadioGroup.Item value="option2" label="Option 2" />
-      <RadioGroup.Item value="option3" label="Option 3" />
     </RadioGroup>
   ),
 }

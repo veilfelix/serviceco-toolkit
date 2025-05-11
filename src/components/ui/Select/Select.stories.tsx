@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Select from '@/components/ui/Select/Select'
+import Label from '../Label/Label'
 
 const meta: Meta<typeof Select> = {
   title: 'Components/UI/Select',
@@ -136,8 +137,8 @@ export const WithoutPlaceholder: Story = {
 export const FormExample: Story = {
   render: () => (
     <div className="p-4 space-y-4 w-64">
-      <div className="space-y-1">
-        <label className="text-base font-medium">Country</label>
+      <div className="flex-col space-y-1">
+        <Label className="text-base font-medium" required>Country</Label>
         <Select
           options={[
             { value: 'us', label: 'United States' },
@@ -145,11 +146,12 @@ export const FormExample: Story = {
             { value: 'mx', label: 'Mexico' },
           ]}
           placeholder="Select country..."
+          required
         />
       </div>
       
       <div className="space-y-1">
-        <label className="text-base font-medium">State/Province</label>
+        <Label className="text-base font-medium">State/Province</Label>
         <Select
           options={[
             { value: 'ny', label: 'New York' },

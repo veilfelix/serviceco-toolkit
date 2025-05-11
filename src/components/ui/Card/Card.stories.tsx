@@ -100,7 +100,7 @@ export const CompleteCard: Story = {
 // Card with custom styling
 export const CustomStyling: Story = {
   args: {
-    className: 'border-primary bg-secondary',
+    className: 'border-primary bg-input',
     children: (
       <>
         <Card.Header className="border-b border-[hsl(var(--primary))/30">

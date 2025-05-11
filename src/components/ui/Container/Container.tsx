@@ -11,6 +11,11 @@ export type ContainerProps = {
    * Additional classes to apply on the container wrapper
    */
   className?: string
+
+  /**
+   * Whether the container should span the full width of the screen
+   */
+  fullWidth?: boolean
 }
 
 /**
@@ -22,16 +27,22 @@ export type ContainerProps = {
  * <Container>
  *   <YourComponent />
  * </Container>
+ *
+ * <Container fullWidth>
+ *   <FullWidthBanner />
+ * </Container>
  * ```
  */
 export default function Container({
   children,
   className,
+  fullWidth = false,
 }: ContainerProps): JSX.Element {
   return (
     <div
       className={cn(
-        'w-full max-w-screen-xl mx-auto px-[var(--spacing-md)] sm:px-[var(--spacing-md)] lg:px-[var(--spacing-lg)]',
+        'w-full',
+        !fullWidth && 'max-w-screen-xl mx-auto px-md sm:px-md lg:px-lg',
         className
       )}
     >

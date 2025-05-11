@@ -89,7 +89,7 @@ export const WithError: Story = {
     label: 'Password',
     id: 'password-error',
     error: 'Password must be at least 8 characters long',
-    children: <Input placeholder="Enter your password" id="password-error" type="password" error />,
+    children: <Input placeholder="Enter your password" id="password-error" type="password" error={true} />,
   },
 }
 

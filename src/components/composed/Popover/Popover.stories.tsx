@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button/Button'
 import Input from '@/components/ui/Input/Input'
 import Label from '@/components/ui/Label/Label'
 import { Settings, Calendar } from 'lucide-react'
+import type { Decorator } from '@storybook/react'
 
 const meta: Meta<typeof Popover.Content> = {
   title: 'Components/Composed/Popover',
@@ -41,15 +42,21 @@ const meta: Meta<typeof Popover.Content> = {
     },
   },
   decorators: [
-    (Story) => (
-      <Popover.Root>
-        <Popover.Trigger asChild>
-          <Button>Open Popover</Button>
-        </Popover.Trigger>
-        <Story />
-      </Popover.Root>
-    ),
-  ],
+    ((Story, context) => {
+      if (context.args?.children) {
+        return (
+          <Popover.Root>
+            <Popover.Trigger asChild>
+              <Button>Open Popover</Button>
+            </Popover.Trigger>
+            <Story />
+          </Popover.Root>
+        )
+      }
+
+      return <Story />
+    }) as Decorator,
+  ]
 }
 
 export default meta
@@ -65,8 +72,8 @@ export const Playground: Story = {
     children: (
       <>
         <div className="text-center">
-          <h4 className="text-[var(--font-base)] font-medium">Popover Title</h4>
-          <p className="mt-1 text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]">
+          <h4 className="text-base font-medium">Popover Title</h4>
+          <p className="mt-1 text-sm text-muted-foreground">
             This is a popover with some example content.
           </p>
         </div>
@@ -81,7 +88,7 @@ export const Basic: Story = {
     children: (
       <div className="space-y-2">
         <h4 className="font-medium">Popover Title</h4>
-        <p className="text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]">
+        <p className="text-sm text-muted-foreground">
           This is a basic popover with some content.
         </p>
       </div>
@@ -104,7 +111,7 @@ export const WithArrow: Story = {
         <Popover.Arrow className="h-2 w-4" />
         <div className="space-y-2">
           <h4 className="font-medium">Popover with Arrow</h4>
-          <p className="text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]">
+          <p className="text-sm text-muted-foreground">
             This popover has an arrow pointing to the trigger.
           </p>
         </div>
@@ -120,7 +127,7 @@ export const WithoutCloseButton: Story = {
     children: (
       <div className="space-y-2">
         <h4 className="font-medium">No Close Button</h4>
-        <p className="text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]">
+        <p className="text-sm text-muted-foreground">
           This popover doesn&apos;t have a close button.
         </p>
       </div>
@@ -142,7 +149,7 @@ export const FormContent: Story = {
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium">Schedule Meeting</h4>
-            <p className="text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]">
+            <p className="text-sm text-muted-foreground">
               Set your availability for the meeting.
             </p>
           </div>
@@ -177,7 +184,7 @@ export const SettingsPopover: Story = {
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium">Display Settings</h4>
-            <p className="text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]">
+            <p className="text-sm text-muted-foreground">
               Customize how the content is displayed.
             </p>
           </div>

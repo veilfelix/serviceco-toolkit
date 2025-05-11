@@ -140,8 +140,8 @@ function RadioGroupItem({
         disabled={disabled}
         onChange={handleChange}
         className={cn(
-          'h-4 w-4 rounded-full border border-[hsl(var(--input))]',
-          'text-[hsl(var(--primary))] focus:ring-[hsl(var(--ring))]',
+          'h-4 w-4 rounded-full border border-input',
+          'text-primary focus:ring-ring',
           'disabled:cursor-not-allowed disabled:opacity-50',
           inputClassName
         )}
@@ -150,7 +150,7 @@ function RadioGroupItem({
       <label
         htmlFor={id}
         className={cn(
-          'text-[var(--font-base)] text-foreground',
+          'text-base text-foreground',
           disabled && 'opacity-50 cursor-not-allowed',
           labelClassName
         )}

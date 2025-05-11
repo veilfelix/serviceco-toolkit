@@ -65,14 +65,14 @@ describe('Select', () => {
     const { container } = render(<Select options={defaultOptions} error />)
     
     const selectElement = container.firstChild as HTMLElement
-    expect(selectElement.className).toContain('border-[hsl(var(--destructive))]')
+    expect(selectElement.className).toContain('border-destructive')
   })
 
   it('applies size classes correctly', () => {
     const { rerender, container } = render(<Select options={defaultOptions} size="sm" />)
     
     let selectElement = container.firstChild as HTMLElement
-    expect(selectElement.className).toContain('h-8')
+    expect(selectElement.className).toContain('h-10')
     
     rerender(<Select options={defaultOptions} size="md" />)
     selectElement = container.firstChild as HTMLElement

@@ -128,8 +128,8 @@ export const DropdownMenu = {
         align={align}
         side={side}
         className={cn(
-          'z-50 min-w-[8rem] overflow-hidden rounded-[var(--radius-md)] border border-[hsl(var(--border))]',
-          'bg-[hsl(var(--background))] p-1 text-[hsl(var(--foreground))] shadow-md',
+          'z-50 min-w-[8rem] overflow-hidden rounded-md border border-border',
+          'bg-background p-1 text-foreground shadow-md',
           'data-[state=open]:animate-in data-[state=closed]:animate-out',
           'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
           'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -148,8 +148,8 @@ export const DropdownMenu = {
   Item: ({ className, inset, ...props }: DropdownMenuItemProps) => (
     <RadixDropdownMenu.Item
       className={cn(
-        'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-[var(--font-base)] outline-none',
-        'focus:bg-[hsl(var(--accent))] focus:text-[hsl(var(--accent-foreground))]',
+        'relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-base outline-none',
+        'focus:bg-accent focus:text-accent-foreground',
         'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         inset && 'pl-8',
         className
@@ -164,8 +164,8 @@ export const DropdownMenu = {
   CheckboxItem: ({ className, children, checked, ...props }: DropdownMenuCheckboxItemProps) => (
     <RadixDropdownMenu.CheckboxItem
       className={cn(
-        'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-[var(--font-base)] outline-none',
-        'focus:bg-[hsl(var(--accent))] focus:text-[hsl(var(--accent-foreground))]',
+        'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-base outline-none',
+        'focus:bg-accent focus:text-accent-foreground',
         'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         className
       )}
@@ -187,8 +187,8 @@ export const DropdownMenu = {
   RadioItem: ({ className, children, ...props }: DropdownMenuRadioItemProps) => (
     <RadixDropdownMenu.RadioItem
       className={cn(
-        'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-[var(--font-base)] outline-none',
-        'focus:bg-[hsl(var(--accent))] focus:text-[hsl(var(--accent-foreground))]',
+        'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-base outline-none',
+        'focus:bg-accent focus:text-accent-foreground',
         'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         className
       )}
@@ -209,7 +209,7 @@ export const DropdownMenu = {
   Label: ({ className, inset, ...props }: DropdownMenuLabelProps) => (
     <RadixDropdownMenu.Label
       className={cn(
-        'px-2 py-1.5 text-[var(--font-sm)] text-[hsl(var(--muted-foreground))]',
+        'px-2 py-1.5 text-sm text-muted-foreground',
         inset && 'pl-8',
         className
       )}
@@ -222,7 +222,7 @@ export const DropdownMenu = {
    */
   Separator: ({ className, ...props }: DropdownMenuSeparatorProps) => (
     <RadixDropdownMenu.Separator
-      className={cn('-mx-1 my-1 h-px bg-[hsl(var(--border))]', className)}
+      className={cn('-mx-1 my-1 h-px bg-border', className)}
       {...props}
     />
   ),
@@ -233,9 +233,9 @@ export const DropdownMenu = {
   SubTrigger: ({ className, inset, children, ...props }: DropdownMenuSubTriggerProps) => (
     <RadixDropdownMenu.SubTrigger
       className={cn(
-        'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-[var(--font-base)] outline-none',
-        'focus:bg-[hsl(var(--accent))] focus:text-[hsl(var(--accent-foreground))]',
-        'data-[state=open]:bg-[hsl(var(--accent))] data-[state=open]:text-[hsl(var(--accent-foreground))]',
+        'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-base outline-none',
+        'focus:bg-accent focus:text-accent-foreground',
+        'data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',
         inset && 'pl-8',
         className
       )}
@@ -253,8 +253,8 @@ export const DropdownMenu = {
     <RadixDropdownMenu.Portal>
       <RadixDropdownMenu.SubContent
         className={cn(
-          'z-50 min-w-[8rem] overflow-hidden rounded-[var(--radius-md)] border border-[hsl(var(--border))]',
-          'bg-[hsl(var(--background))] p-1 text-[hsl(var(--foreground))] shadow-md',
+          'z-50 min-w-[8rem] overflow-hidden rounded-md border border-border',
+          'bg-background p-1 text-foreground shadow-md',
           'data-[state=open]:animate-in data-[state=closed]:animate-out',
           'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
           'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',

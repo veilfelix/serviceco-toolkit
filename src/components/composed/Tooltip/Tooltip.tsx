@@ -62,8 +62,8 @@ export const Tooltip = {
         side={side}
         align={align}
         className={cn(
-          'z-50 overflow-hidden rounded-[var(--radius-md)] border border-[hsl(var(--border))] bg-[hsl(var(--background))]',
-          'px-[var(--spacing-sm)] py-[var(--spacing-xs)] text-[var(--font-sm)] text-[hsl(var(--foreground))]',
+          'z-50 overflow-hidden rounded-md border border-border bg-background',
+          'px-sm py-xs text-sm text-foreground',
           'shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
           'data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
           className
@@ -72,7 +72,7 @@ export const Tooltip = {
       >
         {children}
         {showArrow && (
-          <RadixTooltip.Arrow className="fill-[hsl(var(--background))] stroke-[hsl(var(--border))] stroke-1" />
+          <RadixTooltip.Arrow className="fill-background stroke-border stroke-1" />
         )}
       </RadixTooltip.Content>
     </RadixTooltip.Portal>

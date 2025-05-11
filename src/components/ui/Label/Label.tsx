@@ -35,15 +35,15 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(
     return (
       <label
         className={cn(
-          'text-[var(--font-base)] font-medium text-foreground mb-[var(--spacing-xs)] block',
-          error && 'text-[hsl(var(--destructive))]',
+          'text-base font-medium mb-xs block',
+          error ? 'text-destructive' : 'text-foreground',
           className
         )}
         ref={ref}
         {...props}
       >
         {children}
-        {required && <span className="text-[hsl(var(--destructive))] ml-[var(--spacing-xs)]" aria-hidden="true">*</span>}
+        {required && <span className="text-destructive ml-xs" aria-hidden="true">*</span>}
       </label>
     )
   }

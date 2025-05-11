@@ -62,8 +62,8 @@ export const Accordion = {
   Item: ({ className, ...props }: AccordionItemProps) => (
     <RadixAccordion.Item
       className={cn(
-        'border-b border-b-[hsl(var(--border))]',
-        '[&:first-child]:border-t [&:first-child]:border-t-[hsl(var(--border))]',
+        'border-b border-b-border',
+        '[&:first-child]:border-t [&:first-child]:border-t-border',
         className
       )}
       {...props}
@@ -76,13 +76,13 @@ export const Accordion = {
   Trigger: ({
     className,
     children,
-    icon = <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />,
+    icon = <ChevronDown className="h-[var(--accordion-icon-size)] w-[var(--accordion-icon-size)] shrink-0 transition-transform duration-[var(--accordion-icon-transition)]" />,
     ...props
   }: AccordionTriggerProps) => (
     <RadixAccordion.Header className="flex">
       <RadixAccordion.Trigger
         className={cn(
-          'flex flex-1 items-center justify-between py-4 text-[var(--font-base)] font-medium transition-all',
+          'flex flex-1 items-center justify-between py-[var(--accordion-trigger-padding-y)] text-base font-[var(--accordion-trigger-font-weight)] transition-all',
           'hover:underline',
           '[&[data-state=open]>svg]:rotate-180',
           className
@@ -101,13 +101,13 @@ export const Accordion = {
   Content: ({ className, children, ...props }: AccordionContentProps) => (
     <RadixAccordion.Content
       className={cn(
-        'overflow-hidden text-[var(--font-base)] transition-all',
+        'overflow-hidden text-base transition-all',
         'data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
         className
       )}
       {...props}
     >
-      <div className="pb-4 pt-0">{children}</div>
+      <div className="pb-[var(--accordion-content-padding-bottom)] pt-0">{children}</div>
     </RadixAccordion.Content>
   ),
 }

@@ -130,7 +130,7 @@ export const StyledAccordion: Story = {
       <Accordion.Root
         type="single"
         collapsible
-        className="rounded-[var(--radius-md)] border border-[hsl(var(--border))] shadow-sm"
+        className="rounded-md border border-border shadow-sm"
       >
         {faqItems.map((item, i) => (
           <Accordion.Item 
@@ -138,10 +138,10 @@ export const StyledAccordion: Story = {
             value={`item-${i + 1}`}
             className={i === 0 ? 'border-t-0' : ''}
           >
-            <Accordion.Trigger className="px-4 hover:bg-[hsl(var(--muted))] hover:no-underline">
+            <Accordion.Trigger className="px-4 hover:bg-muted hover:no-underline">
               {item.question}
             </Accordion.Trigger>
-            <Accordion.Content className="bg-[hsl(var(--muted))]/30 px-4">
+            <Accordion.Content className="bg-muted/30 px-4">
               {item.answer}
             </Accordion.Content>
           </Accordion.Item>
@@ -171,17 +171,17 @@ export const WithRichContent: Story = {
           <Accordion.Trigger>Pricing Options</Accordion.Trigger>
           <Accordion.Content>
             <div className="space-y-4">
-              <div className="rounded-[var(--radius-md)] border p-3">
+              <div className="rounded-md border p-3">
                 <h4 className="font-semibold">Starter Plan</h4>
-                <p className="text-[hsl(var(--muted-foreground))]">$9.99/month</p>
+                <p className="text-muted-foreground">$9.99/month</p>
               </div>
-              <div className="rounded-[var(--radius-md)] border p-3">
+              <div className="rounded-md border p-3">
                 <h4 className="font-semibold">Pro Plan</h4>
-                <p className="text-[hsl(var(--muted-foreground))]">$19.99/month</p>
+                <p className="text-muted-foreground">$19.99/month</p>
               </div>
-              <div className="rounded-[var(--radius-md)] border p-3">
+              <div className="rounded-md border p-3">
                 <h4 className="font-semibold">Enterprise</h4>
-                <p className="text-[hsl(var(--muted-foreground))]">Contact sales</p>
+                <p className="text-muted-foreground">Contact sales</p>
               </div>
             </div>
           </Accordion.Content>

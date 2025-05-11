@@ -29,7 +29,7 @@ export default function FormError({
   return (
     <p
       className={cn(
-        'text-[var(--font-sm)] font-medium text-[hsl(var(--destructive))]',
+        'text-sm font-medium text-destructive',
         className
       )}
       role="alert"

@@ -115,7 +115,7 @@ export const StyledContent: Story = {
         <Tabs.Trigger value="faq">FAQ</Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content value="overview">
-        <div className="p-6 space-y-4 bg-[hsl(var(--background))] border rounded-md mt-4 shadow-sm">
+        <div className="p-6 space-y-4 bg-background border rounded-md mt-4 shadow-sm">
           <h3 className="text-xl font-bold">Product Overview</h3>
           <p>Comprehensive overview of our product offering and capabilities.</p>
           <ul className="list-disc pl-5 space-y-2">
@@ -126,19 +126,19 @@ export const StyledContent: Story = {
         </div>
       </Tabs.Content>
       <Tabs.Content value="features">
-        <div className="p-6 space-y-4 bg-[hsl(var(--background))] border rounded-md mt-4 shadow-sm">
+        <div className="p-6 space-y-4 bg-background border rounded-md mt-4 shadow-sm">
           <h3 className="text-xl font-bold">Key Features</h3>
           <p>Explore the powerful features that make our product stand out.</p>
         </div>
       </Tabs.Content>
       <Tabs.Content value="pricing">
-        <div className="p-6 space-y-4 bg-[hsl(var(--background))] border rounded-md mt-4 shadow-sm">
+        <div className="p-6 space-y-4 bg-background border rounded-md mt-4 shadow-sm">
           <h3 className="text-xl font-bold">Pricing Plans</h3>
           <p>Find the perfect plan for your business needs.</p>
         </div>
       </Tabs.Content>
       <Tabs.Content value="faq">
-        <div className="p-6 space-y-4 bg-[hsl(var(--background))] border rounded-md mt-4 shadow-sm">
+        <div className="p-6 space-y-4 bg-background border rounded-md mt-4 shadow-sm">
           <h3 className="text-xl font-bold">Frequently Asked Questions</h3>
           <p>Get answers to the most common questions about our service.</p>
         </div>
@@ -173,29 +173,29 @@ export const DisabledTab: Story = {
 export const CustomStyling: Story = {
   render: () => (
     <Tabs.Root defaultValue="tab1">
-      <Tabs.List className="bg-[hsl(var(--primary))] rounded-t-md border-b-0">
+      <Tabs.List className="bg-primary rounded-t-md border-b-0">
         <Tabs.Trigger 
           value="tab1" 
-          className="text-[hsl(var(--primary-foreground))] data-[state=active]:bg-white data-[state=active]:text-[hsl(var(--primary))]"
+          className="text-primary-foreground data-[state=active]:bg-white data-[state=active]:text-primary"
         >
           Custom Tab 1
         </Tabs.Trigger>
         <Tabs.Trigger 
           value="tab2"
-          className="text-[hsl(var(--primary-foreground))] data-[state=active]:bg-white data-[state=active]:text-[hsl(var(--primary))]"
+          className="text-primary-foreground data-[state=active]:bg-white data-[state=active]:text-primary"
         >
           Custom Tab 2
         </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content 
         value="tab1"
-        className="border border-[hsl(var(--primary))] rounded-b-md p-4"
+        className="border border-primary rounded-b-md p-4"
       >
         <div>Custom styled content for Tab 1</div>
       </Tabs.Content>
       <Tabs.Content 
         value="tab2"
-        className="border border-[hsl(var(--primary))] rounded-b-md p-4"
+        className="border border-primary rounded-b-md p-4"
       >
         <div>Custom styled content for Tab 2</div>
       </Tabs.Content>

@@ -14,22 +14,32 @@ export function getButtonClassNames({
   disabled?: boolean
   className?: string
 }) {
-  const base =
-    'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded'
+  const base = [
+    'inline-flex items-center justify-center',
+    'font-[var(--button-font-weight)]',
+    'transition-[var(--button-transition)]',
+    'focus:outline-[var(--button-focus-outline)]',
+    'focus:ring-[var(--button-focus-ring-width)]',
+    'focus:ring-ring',
+    'focus:ring-offset-[var(--button-focus-ring-offset)]',
+    'disabled:opacity-[var(--button-disabled-opacity)]',
+    'disabled:pointer-events-[var(--button-disabled-events)]',
+    'rounded-[var(--button-border-radius)]'
+  ].join(' ')
 
   const sizeStyles: Record<ButtonSize, string> = {
-    sm: 'px-[var(--spacing-sm)] py-[0.375rem] text-[var(--font-sm)]',
-    md: 'px-[var(--spacing-md)] py-[0.5rem] text-[var(--font-base)]',
-    lg: 'px-[var(--spacing-lg)] py-[0.75rem] text-[var(--font-lg)]',
+    sm: 'px-sm py-[var(--button-padding-y-sm)] text-sm',
+    md: 'px-md py-[var(--button-padding-y-md)] text-base',
+    lg: 'px-lg py-[var(--button-padding-y-lg)] text-lg',
   }
 
   const variantStyles: Record<ButtonVariant, string> = {
-    primary: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] hover:bg-[hsl(var(--primary))]/90',
+    primary: 'bg-primary text-primary-foreground hover:bg-primary/[var(--button-hover-background-opacity)]',
     secondary:
-      'bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] border border-[hsl(var(--border))] hover:bg-[hsl(var(--secondary))]/90',
+      'bg-secondary text-secondary-foreground border border-border hover:bg-secondary/[var(--button-hover-background-opacity)]',
     tertiary:
-      'bg-transparent text-[hsl(var(--primary))] border border-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/10',
+      'bg-transparent text-primary border border-primary hover:bg-primary/10',
   }
 
-  return cn(base, sizeStyles[size], variantStyles[variant], disabled && 'cursor-not-allowed', className)
+  return cn(base, sizeStyles[size], variantStyles[variant], disabled && 'cursor-[var(--button-disabled-cursor)]', className)
 }

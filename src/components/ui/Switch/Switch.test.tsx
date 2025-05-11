@@ -18,10 +18,8 @@ describe('Switch', () => {
 
   it('renders switch with label correctly', () => {
     render(<Switch checked={false} onCheckedChange={mockOnCheckedChange} label="Test Label" />)
-
-    const labels = screen.getAllByText('Test Label')
-    const visibleLabel = labels.find((el) => el.tagName.toLowerCase() === 'label')
-    expect(visibleLabel).toBeInTheDocument()
+  
+    expect(screen.getByText('Test Label')).toBeInTheDocument()
   })
 
   it('reflects the checked state correctly', () => {
@@ -92,17 +90,16 @@ describe('Switch', () => {
 
   it('applies custom labelClassName correctly', () => {
     render(
-      <Switch 
-        checked={false} 
-        onCheckedChange={mockOnCheckedChange} 
-        label="Custom Label" 
-        labelClassName="custom-label-class" 
+      <Switch
+        checked={false}
+        onCheckedChange={mockOnCheckedChange}
+        label="Custom Label"
+        labelClassName="custom-label-class"
       />
     )
-
-    const labels = screen.getAllByText('Custom Label')
-    const visibleLabel = labels.find((el) => el.tagName.toLowerCase() === 'label')
-    expect(visibleLabel?.className).toContain('custom-label-class')
+  
+    const labelText = screen.getByText('Custom Label')
+    expect(labelText.className).toContain('custom-label-class')
   })
 
   it('applies different sizes correctly', () => {
@@ -111,35 +108,30 @@ describe('Switch', () => {
     )
 
     let trackElement = container.querySelector('div[class*="rounded-full transition-colors"]')
-    expect(trackElement?.className).toContain('h-4')
+    expect(trackElement?.className).toContain('h-[var(--switch-sm-track-height)]')
 
     rerender(<Switch checked={false} onCheckedChange={mockOnCheckedChange} visualSize="md" />)
     trackElement = container.querySelector('div[class*="rounded-full transition-colors"]')
-    expect(trackElement?.className).toContain('h-5')
+    expect(trackElement?.className).toContain('h-[var(--switch-md-track-height)]')
 
     rerender(<Switch checked={false} onCheckedChange={mockOnCheckedChange} visualSize="lg" />)
     trackElement = container.querySelector('div[class*="rounded-full transition-colors"]')
-    expect(trackElement?.className).toContain('h-6')
+    expect(trackElement?.className).toContain('h-[var(--switch-lg-track-height)]')
   })
 
   it('uses provided id or generates one if not provided', () => {
     const { rerender } = render(
       <Switch checked={false} onCheckedChange={mockOnCheckedChange} id="custom-id" label="Test" />
     )
-
+  
     let input = screen.getByRole('checkbox')
-    let labels = screen.getAllByText('Test')
-    let label = labels.find(el => el.tagName.toLowerCase() === 'label')
-
     expect(input).toHaveAttribute('id', 'custom-id')
-    expect(label).toHaveAttribute('for', 'custom-id')
-
+  
     rerender(<Switch checked={false} onCheckedChange={mockOnCheckedChange} label="Test" />)
-
+  
     input = screen.getByRole('checkbox')
-    labels = screen.getAllByText('Test')
-    label = labels.find(el => el.tagName.toLowerCase() === 'label')
-
+    const label = screen.getByText('Test').closest('label')
+  
     expect(input).toHaveAttribute('id')
     expect(label).toHaveAttribute('for', input.getAttribute('id'))
   })

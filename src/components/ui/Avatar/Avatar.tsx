@@ -82,49 +82,40 @@ function Avatar({
   ...props
 }: AvatarProps): JSX.Element {
   const sizeStyles: Record<AvatarSize, string> = {
-    xs: 'h-6 w-6 text-[var(--font-sm)]',
-    sm: 'h-8 w-8 text-[var(--font-sm)]',
-    md: 'h-10 w-10 text-[var(--font-base)]',
-    lg: 'h-12 w-12 text-[var(--font-lg)]',
-    xl: 'h-16 w-16 text-[var(--font-lg)]',
+    xs: 'h-[var(--avatar-size-xs)] w-[var(--avatar-size-xs)] text-sm',
+    sm: 'h-[var(--avatar-size-sm)] w-[var(--avatar-size-sm)] text-sm',
+    md: 'h-[var(--avatar-size-md)] w-[var(--avatar-size-md)] text-base',
+    lg: 'h-[var(--avatar-size-lg)] w-[var(--avatar-size-lg)] text-lg',
+    xl: 'h-[var(--avatar-size-xl)] w-[var(--avatar-size-xl)] text-lg',
   }
 
   const shapeStyles: Record<'circle' | 'square', string> = {
     circle: 'rounded-full',
-    square: 'rounded-[var(--radius-md)]',
+    square: 'rounded-md',
   }
 
   const statusStyles: Record<Exclude<NonNullable<AvatarProps['status']>, 'none'>, string> = {
-    online: 'bg-green-500',
-    offline: 'bg-[hsl(var(--muted-foreground))]',
-    away: 'bg-yellow-500',
-    busy: 'bg-red-500',
+    online: 'bg-[hsl(var(--avatar-status-color-online))]',
+    offline: 'bg-muted-foreground',
+    away: 'bg-[hsl(var(--avatar-status-color-away))]',
+    busy: 'bg-[hsl(var(--avatar-status-color-busy))]',
   }  
 
-  const getStatusSize = () => {
-    switch (size) {
-    case 'xs':
-      return 'h-1.5 w-1.5'
-    case 'sm':
-      return 'h-2 w-2'
-    case 'md':
-      return 'h-2.5 w-2.5'
-    case 'lg':
-      return 'h-3 w-3'
-    case 'xl':
-      return 'h-4 w-4'
-    default:
-      return 'h-2.5 w-2.5'
-    }
+  const statusSizeStyles: Record<AvatarSize, string> = {
+    xs: 'h-[var(--avatar-status-size-xs)] w-[var(--avatar-status-size-xs)]',
+    sm: 'h-[var(--avatar-status-size-sm)] w-[var(--avatar-status-size-sm)]',
+    md: 'h-[var(--avatar-status-size-md)] w-[var(--avatar-status-size-md)]',
+    lg: 'h-[var(--avatar-status-size-lg)] w-[var(--avatar-status-size-lg)]',
+    xl: 'h-[var(--avatar-status-size-xl)] w-[var(--avatar-status-size-xl)]',
   }
 
   return (
     <div
       className={cn(
-        'relative inline-flex shrink-0 overflow-hidden',
+        'relative inline-flex [flex-shrink:var(--avatar-shrink)] [overflow:var(--avatar-overflow)]',
         sizeStyles[size],
         shapeStyles[shape],
-        bordered && 'ring-2 ring-[hsl(var(--background))]',
+        bordered && 'ring-[var(--avatar-border-width)] ring-background',
         className
       )}
       {...props}
@@ -134,9 +125,9 @@ function Avatar({
       {status !== 'none' && (
         <span
           className={cn(
-            'absolute bottom-0 right-0 block rounded-full ring-2 ring-[hsl(var(--background))]',
+            'absolute bottom-0 right-0 block rounded-[var(--avatar-status-border-radius)] ring-[var(--avatar-status-border-width)] ring-background',
             statusStyles[status],
-            getStatusSize()
+            statusSizeStyles[size]
           )}
         />
       )}
@@ -152,7 +143,7 @@ function AvatarImage({ src, alt, className, ...props }: AvatarImageProps): JSX.E
     <img
       src={src}
       alt={alt}
-      className={cn('h-full w-full object-cover', className)}
+      className={cn('h-[var(--avatar-image-height)] w-[var(--avatar-image-width)] object-[var(--avatar-image-fit)]', className)}
       {...props}
     />
   )
@@ -168,39 +159,31 @@ function AvatarFallback({
   ...props
 }: AvatarFallbackProps): JSX.Element {
   const colorSchemes: Record<AvatarFallbackProps['colorScheme'] & string, string> = {
-    gray: 'bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))]',
-    primary: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]',
-    secondary: 'bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]',
+    gray: 'bg-muted text-muted-foreground',
+    primary: 'bg-primary text-primary-foreground',
+    secondary: 'bg-secondary text-secondary-foreground',
     random: '',
   }
 
   // Generate a deterministic background color if colorScheme is 'random'
   let randomColorClass = ''
   if (colorScheme === 'random') {
-    const colors = [
-      'bg-blue-100 text-blue-800',
-      'bg-green-100 text-green-800',
-      'bg-purple-100 text-purple-800',
-      'bg-yellow-100 text-yellow-800',
-      'bg-pink-100 text-pink-800',
-      'bg-indigo-100 text-indigo-800',
+    const randomColorOptions = [
+      'bg-[hsl(var(--avatar-fallback-color-blue-bg))] text-[hsl(var(--avatar-fallback-color-blue-text))]',
+      'bg-[hsl(var(--avatar-fallback-color-green-bg))] text-[hsl(var(--avatar-fallback-color-green-text))]',
+      'bg-[hsl(var(--avatar-fallback-color-yellow-bg))] text-[hsl(var(--avatar-fallback-color-yellow-text))]',
+      'bg-[hsl(var(--avatar-fallback-color-red-bg))] text-[hsl(var(--avatar-fallback-color-red-text))]',
     ]
-    
-    // Use a simple hash of the children string to pick a color
-    let hash = 0
-    const childrenStr = children?.toString() || ''
-    for (let i = 0; i < childrenStr.length; i++) {
-      hash = childrenStr.charCodeAt(i) + ((hash << 5) - hash)
-    }
-    
-    const colorIndex = Math.abs(hash) % colors.length
-    randomColorClass = colors[colorIndex]
-  }
+  
+    const hash = children?.toString().charCodeAt(0) ?? 0
+    const index = Math.abs(hash) % randomColorOptions.length
+    randomColorClass = randomColorOptions[index]
+  }  
 
   return (
     <div
       className={cn(
-        'flex h-full w-full items-center justify-center font-medium',
+        'flex h-[var(--avatar-fallback-height)] w-[var(--avatar-fallback-width)] items-center justify-center font-[var(--avatar-fallback-font-weight)]',
         colorScheme === 'random' ? randomColorClass : colorSchemes[colorScheme],
         className
       )}

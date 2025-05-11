@@ -49,15 +49,15 @@ const ScrollArea = forwardRef<
     ref
   ) => {
     const isMinimal = scrollbarStyle === 'minimal'
-    const scrollbarSize = isMinimal ? '2px' : '10px'
+    const scrollbarSize = isMinimal ? '4px' : '10px'
 
     const commonScrollbarClasses = cn(
       'flex touch-none select-none transition-colors',
-      isMinimal ? 'bg-transparent' : 'bg-[hsl(var(--muted))]'
+      isMinimal ? 'bg-transparent' : 'bg-muted'
     )
 
     const thumbClasses = cn(
-      'relative flex-1 rounded-full bg-[hsl(var(--muted-foreground))]',
+      'relative flex-1 rounded-full bg-muted-foreground',
       isMinimal && 'opacity-50',
       'before:absolute before:left-1/2 before:top-1/2 before:min-h-[44px] before:min-w-[44px] before:-translate-x-1/2 before:-translate-y-1/2 before:content-[""]'
     )

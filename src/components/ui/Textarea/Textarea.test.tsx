@@ -41,6 +41,6 @@ describe('Textarea', () => {
       <Textarea error placeholder="Error textarea" />
     )
     const textarea = container.firstChild as HTMLElement
-    expect(textarea.className).toContain('border-[hsl(var(--destructive))]')
+    expect(textarea.className).toContain('border-destructive')
   })
 })

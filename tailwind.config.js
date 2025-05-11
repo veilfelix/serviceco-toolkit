@@ -4,6 +4,19 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],  
   theme: {
+    // Breakpoints (named 'screens' here) must be updated in three places:
+    // - theme/index.css
+    // - theme/tokens.ts
+    // - tailwind.config.js
+    // This config controls responsive behavior in Tailwind utilities.
+    screens: {
+      xs: '480px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       typography: {
         DEFAULT: {
@@ -18,7 +31,12 @@ module.exports = {
           },
         },
       },
+      /**
+       * Design tokens mapped for Tailwind utility classes.
+       * These can be used directly like `bg-primary`, `text-foreground`, `rounded-md`, `p-spacing-md` etc.
+       */
       colors: {
+        // Colors
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: 'hsl(var(--primary))',
@@ -34,6 +52,39 @@ module.exports = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        // Alert Colors
+        'alert-success-bg': 'hsl(var(--alert-success-bg))',
+        'alert-success-text': 'hsl(var(--alert-success-text))',
+        'alert-success-border': 'hsl(var(--alert-success-border))',
+        'alert-warning-bg': 'hsl(var(--alert-warning-bg))',
+        'alert-warning-text': 'hsl(var(--alert-warning-text))',
+        'alert-warning-border': 'hsl(var(--alert-warning-border))',
+        'alert-error-bg': 'hsl(var(--alert-error-bg))',
+        'alert-error-text': 'hsl(var(--alert-error-text))',
+        'alert-error-border': 'hsl(var(--alert-error-border))',
+        'alert-info-bg': 'hsl(var(--alert-info-bg))',
+        'alert-info-text': 'hsl(var(--alert-info-text))',
+        'alert-info-border': 'hsl(var(--alert-info-border))',
+        // Badge Colors
+        'badge-success-bg': 'hsl(var(--badge-success-bg))',
+        'badge-success-text': 'hsl(var(--badge-success-text))',
+        'badge-warning-bg': 'hsl(var(--badge-warning-bg))',
+        'badge-warning-text': 'hsl(var(--badge-warning-text))',
+        // Dialog Colors
+        'dialog-overlay-background': 'var(--dialog-overlay-background)',
+        'dialog-close-text-color': 'var(--dialog-close-text-color)',
+        // Avatar Status Colors
+        'avatar-status-online': 'hsl(var(--avatar-status-color-online))',
+        'avatar-status-away': 'hsl(var(--avatar-status-color-away))',
+        'avatar-status-busy': 'hsl(var(--avatar-status-color-busy))',
+        'avatar-fallback-blue-bg': 'hsl(var(--avatar-fallback-color-blue-bg))',
+        'avatar-fallback-blue-text': 'hsl(var(--avatar-fallback-color-blue-text))',
+        'avatar-fallback-green-bg' : 'rgb(var(--avatar-fallback-color-green-bg))',
+        'avatar-fallback-green-text' : 'rgb(var(--avatar-fallback-color-green-text))',
+        'avatar-fallback-yellow-bg' : 'rgb(var(--avatar-fallback-color-yellow-bg))',
+        'avatar-fallback-yellow-text' : 'rgb(var(--avatar-fallback-color-yellow-text))',
+        'avatar-fallback-red-bg' : 'rgb(var(--avatar-fallback-color-red-bg))',
+        'avatar-fallback-red-text' : 'rgb(var(--avatar-fallback-color-red-text))',
       },
       borderRadius: {
         sm: 'var(--radius-sm)',
@@ -53,6 +104,146 @@ module.exports = {
         sm: 'var(--font-sm)',
         base: 'var(--font-base)',
         lg: 'var(--font-lg)',
+        xl: 'var(--font-xl)',
+        '2xl': 'var(--font-2xl)',
+        '3xl': 'var(--font-3xl)',
+        '4xl': 'var(--font-4xl)',
+        '5xl': 'var(--font-5xl)',
+      },
+      /**
+       * Component-specific tokens not intended for direct Tailwind class usage.
+       * These are meant to be consumed via `var(--token-name)` inside component class definitions or inline styles.
+       * Example: `style={{ zIndex: 'var(--dialog-content-z-index)' }}` or `className="rounded-[var(--card-title-letter-spacing)]"`.
+       */
+      // switchSize
+      switchSize: {
+        'sm-track-height': 'var(--switch-sm-track-height)',
+        'sm-track-width': 'var(--switch-sm-track-width)',
+        'sm-thumb-size': 'var(--switch-sm-thumb-size)',
+        'sm-translate': 'var(--switch-sm-translate)',
+        'md-track-height': 'var(--switch-md-track-height)',
+        'md-track-width': 'var(--switch-md-track-width)',
+        'md-thumb-size': 'var(--switch-md-thumb-size)',
+        'md-translate': 'var(--switch-md-translate)',
+        'lg-track-height': 'var(--switch-lg-track-height)',
+        'lg-track-width': 'var(--switch-lg-track-width)',
+        'lg-thumb-size': 'var(--switch-lg-thumb-size)',
+        'lg-translate': 'var(--switch-lg-translate)',
+      },
+      // Accordion
+      accordion: {
+        'trigger-padding-y': 'var(--accordion-trigger-padding-y)',
+        'trigger-font-weight': 'var(--accordion-trigger-font-weight)',
+        'trigger-hover-opacity': 'var(--accordion-trigger-hover-opacity)',
+        'icon-size': 'var(--accordion-icon-size)',
+        'icon-transition': 'var(--accordion-icon-transition)',
+        'content-padding-bottom': 'var(--accordion-content-padding-bottom)',
+        'animation-duration': 'var(--accordion-animation-duration)',
+      },
+      // Dialog
+      dialog: {
+        'overlay-blur': 'var(--dialog-overlay-blur)',
+        'overlay-z-index': 'var(--dialog-overlay-z-index)',
+        'content-z-index': 'var(--dialog-content-z-index)',
+        'content-width': 'var(--dialog-content-width)',
+        'content-max-width': 'var(--dialog-content-max-width)',
+        'content-gap': 'var(--dialog-content-gap)',
+        'content-padding': 'var(--dialog-content-padding)',
+        'content-border-radius': 'var(--dialog-content-border-radius)',
+        'title-font-size': 'var(--dialog-title-font-size)',
+        'title-font-weight': 'var(--dialog-title-font-weight)',
+        'close-right': 'var(--dialog-close-right)',
+        'close-top': 'var(--dialog-close-top)',
+        'close-icon-size': 'var(--dialog-close-icon-size)',
+      },
+      // Tabs
+      tabs: {
+        'list-height': 'var(--tabs-list-height)',
+        'list-padding': 'var(--tabs-list-padding)',
+        'list-border-radius': 'var(--tabs-list-border-radius)',
+        'trigger-border-radius': 'var(--tabs-trigger-border-radius)',
+        'content-border-radius': 'var(--tabs-content-border-radius)',
+      },
+      // Popover
+      popover: {
+        'content-z-index': 'var(--popover-content-z-index)',
+        'content-width': 'var(--popover-content-width)',
+        'content-padding': 'var(--popover-content-padding)',
+        'close-right': 'var(--popover-close-right)',
+        'close-top': 'var(--popover-close-top)',
+        'close-size': 'var(--popover-close-size)',
+        'close-border-radius': 'var(--popover-close-border-radius)',
+        'close-icon-size': 'var(--popover-close-icon-size)',
+      },
+      // Header
+      header: {
+        'padding-y': 'var(--header-padding-y)',
+        'title-font-weight': 'var(--header-title-font-weight)',
+        'nav-item-gap': 'var(--header-nav-item-gap)',
+      },
+      // Button
+      button: {
+        'font-weight': 'var(--button-font-weight)',
+        'transition': 'var(--button-transition)',
+        'focus-outline': 'var(--button-focus-outline)',
+        'focus-ring-width': 'var(--button-focus-ring-width)',
+        'focus-ring-offset': 'var(--button-focus-ring-offset)',
+        'disabled-opacity': 'var(--button-disabled-opacity)',
+        'disabled-events': 'var(--button-disabled-events)',
+        'border-radius': 'var(--button-border-radius)',
+        'padding-y-sm': 'var(--button-padding-y-sm)',
+        'padding-y-md': 'var(--button-padding-y-md)',
+        'padding-y-lg': 'var(--button-padding-y-lg)',
+        'hover-background-opacity': 'var(--button-hover-background-opacity)',
+        'disabled-cursor': 'var(--button-disabled-cursor)',
+      },
+      // Card
+      card: {
+        'shadow': 'var(--card-shadow)',
+        'header-gap': 'var(--card-header-gap)',
+        'title-line-height': 'var(--card-title-line-height)',
+        'title-letter-spacing': 'var(--card-title-letter-spacing)',
+        'title-font-weight': 'var(--card-title-font-weight)',
+        'footer-padding-top': 'var(--card-footer-padding-top)',
+        'content-padding-top': 'var(--card-content-padding-top)',
+      },
+      // Input
+      input: {
+        'width': 'var(--input-width)',
+        'border-radius': 'var(--input-border-radius)',
+        'border-width': 'var(--input-border-width)',
+        'background': 'var(--input-background)',
+        'padding-y': 'var(--input-padding-y)',
+        'ring-offset-color': 'var(--input-ring-offset-color)',
+        'focus-outline': 'var(--input-focus-outline)',
+        'focus-ring-width': 'var(--input-focus-ring-width)',
+        'focus-ring-offset': 'var(--input-focus-ring-offset)',
+        'disabled-cursor': 'var(--input-disabled-cursor)',
+        'disabled-opacity': 'var(--input-disabled-opacity)',
+      },
+      // Avatar
+      avatar: {
+        'shrink': 'var(--avatar-shrink)',
+        'overflow': 'var(--avatar-overflow)',
+        'size-xs': 'var(--avatar-size-xs)',
+        'size-sm': 'var(--avatar-size-sm)',
+        'size-md': 'var(--avatar-size-md)',
+        'size-lg': 'var(--avatar-size-lg)',
+        'size-xl': 'var(--avatar-size-xl)',
+        'border-width': 'var(--avatar-border-width)',
+        'status-border-radius': 'var(--avatar-status-border-radius)',
+        'status-border-width': 'var(--avatar-status-border-width)',
+        'status-size-xs': 'var(--avatar-status-size-xs)',
+        'status-size-sm': 'var(--avatar-status-size-sm)',
+        'status-size-md': 'var(--avatar-status-size-md)',
+        'status-size-lg': 'var(--avatar-status-size-lg)',
+        'status-size-xl': 'var(--avatar-status-size-xl)',
+        'image-height': 'var(--avatar-image-height)',
+        'image-width': 'var(--avatar-image-width)',
+        'image-fit': 'var(--avatar-image-fit)',
+        'fallback-height': 'var(--avatar-fallback-height)',
+        'fallback-width': 'var(--avatar-fallback-width)',
+        'fallback-font-weight': 'var(--avatar-fallback-font-weight)',
       },
     },
   },

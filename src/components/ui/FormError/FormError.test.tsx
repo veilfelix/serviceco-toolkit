@@ -20,7 +20,7 @@ describe('FormError', () => {
     )
     const errorElement = container.firstChild as HTMLElement
     expect(errorElement.className).toContain('custom-class')
-    expect(errorElement.className).toContain('text-[hsl(var(--destructive))]')
+    expect(errorElement.className).toContain('text-destructive')
   })
 
   it('passes additional props to the paragraph element', () => {

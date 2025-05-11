@@ -52,15 +52,21 @@ const meta: Meta<typeof DropdownMenu.Content> = {
     },
   },
   decorators: [
-    ((Story): JSX.Element => (
-      <DropdownMenu.Root>
-        <DropdownMenu.Trigger asChild>
-          <Button variant="primary">Open Menu</Button>
-        </DropdownMenu.Trigger>
-        <Story />
-      </DropdownMenu.Root>
-    )) as Decorator,
-  ],
+    ((Story, context): JSX.Element => {
+      if (context.args?.children) {
+        return (
+          <DropdownMenu.Root>
+            <DropdownMenu.Trigger asChild>
+              <Button variant="primary">Open Menu</Button>
+            </DropdownMenu.Trigger>
+            <Story />
+          </DropdownMenu.Root>
+        )
+      }
+
+      return <Story />
+    }) as Decorator,
+  ]
 }
 
 export default meta
@@ -150,7 +156,8 @@ export const WithDisabledItems: Story = {
   },
 }
 
-export const WithCheckboxItemsComponent = () => {
+// With checkbox items
+export const WithCheckboxItems = () => {
   const [showStatusBar, setShowStatusBar] = useState(true)
   const [showActivityBar, setShowActivityBar] = useState(false)
   const [showPanel, setShowPanel] = useState(false)
@@ -189,12 +196,7 @@ export const WithCheckboxItemsComponent = () => {
   )
 }
 
-// With checkbox items
-export const WithCheckboxItems: Story = {
-  render: () => <WithCheckboxItemsComponent />,
-}
-
-
+// With radio items
 export const WithRadioItemsComponent = () => {
   const [position, setPosition] = useState('bottom')
 
@@ -218,11 +220,6 @@ export const WithRadioItemsComponent = () => {
       </DropdownMenu.Content>
     </DropdownMenu.Root>
   )
-}
-
-// With radio items
-export const WithRadioItems: Story = {
-  render: () => <WithRadioItemsComponent />,
 }
 
 // With submenus

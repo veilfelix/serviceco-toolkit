@@ -31,5 +31,8 @@ export default function Text({
   children,
   className,
 }: TextProps): JSX.Element {
-  return <Tag className={cn('text-[hsl(var(--foreground))]', className)}>{children}</Tag>
+  const base = 'text-foreground'
+  const defaultSpacing = Tag === 'p' ? 'mb-sm' : ''
+
+  return <Tag className={cn(base, defaultSpacing, className)}>{children}</Tag>
 }

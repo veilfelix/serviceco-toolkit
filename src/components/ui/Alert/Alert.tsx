@@ -1,5 +1,6 @@
 import { HTMLAttributes, JSX, ReactNode } from 'react'
 import { cn } from '@/utils/classNames'
+import { X } from 'lucide-react'
 
 export type AlertVariant = 'default' | 'success' | 'warning' | 'error' | 'info'
 
@@ -56,18 +57,18 @@ export default function Alert({
   ...props
 }: AlertProps): JSX.Element {
   const variantStyles: Record<AlertVariant, string> = {
-    default: 'bg-[hsl(var(--muted))] text-[hsl(var(--foreground))] border-[hsl(var(--border))]',
-    success: 'bg-green-50 text-green-800 border-green-200',
-    warning: 'bg-yellow-50 text-yellow-800 border-yellow-200',
-    error: 'bg-red-50 text-[hsl(var(--destructive))] border-red-200',
-    info: 'bg-blue-50 text-blue-800 border-blue-200',
+    default: 'bg-muted text-foreground border-border',
+    success: 'bg-alert-success-bg text-alert-success-text border-alert-success-border',
+    warning: 'bg-alert-warning-bg text-alert-warning-text border-alert-warning-border',
+    error: 'bg-alert-error-bg text-alert-error-text border-alert-error-border',
+    info: 'bg-alert-info-bg text-alert-info-text border-alert-info-border',
   }
 
   return (
     <div
       role="alert"
       className={cn(
-        'relative rounded-[var(--radius-md)] border p-[var(--spacing-md)]',
+        'relative rounded-md border p-md',
         variantStyles[variant],
         className
       )}
@@ -78,10 +79,10 @@ export default function Alert({
         
         <div className="flex-1">
           {title && (
-            <h5 className="mb-1 font-medium text-[var(--font-base)]">{title}</h5>
+            <h5 className="mb-1 font-medium text-base">{title}</h5>
           )}
           
-          <div className="text-[var(--font-base)]">{children}</div>
+          <div className="text-base">{children}</div>
         </div>
         
         {dismissible && onDismiss && (
@@ -91,22 +92,11 @@ export default function Alert({
             onClick={onDismiss}
             className={cn(
               'inline-flex h-5 w-5 items-center justify-center rounded-full',
-              'opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))]',
+              'opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring',
               'transition-opacity'
             )}
           >
-            <svg
-              className="h-3 w-3"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+            <X className="h-3 w-3"/>
           </button>
         )}
       </div>

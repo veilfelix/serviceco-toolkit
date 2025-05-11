@@ -62,8 +62,8 @@ export const Popover = {
         side={side}
         sideOffset={sideOffset}
         className={cn(
-          'z-50 w-72 rounded-[var(--radius-md)] border border-[hsl(var(--border))]',
-          'bg-[hsl(var(--background))] p-4 text-[hsl(var(--foreground))] shadow-md outline-none',
+          'z-[var(--popover-content-z-index)] w-[var(--popover-content-width)] rounded-md border border-border',
+          'bg-background p-[var(--popover-content-padding)] text-foreground shadow-md outline-none',
           'data-[state=open]:animate-in data-[state=closed]:animate-out',
           'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
           'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -77,13 +77,13 @@ export const Popover = {
         {showClose && (
           <RadixPopover.Close
             className={cn(
-              'absolute right-2 top-2 inline-flex h-5 w-5 items-center justify-center rounded-sm',
-              'opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--ring))]',
+              'absolute right-[var(--popover-close-right)] top-[var(--popover-close-top)] inline-flex h-[var(--popover-close-size)] w-[var(--popover-close-size)] items-center justify-center rounded-[var(--popover-close-border-radius)]',
+              'opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring',
               'focus:ring-offset-2 disabled:pointer-events-none'
             )}
             aria-label="Close"
           >
-            <X className="h-3 w-3" />
+            <X className="h-[var(--popover-close-icon-size)] w-[var(--popover-close-icon-size)]" />
           </RadixPopover.Close>
         )}
       </RadixPopover.Content>
@@ -95,7 +95,7 @@ export const Popover = {
    */
   Arrow: ({ className, ...props }: RadixPopover.PopoverArrowProps) => (
     <RadixPopover.Arrow
-      className={cn('fill-[hsl(var(--background))] stroke-[hsl(var(--border))] stroke-1', className)}
+      className={cn('fill-background stroke-border stroke-1', className)}
       {...props}
     />
   ),

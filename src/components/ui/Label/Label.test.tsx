@@ -25,7 +25,7 @@ describe('Label', () => {
       <Label error>Error label</Label>
     )
     const label = container.firstChild as HTMLElement
-    expect(label.className).toContain('text-[hsl(var(--destructive))]')
+    expect(label.className).toContain('text-destructive')
   })
 
   it('merges custom className with default styles', () => {

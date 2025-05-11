@@ -41,6 +41,6 @@ describe('Input', () => {
       <Input error placeholder="Error input" />
     )
     const input = container.firstChild as HTMLElement
-    expect(input.className).toContain('border-[hsl(var(--destructive))]')
+    expect(input.className).toContain('border-destructive')
   })
 })

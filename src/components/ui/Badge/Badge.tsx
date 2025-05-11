@@ -37,18 +37,18 @@ export default function Badge({
   ...props
 }: BadgeProps): JSX.Element {
   const variantStyles: Record<BadgeVariant, string> = {
-    primary: 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]',
-    secondary: 'bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]',
-    outline: 'border border-[hsl(var(--input))] bg-transparent text-[hsl(var(--foreground))]',
-    success: 'bg-green-500 text-white',
-    warning: 'bg-yellow-500 text-black',
-    danger: 'bg-[hsl(var(--destructive))] text-[hsl(var(--destructive-foreground))]'
+    primary: 'bg-primary text-primary-foreground',
+    secondary: 'bg-secondary text-secondary-foreground',
+    outline: 'border border-input bg-transparent text-foreground',
+    success: 'bg-badge-success-bg text-badge-success-text',
+    warning: 'bg-badge-warning-bg text-badge-warning-text',
+    danger: 'bg-destructive text-destructive-foreground'
   }
 
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full px-[var(--spacing-sm)] py-[0.25rem] text-[var(--font-sm)] font-medium',
+        'inline-flex items-center rounded-full px-md py-[0.25rem] text-sm font-medium',
         variantStyles[variant],
         className
       )}

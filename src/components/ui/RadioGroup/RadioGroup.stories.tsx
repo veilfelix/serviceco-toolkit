@@ -33,7 +33,6 @@ const meta: Meta<typeof RadioGroup> = {
   },
   decorators: [
     (Story) => {
-      // Add state management for the story
       const [value, setValue] = useState('option1')
       return <Story args={{ value, onChange: setValue }} />
     },
@@ -87,8 +86,8 @@ export const WithDisabledOption: Story = {
 export const FormField: Story = {
   render: ({ value, onChange }) => (
     <div className="p-4 w-80">
-      <div className="mb-[var(--spacing-sm)]">
-        <label className="text-[var(--font-base)] font-medium">Subscription Plan</label>
+      <div className="mb-sm">
+        <label className="text-base font-medium">Subscription Plan</label>
       </div>
       <RadioGroup value={value} onChange={onChange}>
         <RadioGroup.Item value="basic" label="Basic - $9.99/month" />
@@ -105,7 +104,7 @@ export const CustomStyling: Story = {
     <RadioGroup 
       value={value} 
       onChange={onChange}
-      className="bg-[hsl(var(--secondary))] p-[var(--spacing-md)] rounded-[var(--radius-md)]"
+      className="bg-secondary p-md rounded-md"
     >
       <RadioGroup.Item 
         value="option1" 
@@ -122,21 +121,6 @@ export const CustomStyling: Story = {
         label="Custom Option 3"
         labelClassName="font-semibold"
       />
-    </RadioGroup>
-  ),
-}
-
-// Horizontal layout
-export const HorizontalLayout: Story = {
-  render: ({ value, onChange }) => (
-    <RadioGroup 
-      value={value} 
-      onChange={onChange}
-      className="flex-row space-y-0 space-x-4"
-    >
-      <RadioGroup.Item value="option1" label="Option 1" />
-      <RadioGroup.Item value="option2" label="Option 2" />
-      <RadioGroup.Item value="option3" label="Option 3" />
     </RadioGroup>
   ),
 }

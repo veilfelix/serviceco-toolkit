@@ -53,7 +53,7 @@ export const Dialog = {
         {...rest}
       >
         {title && (
-          <RadixDialog.Title className="text-[var(--dialog-title-font-size)] font-[var(--dialog-title-font-weight)] text-foreground">
+          <RadixDialog.Title className="text-[var(--dialog-title-font-size)] font-[var(--dialog-title-font-weight)]">
             {title}
           </RadixDialog.Title>
         )}

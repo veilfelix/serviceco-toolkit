@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { HTMLAttributes, ImgHTMLAttributes, JSX, ReactNode } from 'react'
 import { cn } from '@/utils/classNames'
 

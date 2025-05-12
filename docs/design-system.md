@@ -209,7 +209,7 @@ This will return a space-separated string of valid classes and automatically mer
 
 ---
 
-## Summary of Use Cases
+## Summary
 
 | Situation                      | Solution                                      |
 | ------------------------------ | --------------------------------------------- |
@@ -221,7 +221,7 @@ This will return a space-separated string of valid classes and automatically mer
 
 ---
 
-## 📁 File Structure Overview
+## File Structure Overview
 
 ```
 src/

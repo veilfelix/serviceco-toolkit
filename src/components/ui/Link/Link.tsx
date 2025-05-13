@@ -84,7 +84,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
     // Define variant styles
     const variantStyles: Record<LinkVariant, string> = {
-      default: 'text-foreground underline hover:text-foreground/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+      default: 'text-foreground underline hover:text-foreground/70 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
       primary: 'text-primary underline hover:text-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
       muted: 'text-muted-foreground underline hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
       destructive: 'text-destructive underline hover:text-destructive/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',

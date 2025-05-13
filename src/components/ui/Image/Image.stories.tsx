@@ -4,7 +4,7 @@ import { ImageOff } from 'lucide-react'
 import { mockBlurData } from '@/utils/imageUtils'
 
 const meta: Meta<typeof Image> = {
-  title: 'Components/UI/Image',
+  title: 'UI/Image',
   component: Image,
   parameters: {
     layout: 'centered',

@@ -7,7 +7,7 @@ import { Settings, Calendar } from 'lucide-react'
 import type { Decorator } from '@storybook/react'
 
 const meta: Meta<typeof Popover.Content> = {
-  title: 'Components/Composed/Popover',
+  title: 'Composed/Popover',
   component: Popover.Content,
   parameters: {
     layout: 'centered',

@@ -3,7 +3,7 @@ import Link from './Link'
 import { ExternalLink } from 'lucide-react'
 
 const meta: Meta<typeof Link> = {
-  title: 'Components/UI/Link',
+  title: 'UI/Link',
   component: Link,
   parameters: {
     layout: 'centered',

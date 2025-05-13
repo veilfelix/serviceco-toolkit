@@ -31,6 +31,25 @@ module.exports = {
           },
         },
       },
+      keyframes: {
+        wave: {
+          '0%': { transform: 'translateX(var(--skeleton-wave-from))' },
+          '100%': { transform: 'translateX(var(--skeleton-wave-to))' },
+        },
+        indeterminate: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(300%)' },
+        },
+        pulse: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.5 },
+        },
+      },
+      animation: {
+        wave: 'wave 1.6s ease-in-out infinite',
+        indeterminate: 'indeterminate var(--progress-indeterminate-animation-duration) ease-in-out infinite',
+        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
       /**
        * Design tokens mapped for Tailwind utility classes.
        * These can be used directly like `bg-primary`, `text-foreground`, `rounded-md`, `p-spacing-md` etc.
@@ -52,6 +71,11 @@ module.exports = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        // Slider Colors
+        'slider-track': 'hsl(var(--slider-track-bg))',
+        'slider-range': 'hsl(var(--slider-range-bg))',
+        'slider-thumb': 'hsl(var(--slider-thumb-bg))',
+        'slider-thumb-border': 'hsl(var(--slider-thumb-border))',
         // Alert Colors
         'alert-success-bg': 'hsl(var(--alert-success-bg))',
         'alert-success-text': 'hsl(var(--alert-success-text))',
@@ -85,6 +109,16 @@ module.exports = {
         'avatar-fallback-yellow-text' : 'rgb(var(--avatar-fallback-color-yellow-text))',
         'avatar-fallback-red-bg' : 'rgb(var(--avatar-fallback-color-red-bg))',
         'avatar-fallback-red-text' : 'rgb(var(--avatar-fallback-color-red-text))',
+        // Skeleton Colors
+        'skeleton-bg': 'hsl(var(--skeleton-bg))',
+        'skeleton-highlight': 'hsl(var(--skeleton-highlight))',
+        // Progress Colors
+        'progress-bg': 'hsl(var(--progress-bg))',
+        'progress-primary': 'hsl(var(--progress-primary-color))',
+        'progress-secondary': 'hsl(var(--progress-secondary-color))',
+        'progress-success': 'hsl(var(--progress-success-color))',
+        'progress-warning': 'hsl(var(--progress-warning-color))',
+        'progress-danger': 'hsl(var(--progress-danger-color))',
       },
       borderRadius: {
         sm: 'var(--radius-sm)',
@@ -244,6 +278,68 @@ module.exports = {
         'fallback-height': 'var(--avatar-fallback-height)',
         'fallback-width': 'var(--avatar-fallback-width)',
         'fallback-font-weight': 'var(--avatar-fallback-font-weight)',
+      },
+      // Slider
+      slider: {
+        'track-height': 'var(--slider-track-height)',
+        'thumb-size': 'var(--slider-thumb-size)',
+        'thumb-shadow': 'var(--slider-thumb-shadow)',
+        'thumb-ring-width': 'var(--slider-thumb-ring-width)',
+        'tooltip-bg': 'var(--slider-tooltip-bg)',
+        'tooltip-text': 'var(--slider-tooltip-text)',
+      },
+      // Table & TableResponsive
+      table: {
+        'border-color': 'var(--table-border-color)',
+        'header-bg': 'var(--table-header-bg)',
+        'header-font-weight': 'var(--table-header-font-weight)',
+        'row-hover-bg': 'var(--table-row-hover-bg)',
+        'row-stripe-bg': 'var(--table-row-stripe-bg)',
+        'sticky-header-shadow': 'var(--table-sticky-header-shadow)',
+        'responsive-card-padding': 'var(--table-responsive-card-padding)',
+        'responsive-stacked-spacing': 'var(--table-responsive-stacked-spacing)',
+        'responsive-breakpoint': 'var(--table-responsive-breakpoint)',
+      },
+      // Pagination
+      pagination: {
+        'item-size': 'var(--pagination-item-size)',
+        'item-radius': 'var(--pagination-item-radius)',
+        'item-margin': 'var(--pagination-item-margin)',
+        'font-size': 'var(--pagination-font-size)',
+        'font-weight': 'var(--pagination-font-weight)',
+        'active-bg': 'var(--pagination-active-bg)',
+        'active-text': 'var(--pagination-active-text)',
+        'hover-bg': 'var(--pagination-hover-bg)',
+        'disabled-opacity': 'var(--pagination-disabled-opacity)',
+        'icon-size': 'var(--pagination-icon-size)',
+        'selector-min-width': 'var(--pagination-selector-min-width)',
+      },
+      // Skeleton
+      skeleton: {
+        'bg': 'hsl(var(--skeleton-bg))',
+        'highlight': 'hsl(var(--skeleton-highlight))',
+        'animation-duration': 'var(--skeleton-animation-duration)',
+        'border-radius': 'var(--skeleton-border-radius)',
+        'circle-border-radius': 'var(--skeleton-circle-border-radius)',
+        'pulse-opacity-from': 'var(--skeleton-pulse-opacity-from)',
+        'pulse-opacity-to': 'var(--skeleton-pulse-opacity-to)',
+        'wave-from': 'var(--skeleton-wave-from)',
+        'wave-to': 'var(--skeleton-wave-to)',
+      },
+      // ProgressBar
+      progress: {
+        'height': 'var(--progress-height)',
+        'border-radius': 'var(--progress-border-radius)',
+        'bg': 'hsl(var(--progress-bg))',
+        'primary-color': 'hsl(var(--progress-primary-color))',
+        'secondary-color': 'hsl(var(--progress-secondary-color))',
+        'success-color': 'hsl(var(--progress-success-color))',
+        'warning-color': 'hsl(var(--progress-warning-color))',
+        'danger-color': 'hsl(var(--progress-danger-color))',
+        'indeterminate-animation-duration': 'var(--progress-indeterminate-animation-duration)',
+        'label-font-size': 'var(--progress-label-font-size)',
+        'label-font-weight': 'var(--progress-label-font-weight)',
+        'text-margin': 'var(--progress-text-margin)',
       },
     },
   },

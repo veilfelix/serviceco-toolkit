@@ -22,7 +22,7 @@ import {
 import type { Decorator } from '@storybook/react'
 
 const meta: Meta<typeof DropdownMenu.Content> = {
-  title: 'Components/Composed/DropdownMenu',
+  title: 'Composed/DropdownMenu',
   component: DropdownMenu.Content,
   parameters: {
     layout: 'centered',

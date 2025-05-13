@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Textarea from '@/components/ui/Textarea/Textarea'
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Components/UI/Textarea',
+  title: 'UI/Textarea',
   component: Textarea,
   parameters: {
     layout: 'centered',

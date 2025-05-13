@@ -16,6 +16,30 @@ export const breakpoints = {
 
 export const tokens = {
   breakpoints,
+  radii: {
+    sm: 'var(--radius-sm)',
+    md: 'var(--radius-md)',
+    lg: 'var(--radius-lg)',
+  },
+  fonts: {
+    sans: 'var(--font-sans)',
+  },
+  spacing: {
+    xs: 'var(--spacing-xs)',
+    sm: 'var(--spacing-sm)',
+    md: 'var(--spacing-md)',
+    lg: 'var(--spacing-lg)',
+  },
+  fontSize: {
+    sm: 'var(--font-sm)',
+    base: 'var(--font-base)',
+    lg: 'var(--font-lg)',
+    xl: 'var(--font-xl)',
+    '2xl': 'var(--font-2xl)',
+    '3xl': 'var(--font-3xl)',
+    '4xl': 'var(--font-4xl)',
+    '5xl': 'var(--font-5xl)',
+  },
   colors: {
     // Colors
     background: 'hsl(var(--background))',
@@ -33,6 +57,11 @@ export const tokens = {
     border: 'hsl(var(--border))',
     input: 'hsl(var(--input))',
     ring: 'hsl(var(--ring))',
+    // Slider Colors
+    sliderTrack: 'hsl(var(--slider-track-bg))',
+    sliderRange: 'hsl(var(--slider-range-bg))',
+    sliderThumb: 'hsl(var(--slider-thumb-bg))',
+    sliderThumbBorder: 'hsl(var(--slider-thumb-border))',
     // Alert Colors
     alertSuccessBg: 'hsl(var(--alert-success-bg))',
     alertSuccessText: 'hsl(var(--alert-success-text))',
@@ -223,28 +252,66 @@ export const tokens = {
       fontWeight: 'var(--avatar-fallback-font-weight)',
     },
   },
-  radii: {
-    sm: 'var(--radius-sm)',
-    md: 'var(--radius-md)',
-    lg: 'var(--radius-lg)',
+  // Slider
+  slider: {
+    trackHeight: 'var(--slider-track-height)',
+    thumbSize: 'var(--slider-thumb-size)',
+    thumbShadow: 'var(--slider-thumb-shadow)',
+    thumbRingWidth: 'var(--slider-thumb-ring-width)',
+    tooltipBg: 'var(--slider-tooltip-bg)',
+    tooltipText: 'var(--slider-tooltip-text)',
   },
-  fonts: {
-    sans: 'var(--font-sans)',
+  // Table & TableResponsive
+  table: {
+    borderColor: 'var(--table-border-color)',
+    headerBg: 'var(--table-header-bg)',
+    headerFontWeight: 'var(--table-header-font-weight)',
+    rowHoverBg: 'var(--table-row-hover-bg)',
+    rowStripeBg: 'var(--table-row-stripe-bg)',
+    stickyHeaderShadow: 'var(--table-sticky-header-shadow)',
+    responsiveCardPadding: 'var(--table-responsive-card-padding)',
+    responsiveStackedSpacing: 'var(--table-responsive-stacked-spacing)',
+    responsiveBreakpoint: 'var(--table-responsive-breakpoint)',
   },
-  spacing: {
-    xs: 'var(--spacing-xs)',
-    sm: 'var(--spacing-sm)',
-    md: 'var(--spacing-md)',
-    lg: 'var(--spacing-lg)',
+  // Pagination
+  pagination: {
+    itemSize: 'var(--pagination-item-size)',
+    itemRadius: 'var(--pagination-item-radius)',
+    itemMargin: 'var(--pagination-item-margin)',
+    fontSize: 'var(--pagination-font-size)',
+    fontWeight: 'var(--pagination-font-weight)',
+    activeBg: 'var(--pagination-active-bg)',
+    activeText: 'var(--pagination-active-text)',
+    hoverBg: 'var(--pagination-hover-bg)',
+    disabledOpacity: 'var(--pagination-disabled-opacity)',
+    iconSize: 'var(--pagination-icon-size)',
+    selectorMinWidth: 'var(--pagination-selector-min-width)',
   },
-  fontSize: {
-    sm: 'var(--font-sm)',
-    base: 'var(--font-base)',
-    lg: 'var(--font-lg)',
-    xl: 'var(--font-xl)',
-    '2xl': 'var(--font-2xl)',
-    '3xl': 'var(--font-3xl)',
-    '4xl': 'var(--font-4xl)',
-    '5xl': 'var(--font-5xl)',
+  // Skeleton
+  skeleton: {
+    bg: 'hsl(var(--skeleton-bg))',
+    highlight: 'hsl(var(--skeleton-highlight))',
+    animationDuration: 'var(--skeleton-animation-duration)',
+    borderRadius: 'var(--skeleton-border-radius)',
+    circleBorderRadius: 'var(--skeleton-circle-border-radius)',
+    pulseOpacityFrom: 'var(--skeleton-pulse-opacity-from)',
+    pulseOpacityTo: 'var(--skeleton-pulse-opacity-to)',
+    waveFrom: 'var(--skeleton-wave-from)',
+    waveTo: 'var(--skeleton-wave-to)',
+  },
+  // ProgressBar
+  progress: {
+    height: 'var(--progress-height)',
+    borderRadius: 'var(--progress-border-radius)',
+    bg: 'hsl(var(--progress-bg))',
+    primaryColor: 'hsl(var(--progress-primary-color))',
+    secondaryColor: 'hsl(var(--progress-secondary-color))',
+    successColor: 'hsl(var(--progress-success-color))',
+    warningColor: 'hsl(var(--progress-warning-color))',
+    dangerColor: 'hsl(var(--progress-danger-color))',
+    indeterminateAnimationDuration: 'var(--progress-indeterminate-animation-duration)',
+    labelFontSize: 'var(--progress-label-font-size)',
+    labelFontWeight: 'var(--progress-label-font-weight)',
+    textMargin: 'var(--progress-text-margin)',
   },
 }

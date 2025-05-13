@@ -5,7 +5,7 @@ import Heading from '@/components/ui/Heading/Heading'
 import Stack from '@/components/ui/Stack/Stack'
 
 const meta: Meta<typeof Spacer> = {
-  title: 'Components/UI/Spacer',
+  title: 'UI/Spacer',
   component: Spacer,
   tags: ['autodocs'],
   argTypes: {

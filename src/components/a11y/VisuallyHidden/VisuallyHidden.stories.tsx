@@ -5,7 +5,7 @@ import Stack from '@/components/ui/Stack/Stack'
 import { X, Search, ArrowRight, Trash } from 'lucide-react'
 
 const meta: Meta<typeof VisuallyHidden> = {
-  title: 'Components/Accessibility/VisuallyHidden',
+  title: 'Accessibility/VisuallyHidden',
   component: VisuallyHidden,
   tags: ['autodocs'],
   argTypes: {

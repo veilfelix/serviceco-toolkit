@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import RichText from './RichText'
 
 const meta: Meta<typeof RichText> = {
-  title: 'Components/UI/RichText',
+  title: 'UI/RichText',
   component: RichText,
   tags: ['autodocs'],
   argTypes: {

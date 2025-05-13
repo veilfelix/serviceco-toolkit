@@ -6,7 +6,7 @@ import { Play, Info } from 'lucide-react'
 import Spacer from '../Spacer/Spacer'
 
 const meta: Meta<typeof AspectRatio> = {
-  title: 'Components/UI/AspectRatio',
+  title: 'UI/AspectRatio',
   component: AspectRatio,
   tags: ['autodocs'],
   argTypes: {

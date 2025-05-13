@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Badge from '@/components/ui/Badge/Badge'
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/UI/Badge',
+  title: 'UI/Badge',
   component: Badge,
   parameters: {
     layout: 'centered',

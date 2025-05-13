@@ -5,7 +5,7 @@ import Button from '@/components/ui/Button/Button'
 import { AlertCircle, Info, Trash, AlertTriangle } from 'lucide-react'
 
 const meta: Meta<typeof ModalConfirm> = {
-  title: 'Components/Composed/ModalConfirm',
+  title: 'Composed/ModalConfirm',
   component: ModalConfirm,
   parameters: {
     layout: 'centered',

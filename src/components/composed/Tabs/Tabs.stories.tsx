@@ -3,7 +3,7 @@ import { Tabs } from '@/components/composed/Tabs/Tabs'
 
 // Since we have a compound component, we'll focus on the Root for the meta info
 const meta: Meta<typeof Tabs.Root> = {
-  title: 'Components/Composed/Tabs',
+  title: 'Composed/Tabs',
   component: Tabs.Root,
   parameters: {
     layout: 'centered',

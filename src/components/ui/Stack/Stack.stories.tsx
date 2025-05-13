@@ -5,7 +5,7 @@ import Button from '@/components/ui/Button/Button'
 import { Plus, Minus, AlertTriangle, Check, Info } from 'lucide-react'
 
 const meta: Meta<typeof Stack> = {
-  title: 'Components/UI/Stack',
+  title: 'UI/Stack',
   component: Stack,
   tags: ['autodocs'],
   argTypes: {

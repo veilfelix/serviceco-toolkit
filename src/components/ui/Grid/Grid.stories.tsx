@@ -4,7 +4,7 @@ import Grid, { GridFlow } from './Grid'
 import { Image, Camera, ShoppingCart, User, Settings, Home, Book, Mail } from 'lucide-react'
 
 const meta: Meta<typeof Grid> = {
-  title: 'Components/UI/Grid',
+  title: 'UI/Grid',
   component: Grid,
   tags: ['autodocs'],
   argTypes: {

@@ -85,7 +85,6 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           className
         )}
         ref={ref}
-        defaultValue={props.defaultValue ?? ''}
         style={{
           backgroundImage: 'url(\'data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e\')',
           backgroundPosition: 'calc(100% - 0.33rem) center',

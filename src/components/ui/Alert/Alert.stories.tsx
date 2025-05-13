@@ -5,7 +5,7 @@ import { Info as InfoCircle, CheckCircle, AlertTriangle, XCircle } from 'lucide-
 
 
 const meta: Meta<typeof Alert> = {
-  title: 'Components/UI/Alert',
+  title: 'UI/Alert',
   component: Alert,
   parameters: {
     layout: 'centered',

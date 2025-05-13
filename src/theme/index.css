@@ -248,6 +248,91 @@
     --progress-label-font-size: 0.875rem;
     --progress-label-font-weight: 500;
     --progress-text-margin: 0.25rem;
+    
+    /* Toast */
+    --toast-z-index: 100;
+    --toast-width: 380px;
+    --toast-gap: 0.5rem;
+    --toast-padding: 1rem;
+    --toast-border-radius: 0.375rem;
+    --toast-border-width: 1px;
+    --toast-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --toast-font-size: 0.875rem;
+    --toast-line-height: 1.5;
+    --toast-title-font-weight: 600;
+    --toast-description-opacity: 0.9;
+    --toast-animation-duration: 300ms;
+    --toast-background: 0 0% 100%;
+    --toast-foreground: 222.2 84% 4.9%;
+    --toast-success-bg: 138 76% 95%;
+    --toast-success-text: 138 12% 20%;
+    --toast-success-border: 138 40% 75%;
+    --toast-warning-bg: 47 100% 95%;
+    --toast-warning-text: 35 100% 18%;
+    --toast-warning-border: 47 87% 80%;
+    --toast-error-bg: 0 85% 95%;
+    --toast-error-text: 0 63% 41%;
+    --toast-error-border: 0 63% 75%;
+    --toast-info-bg: 210 100% 95%;
+    --toast-info-text: 210 92% 30%;
+    --toast-info-border: 210 88% 80%;
+    --toast-auto-dismiss-duration: 5000ms;
+    --toast-transition-duration: 200ms;
+    --toast-max-height: 600px;
+    --toast-icon-size: 1rem;
+    --toast-action-gap: 0.5rem;
+    --toast-action-hover-opacity: 0.8;
+
+    /* Stepper */
+    --stepper-icon-size-sm: 1.5rem;
+    --stepper-icon-size-md: 2rem;
+    --stepper-icon-size-lg: 2.5rem;
+    --stepper-font-size-sm: 0.75rem;
+    --stepper-font-size-md: 0.875rem;
+    --stepper-font-size-lg: 1rem;
+    --stepper-label-font-weight: 500;
+    --stepper-description-font-weight: 400;
+    --stepper-description-color: 215.4 16.3% 46.9%;
+    --stepper-spacing-sm: 1rem;
+    --stepper-spacing-md: 1.5rem;
+    --stepper-spacing-lg: 2rem;
+    --stepper-inactive-bg: var(--muted);
+    --stepper-inactive-text: var(--muted-foreground);
+    --stepper-active-bg: 221.2 83.2% 53.3%;
+    --stepper-active-text: 210 40% 98%;
+    --stepper-complete-bg: 142 71% 45%;
+    --stepper-complete-text: 0 0% 100%;
+    --stepper-error-bg: 0 84.2% 60.2%;
+    --stepper-error-text: 210 40% 98%;
+    --stepper-disabled-opacity: 0.5;
+    --stepper-border-radius: 9999px;
+    --stepper-transition-duration: 150ms;
+
+    /* Calendar */
+    --calendar-cell-size: 2.5rem;
+    --calendar-header-padding: 1rem;
+    --calendar-cell-padding: 0.5rem;
+    --calendar-border-radius: 0.375rem;
+    --calendar-width: 100%;
+    --calendar-max-width: 20rem;
+    --calendar-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --calendar-day-hover-bg: 214.3 31.8% 91.4%;
+    --calendar-day-active-bg: 221.2 83.2% 53.3%;
+    --calendar-day-active-text: 210 40% 98%;
+    --calendar-today-border-color: 221.2 83.2% 53.3%;
+    --calendar-selected-bg: 221.2 83.2% 53.3%;
+    --calendar-selected-text: 210 40% 98%;
+    --calendar-disabled-opacity: 0.4;
+    --calendar-outside-month-opacity: 0.3;
+    --calendar-event-bg: 221.2 83.2% 53.3%;
+    --calendar-event-text: 210 40% 98%;
+    --calendar-nav-button-size: 1.5rem;
+    --calendar-transition-duration: 150ms;
+    --calendar-heading-font-weight: 500;
+    --calendar-day-font-size: 0.875rem;
+    --calendar-weekday-font-size: 0.75rem;
+    --calendar-weekday-font-weight: 500;
+    --calendar-weekday-color: 215.4 16.3% 46.9%;
 
     /* Radii */
     --radius-sm: 4px;

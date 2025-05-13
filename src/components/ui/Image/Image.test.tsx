@@ -95,16 +95,16 @@ describe('Image', () => {
 
   it('calculates correct padding for aspect ratio', () => {
     const { rerender } = render(<Image {...defaultProps} ratio="16:9" />)
-    let wrapper = screen.getByTestId('next-image').parentElement
-    expect(wrapper).toHaveStyle('padding-top: 56.25%')
+    let wrapper = screen.getByTestId('next-image').parentElement?.parentElement
+    expect(wrapper).toHaveStyle('padding-bottom: 56.25%')
 
     rerender(<Image {...defaultProps} ratio="4:3" />)
-    wrapper = screen.getByTestId('next-image').parentElement
-    expect(wrapper).toHaveStyle('padding-top: 75%')
+    wrapper = screen.getByTestId('next-image').parentElement?.parentElement
+    expect(wrapper).toHaveStyle('padding-bottom: 75%')
 
     rerender(<Image {...defaultProps} ratio="1:1" />)
-    wrapper = screen.getByTestId('next-image').parentElement
-    expect(wrapper).toHaveStyle('padding-top: 100%')
+    wrapper = screen.getByTestId('next-image').parentElement?.parentElement
+    expect(wrapper).toHaveStyle('padding-bottom: 100%')
   })
 
   it('uses fill mode when ratio is provided', () => {

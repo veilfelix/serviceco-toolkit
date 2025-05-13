@@ -1,7 +1,8 @@
-import { forwardRef, JSX, useCallback, useState } from 'react'
+import { forwardRef, JSX, useState } from 'react'
 import NextImage, { ImageLoaderProps, ImageProps as NextImageProps } from 'next/image'
 import { cn } from '@/utils/classNames'
 import { ImageOff } from 'lucide-react'
+import AspectRatio from '@/components/ui/AspectRatio/AspectRatio'
 
 // Common aspect ratios
 export type ImageRatio = '1:1' | '4:3' | '16:9' | '21:9' | '2:3' | '3:2'
@@ -71,7 +72,7 @@ export interface ImageProps
  *
  * Features:
  * - Enforced `alt` attribute for accessibility
- * - Support for aspect ratios via padding trick (optional)
+ * - Support for aspect ratios via AspectRatio component
  * - Visual variants (default, rounded, bordered)
  * - Error fallback (custom or default)
  * - Automatic handling of blur placeholders via `blurDataURL`
@@ -113,14 +114,13 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(
   ): JSX.Element => {
     const [hasError, setHasError] = useState(false)
 
-    // Calculate padding based on aspect ratio
-    const getPaddingTop = useCallback(() => {
-      if (!ratio) return undefined
-
-      const [numerator, denominator] = ratio.split(':').map(Number)
-      const percentage = (denominator / numerator) * 100
-      return `${percentage}%`
-    }, [ratio])
+    // Convert ratio string to number for AspectRatio component
+    const getRatioValue = (ratioStr?: ImageRatio): number | undefined => {
+      if (!ratioStr) return undefined
+      
+      const [numerator, denominator] = ratioStr.split(':').map(Number)
+      return numerator / denominator
+    }
 
     // Variant styling
     const variantStyles: Record<ImageVariant, string> = {
@@ -150,31 +150,40 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(
       </div>
     )
 
-    // For ratio-based sizing, we use a wrapper with padding trick
+    // Content to render based on error state
+    const content = hasError 
+      ? (fallback || defaultFallback)
+      : (
+        <NextImage
+          src={src}
+          alt={alt}
+          width={ratio ? undefined : width}
+          height={ratio ? undefined : height}
+          fill={!!ratio}
+          className={cn(
+            fitStyles[objectFit], 
+            ratio ? '' : 'h-full w-full',
+            className
+          )}
+          placeholder={blurDataURL ? 'blur' : undefined}
+          blurDataURL={blurDataURL}
+          priority={priority}
+          onError={handleError}
+          loader={customLoader}
+          {...rest}
+        />
+      )
+
+    // For ratio-based sizing, use AspectRatio component
     if (ratio) {
       return (
-        <div
+        <AspectRatio
           ref={ref}
-          className={cn('relative w-full', variantStyles[variant], wrapperClassName)}
-          style={{ paddingTop: getPaddingTop() }}
+          ratio={getRatioValue(ratio)}
+          className={cn(variantStyles[variant], wrapperClassName)}
         >
-          {hasError ? (
-            fallback || defaultFallback
-          ) : (
-            <NextImage
-              src={src}
-              alt={alt}
-              fill
-              className={cn(fitStyles[objectFit], className)}
-              placeholder={blurDataURL ? 'blur' : undefined}
-              blurDataURL={blurDataURL}
-              priority={priority}
-              onError={handleError}
-              loader={customLoader}
-              {...rest}
-            />
-          )}
-        </div>
+          {content}
+        </AspectRatio>
       )
     }
 
@@ -188,23 +197,7 @@ const Image = forwardRef<HTMLDivElement, ImageProps>(
           height: height ? `${height}px` : 'auto',
         }}
       >
-        {hasError ? (
-          fallback || defaultFallback
-        ) : (
-          <NextImage
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            className={cn(fitStyles[objectFit], 'h-full w-full', className)}
-            placeholder={blurDataURL ? 'blur' : undefined}
-            blurDataURL={blurDataURL}
-            priority={priority}
-            onError={handleError}
-            loader={customLoader}
-            {...rest}
-          />
-        )}
+        {content}
       </div>
     )
   }

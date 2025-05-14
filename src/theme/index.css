@@ -311,7 +311,6 @@
     /* Calendar */
     --calendar-cell-size: 2.5rem;
     --calendar-header-padding: 1rem;
-    --calendar-cell-padding: 0.5rem;
     --calendar-border-radius: 0.375rem;
     --calendar-width: 100%;
     --calendar-max-width: 20rem;
@@ -333,6 +332,41 @@
     --calendar-weekday-font-size: 0.75rem;
     --calendar-weekday-font-weight: 500;
     --calendar-weekday-color: 215.4 16.3% 46.9%;
+    
+    /* DatePicker */
+    --datepicker-width: 100%;
+    --datepicker-max-width: 24rem;
+    --datepicker-icon-size: 1rem;
+    --datepicker-input-padding-right: 2.5rem;
+    --datepicker-trigger-width: 2rem;
+    --datepicker-clear-button-size: 1.5rem;
+    --datepicker-clear-icon-size: 0.875rem;
+    --datepicker-clear-color: 215.4 16.3% 46.9%;
+    --datepicker-trigger-color: 215.4 16.3% 46.9%;
+    --datepicker-dropdown-width: auto;
+    --datepicker-dropdown-padding: 0;
+    --datepicker-dropdown-margin-top: 0.25rem;
+    --datepicker-dropdown-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    /* Drawer */
+    --drawer-overlay-background: rgba(0, 0, 0, 0.5);
+    --drawer-overlay-blur: 4px;
+    --drawer-overlay-z-index: 40;
+    --drawer-content-z-index: 50;
+    --drawer-width-side: 80vw;
+    --drawer-max-width-side: 24rem;
+    --drawer-height-bottom: 40vh;
+    --drawer-max-height-bottom: 20rem;
+    --drawer-content-gap: 1rem;
+    --drawer-content-padding: 1.5rem;
+    --drawer-content-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --drawer-title-font-size: 1.125rem;
+    --drawer-title-font-weight: 600;
+    --drawer-close-right: 1rem;
+    --drawer-close-top: 1rem;
+    --drawer-close-size: 2rem;
+    --drawer-close-icon-size: 1rem;
+    --drawer-animation-duration: 300ms;
 
     /* Radii */
     --radius-sm: 4px;

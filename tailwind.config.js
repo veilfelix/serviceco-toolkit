@@ -68,6 +68,30 @@ module.exports = {
           from: { opacity: 1 },
           to: { opacity: 0 },
         },
+        slideInFromLeft: {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(0)' },
+        },
+        slideOutToLeft: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+        slideInFromRight: {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0)' },
+        },
+        slideOutToRight: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(100%)' },
+        },
+        slideInFromBottom: {
+          from: { transform: 'translateY(100%)' },
+          to: { transform: 'translateY(0)' },
+        },
+        slideOutToBottom: {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(100%)' },
+        },
         swipeOut: {
           from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
           to: { transform: 'translateX(calc(100% + 1rem))' },
@@ -81,6 +105,12 @@ module.exports = {
         slideOut: 'slideOut var(--toast-animation-duration) ease-in',
         slideInFromTop: 'slideInFromTop var(--toast-animation-duration) ease-out',
         slideOutToTop: 'slideOutToTop var(--toast-animation-duration) ease-in', 
+        slideInFromLeft: 'slideInFromLeft var(--drawer-animation-duration) ease-out',
+        slideOutToLeft: 'slideOutToLeft var(--drawer-animation-duration) ease-in',
+        slideInFromRight: 'slideInFromRight var(--drawer-animation-duration) ease-out',
+        slideOutToRight: 'slideOutToRight var(--drawer-animation-duration) ease-in',
+        slideInFromBottom: 'slideInFromBottom var(--drawer-animation-duration) ease-out',
+        slideOutToBottom: 'slideOutToBottom var(--drawer-animation-duration) ease-in',
         fadeIn: 'fadeIn var(--toast-animation-duration) ease-out',
         fadeOut: 'fadeOut var(--toast-animation-duration) ease-in',
         swipeOut: 'swipeOut 100ms ease-out',
@@ -132,6 +162,8 @@ module.exports = {
         // Dialog Colors
         'dialog-overlay-background': 'var(--dialog-overlay-background)',
         'dialog-close-text-color': 'var(--dialog-close-text-color)',
+        // Drawer Colors
+        'drawer-overlay-background': 'var(--drawer-overlay-background)',
         // Avatar Status Colors
         'avatar-status-online': 'hsl(var(--avatar-status-color-online))',
         'avatar-status-away': 'hsl(var(--avatar-status-color-away))',
@@ -453,7 +485,6 @@ module.exports = {
       calendar: {
         'cell-size': 'var(--calendar-cell-size)',
         'header-padding': 'var(--calendar-header-padding)',
-        'cell-padding': 'var(--calendar-cell-padding)',
         'border-radius': 'var(--calendar-border-radius)',
         'width': 'var(--calendar-width)',
         'max-width': 'var(--calendar-max-width)',
@@ -466,6 +497,45 @@ module.exports = {
         'day-font-size': 'var(--calendar-day-font-size)',
         'weekday-font-size': 'var(--calendar-weekday-font-size)',
         'weekday-font-weight': 'var(--calendar-weekday-font-weight)',
+      },
+      
+      // DatePicker
+      datepicker: {
+        'width': 'var(--datepicker-width)',
+        'max-width': 'var(--datepicker-max-width)',
+        'icon-size': 'var(--datepicker-icon-size)',
+        'input-padding-right': 'var(--datepicker-input-padding-right)',
+        'trigger-width': 'var(--datepicker-trigger-width)',
+        'clear-button-size': 'var(--datepicker-clear-button-size)',
+        'clear-icon-size': 'var(--datepicker-clear-icon-size)',
+        'clear-color': 'var(--datepicker-clear-color)',
+        'trigger-color': 'var(--datepicker-trigger-color)',
+        'dropdown-width': 'var(--datepicker-dropdown-width)',
+        'dropdown-padding': 'var(--datepicker-dropdown-padding)',
+        'dropdown-margin-top': 'var(--datepicker-dropdown-margin-top)',
+        'dropdown-shadow': 'var(--datepicker-dropdown-shadow)',
+      },
+      
+      // Drawer
+      drawer: {
+        'overlay-background': 'var(--drawer-overlay-background)',
+        'overlay-blur': 'var(--drawer-overlay-blur)',
+        'overlay-z-index': 'var(--drawer-overlay-z-index)',
+        'content-z-index': 'var(--drawer-content-z-index)',
+        'width-side': 'var(--drawer-width-side)',
+        'max-width-side': 'var(--drawer-max-width-side)',
+        'height-bottom': 'var(--drawer-height-bottom)',
+        'max-height-bottom': 'var(--drawer-max-height-bottom)',
+        'content-gap': 'var(--drawer-content-gap)',
+        'content-padding': 'var(--drawer-content-padding)',
+        'content-shadow': 'var(--drawer-content-shadow)',
+        'title-font-size': 'var(--drawer-title-font-size)',
+        'title-font-weight': 'var(--drawer-title-font-weight)',
+        'close-right': 'var(--drawer-close-right)',
+        'close-top': 'var(--drawer-close-top)',
+        'close-size': 'var(--drawer-close-size)',
+        'close-icon-size': 'var(--drawer-close-icon-size)',
+        'animation-duration': 'var(--drawer-animation-duration)',
       },
     },
   },

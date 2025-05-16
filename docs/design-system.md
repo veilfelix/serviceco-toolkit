@@ -95,6 +95,25 @@ Instead, they serve the following purposes:
 
 This is especially useful for components like Dialog, Tabs, Accordion, or Popover that rely on layout-specific or animation-specific tokens that don't belong to any semantic Tailwind utility.
 
+### Why We Use a Tailwind Safelist
+
+Tailwind’s build process uses a "purge" system to remove unused classes from the final CSS. This works great for static class names, but it can **silently strip out dynamically generated or conditionally used classes** — especially those built via `clsx`, `cn()`, or string interpolation (e.g. ``col-span-${x}``).
+
+This becomes problematic when building a design system with flexible layouts, grid spans, or component variants that aren't always referenced in static HTML.
+
+To avoid these bugs, we’ve defined a **safelist of patterns** in `tailwind.config.js`. This ensures that essential utility classes like:
+
+- `col-span-4`, `row-span-2`, `gap-md`
+- `text-muted`, `bg-primary`, `rounded-md`
+- `justify-between`, `items-center`, etc.
+
+...are always included in the final build, even if they don’t appear explicitly in the code during build time.
+
+This approach adds a negligible CSS weight (~10–20kB) and guarantees stability across composed components and Storybook examples.
+
+**See:** [`tailwind.config.js → safelist`](../../tailwind.config.js)
+
+
 ## Why are we using HSL Instead of Hex?
 
 Using `hsl(var(--...))` allows:

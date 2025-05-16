@@ -143,6 +143,9 @@
     --button-padding-y-lg: 0.75rem;
     --button-hover-background-opacity: 0.9;
     --button-disabled-cursor: not-allowed;
+    --button-sm-offset: calc(
+      var(--button-padding-y-sm) * 2 + var(--font-sm) * 2.5
+    );
 
     /* Card */
     --card-shadow: 0 1px 3px rgba(0,0,0,0.12); 
@@ -367,6 +370,54 @@
     --drawer-close-size: 2rem;
     --drawer-close-icon-size: 1rem;
     --drawer-animation-duration: 300ms;
+
+    /* Separator */
+    --separator-thickness-regular: 1.5px;
+    --separator-thickness-thick: 3px;
+    --separator-gap: 0.75rem;
+    --separator-label-padding-x: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-width: 16rem;
+    --sidebar-collapsed-width: 4.5rem;
+    --sidebar-z-index: 40;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-border-color: hsl(var(--border));
+    --sidebar-padding-x: 1rem;
+    --sidebar-padding-y: 1rem;
+    --sidebar-gap: 0.5rem;
+    --sidebar-transition-duration: 200ms;
+    --sidebar-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --sidebar-header-height: 3.5rem;
+    --sidebar-footer-height: 3rem;
+    --sidebar-item-height: 2.5rem;
+    --sidebar-item-padding-x: 0.75rem;
+    --sidebar-item-padding-y: 0.5rem;
+    --sidebar-item-radius: 0.25rem;
+    --sidebar-item-gap: 0.5rem;
+    --sidebar-item-color: hsl(var(--foreground));
+    --sidebar-item-hover-bg: hsl(var(--muted));
+    --sidebar-item-active-bg: hsl(var(--primary));
+    --sidebar-item-active-color: hsl(var(--primary-foreground));
+    --sidebar-section-padding-y: 0.75rem;
+    
+    /* Carousel */
+    --carousel-item-gap: 1rem;
+    --carousel-control-size: 2.5rem;
+    --carousel-control-bg: hsl(0 0% 100% / 0.8);
+    --carousel-control-hover-bg: hsl(0 0% 100% / 0.9);
+    --carousel-control-color: hsl(var(--foreground));
+    --carousel-indicator-size: 0.5rem;
+    --carousel-indicator-active-size: 0.75rem;
+    --carousel-indicator-gap: 0.5rem;
+    --carousel-indicator-color: hsl(var(--muted-foreground) / 0.5);
+    --carousel-indicator-active-color: hsl(var(--primary));
+    --carousel-slide-transition-duration: 300ms;
+    --carousel-slide-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --carousel-padding-x: 1.5rem;
+    --carousel-padding-y: 1rem;
+    --carousel-height: auto;
 
     /* Radii */
     --radius-sm: 4px;

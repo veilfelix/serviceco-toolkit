@@ -49,6 +49,7 @@ export interface LinkProps
  * Automatically applies security attributes to external links.
  *
  * Example:
+ * 
  * ```tsx
  * <Link href="/about">About Us</Link>
  * <Link href="https://example.com" variant="primary">External Site</Link>

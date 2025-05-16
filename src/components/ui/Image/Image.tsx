@@ -79,6 +79,7 @@ export interface ImageProps
  *   (Note: `placeholder="blur"` is set automatically when `blurDataURL` is provided)
  *
  * Example usage:
+ * 
  * ```tsx
  * <Image
  *   src="/path/to/image.jpg"

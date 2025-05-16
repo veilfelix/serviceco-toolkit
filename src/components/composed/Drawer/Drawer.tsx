@@ -79,6 +79,7 @@ type DrawerComponent = React.ForwardRefExoticComponent<
  * Accessible Drawer (sliding panel) component using Radix UI Dialog with Tailwind styling and token-based theming.
  * 
  * Example:
+ * 
  * ```tsx
  * <Drawer side="right">
  *   <Drawer.Trigger asChild>

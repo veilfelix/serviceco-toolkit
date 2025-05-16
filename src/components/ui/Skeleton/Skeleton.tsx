@@ -45,6 +45,7 @@ export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
  * Supports different shapes (text, rect, circle), animations, width/height, and multiple instances.
  * 
  * Example:
+ * 
  * ```tsx
  * <Skeleton shape="text" height="1rem" />
  * <Skeleton shape="circle" width="3rem" height="3rem" />

@@ -6,7 +6,7 @@ import { cn } from '@/utils/classNames'
 import { Star, Bell, CalendarClock } from 'lucide-react'
 
 const meta: Meta<typeof Calendar> = {
-  title: 'UI/Calendar',
+  title: 'Composed/Calendar',
   component: Calendar,
   parameters: {
     layout: 'centered',

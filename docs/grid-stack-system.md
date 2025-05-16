@@ -62,6 +62,27 @@ The `Grid` component is a wrapper around native CSS Grid that offers intuitive p
 
 ---
 
+### Fractional Column Layouts (Custom Widths per Child)
+
+While the `columns` prop defines the number of equal-width columns in the grid, you can override individual item widths using Tailwind’s `col-span-*` utilities — as long as the `Grid` has enough columns to span across.
+
+**Example:**
+
+```tsx
+<Grid columns={12} gap="md">
+  <div className="col-span-4">1/3 width</div>
+  <div className="col-span-8">2/3 width</div>
+
+  <div className="col-span-6">1/2 width</div>
+  <div className="col-span-6">1/2 width</div>
+
+  <div className="col-span-3">1/4 width</div>
+  <div className="col-span-9">3/4 width</div>
+</Grid>
+```
+
+---
+
 ## 📏 Stack
 
 The `Stack` component is a flexible layout utility based on `flex` that simplifies vertical or horizontal alignment of components with consistent spacing.

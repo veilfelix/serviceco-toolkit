@@ -221,6 +221,21 @@ module.exports = {
         'calendar-event-bg': 'hsl(var(--calendar-event-bg))',
         'calendar-event-text': 'hsl(var(--calendar-event-text))',
         'calendar-weekday': 'hsl(var(--calendar-weekday-color))',
+        // Sidebar Colors
+        'sidebar-background': 'hsl(var(--sidebar-background))',
+        'sidebar-foreground': 'hsl(var(--sidebar-foreground))',
+        'sidebar-border': 'var(--sidebar-border-color)',
+        'sidebar-item-color': 'var(--sidebar-item-color)',
+        'sidebar-item-hover': 'var(--sidebar-item-hover-bg)',
+        'sidebar-item-active': 'var(--sidebar-item-active-bg)',
+        'sidebar-item-active-text': 'var(--sidebar-item-active-color)',
+        
+        // Carousel Colors
+        'carousel-control-bg': 'var(--carousel-control-bg)',
+        'carousel-control-hover-bg': 'var(--carousel-control-hover-bg)',
+        'carousel-control-color': 'var(--carousel-control-color)',
+        'carousel-indicator-color': 'var(--carousel-indicator-color)',
+        'carousel-indicator-active-color': 'var(--carousel-indicator-active-color)',
       },
       borderRadius: {
         sm: 'var(--radius-sm)',
@@ -332,6 +347,7 @@ module.exports = {
         'padding-y-lg': 'var(--button-padding-y-lg)',
         'hover-background-opacity': 'var(--button-hover-background-opacity)',
         'disabled-cursor': 'var(--button-disabled-cursor)',
+        'sm-offset': 'var(--button-sm-offset)',
       },
       // Card
       card: {
@@ -515,7 +531,7 @@ module.exports = {
         'dropdown-margin-top': 'var(--datepicker-dropdown-margin-top)',
         'dropdown-shadow': 'var(--datepicker-dropdown-shadow)',
       },
-      
+
       // Drawer
       drawer: {
         'overlay-background': 'var(--drawer-overlay-background)',
@@ -537,10 +553,120 @@ module.exports = {
         'close-icon-size': 'var(--drawer-close-icon-size)',
         'animation-duration': 'var(--drawer-animation-duration)',
       },
+
+      // Separator
+      separator: {
+        'thickness-regular': 'var(--separator-thickness-regular)',
+        'thickness-thick': 'var(--separator-thickness-thick)',
+        'gap': 'var(--separator-gap)',
+        'label-padding-x': 'var(--separator-label-padding-x)',
+      },
+
+      // Sidebar
+      sidebar: {
+        'width': 'var(--sidebar-width)',
+        'collapsed-width': 'var(--sidebar-collapsed-width)',
+        'z-index': 'var(--sidebar-z-index)',
+        'padding-x': 'var(--sidebar-padding-x)',
+        'padding-y': 'var(--sidebar-padding-y)',
+        'gap': 'var(--sidebar-gap)',
+        'transition-duration': 'var(--sidebar-transition-duration)',
+        'shadow': 'var(--sidebar-shadow)',
+        'header-height': 'var(--sidebar-header-height)',
+        'footer-height': 'var(--sidebar-footer-height)',
+        'item-height': 'var(--sidebar-item-height)',
+        'item-padding-x': 'var(--sidebar-item-padding-x)',
+        'item-padding-y': 'var(--sidebar-item-padding-y)',
+        'item-radius': 'var(--sidebar-item-radius)',
+        'item-gap': 'var(--sidebar-item-gap)',
+        'section-padding-y': 'var(--sidebar-section-padding-y)',
+      },
+      
+      // Carousel
+      carousel: {
+        'item-gap': 'var(--carousel-item-gap)',
+        'control-size': 'var(--carousel-control-size)',
+        'indicator-size': 'var(--carousel-indicator-size)',
+        'indicator-active-size': 'var(--carousel-indicator-active-size)',
+        'indicator-gap': 'var(--carousel-indicator-gap)',
+        'slide-transition-duration': 'var(--carousel-slide-transition-duration)',
+        'slide-transition-timing': 'var(--carousel-slide-transition-timing)',
+        'padding-x': 'var(--carousel-padding-x)',
+        'padding-y': 'var(--carousel-padding-y)',
+        'height': 'var(--carousel-height)',
+      },
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
+  ],
+  safelist: [
+    // ────────────────────────────────
+    // Layout: Grid and Flex utilities
+    // ────────────────────────────────
+    { pattern: /^col-span-(1[0-2]?|[1-9])$/ },
+    { pattern: /^row-span-(1[0-2]?|[1-9])$/ },
+    { pattern: /^col-start-(1[0-2]?|[1-9])$/ },
+    { pattern: /^row-start-(1[0-2]?|[1-9])$/ },
+    { pattern: /^grid-cols-(1[0-2]?|[1-9])$/ },
+    { pattern: /^grid-rows-(1[0-6])$/ },
+    { pattern: /^grid-flow-(row|col|dense|row-dense|col-dense)$/ },
+
+    // ────────────────────────────────
+    // Spacing
+    // ────────────────────────────────
+    { pattern: /^gap(-(xs|sm|md|lg|xl|0))?$/ },
+    { pattern: /^gap-x-(xs|sm|md|lg|xl|0)$/ },
+    { pattern: /^gap-y-(xs|sm|md|lg|xl|0)$/ },
+    { pattern: /^p[trblxy]?-(xs|sm|md|lg|xl|0)$/ },
+    { pattern: /^m[trblxy]?-(xs|sm|md|lg|xl|0)$/ },
+
+    // ────────────────────────────────
+    // Typography
+    // ────────────────────────────────
+    { pattern: /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|muted|foreground|primary|center|left|right)$/ },
+    { pattern: /^font-(sans|serif|mono|bold|medium|semibold|light)$/ },
+    { pattern: /^leading-(none|tight|snug|normal|relaxed|loose)$/ },
+    { pattern: /^tracking-(tighter|tight|normal|wide|wider|widest)$/ },
+
+    // ────────────────────────────────
+    // Colors: Background, text, border
+    // ────────────────────────────────
+    { pattern: /^bg-(muted|primary|accent|background|foreground|white|black)$/ },
+    { pattern: /^text-(muted|primary|accent|background|foreground|white|black)$/ },
+    { pattern: /^border(-(muted|primary|accent|foreground|background|white|black))?$/ },
+
+    // ────────────────────────────────
+    // Alignment
+    // ────────────────────────────────
+    { pattern: /^items-(start|center|end|stretch|baseline)$/ },
+    { pattern: /^justify-(start|center|end|between|around|evenly)$/ },
+    { pattern: /^justify-items-(start|center|end|stretch)$/ },
+    { pattern: /^content-(start|center|end|between|around|evenly)$/ },
+
+    // ────────────────────────────────
+    // Sizing
+    // ────────────────────────────────
+    { pattern: /^w-(full|auto|min|max|screen|[\d]+)$/ },
+    { pattern: /^h-(full|auto|min|max|screen|[\d]+)$/ },
+    { pattern: /^min-w-(0|full|min|max|[\d]+)$/ },
+    { pattern: /^min-h-(0|full|min|max|[\d]+)$/ },
+
+    // ────────────────────────────────
+    // Borders and Radius
+    // ────────────────────────────────
+    { pattern: /^rounded(-(none|sm|md|lg|xl|2xl|full))?$/ },
+    { pattern: /^border(-(0|2|4|8))?$/ },
+    { pattern: /^border-[trbl](-(0|2|4|8))?$/ },
+
+    // ────────────────────────────────
+    // Effects
+    // ────────────────────────────────
+    { pattern: /^shadow(-(sm|md|lg|xl|2xl|none))?$/ },
+    { pattern: /^opacity-(0|25|50|75|100)$/ },
+    { pattern: /^transition(-(all|colors|opacity|transform))?$/ },
+    { pattern: /^duration-(75|100|150|200|300|500)$/ },
+    { pattern: /^ease-(linear|in|out|in-out)$/ },
   ],
 }

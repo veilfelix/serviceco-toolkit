@@ -51,7 +51,7 @@ jest.mock('@/components/composed/Popover/Popover', () => {
 
 
 // Mock the Calendar component
-jest.mock('@/components/ui/Calendar/Calendar', () => {
+jest.mock('@/components/composed/Calendar/Calendar', () => {
   return jest.fn(({ selected, onSelect }) => (
     <div data-testid="calendar-mock">
       <div data-testid="calendar-selected">{selected instanceof Date ? selected.toString() : 'none'}</div>

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import Pagination from '@/components/ui/Pagination/Pagination'
+import Pagination from '@/components/composed/Pagination/Pagination'
 
 const meta: Meta<typeof Pagination> = {
-  title: 'UI/Pagination',
+  title: 'Composed/Pagination',
   component: Pagination,
   parameters: {
     layout: 'centered',

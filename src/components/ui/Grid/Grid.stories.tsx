@@ -230,6 +230,7 @@ export const AutoFitGrid_ManyItems: Story = {
   ),
 }
 
+
 export const ResponsiveGrid: Story = {
   render: () => (
     <div className="flex flex-col gap-lg max-w-full">
@@ -251,6 +252,50 @@ export const ResponsiveGrid: Story = {
           <div className={itemStyle}>Item 8</div>
         </Grid>
       </div>
+    </div>
+  ),
+}
+
+export const FractionalWidthItems: Story = {
+  render: () => (
+    <div className="flex flex-col gap-lg">
+      <h3 className="text-lg font-medium mb-sm">Grid with fractional widths using col-span utilities</h3>
+      <p className="text-sm text-muted-foreground mb-md">
+        This example uses <code>columns=12</code> with items spanning specific column fractions using <code>col-span-X</code> classes.
+      </p>
+
+      <Grid columns={12} gap="md" className="border border-dashed border-muted-foreground p-md">
+        <div className={`${itemStyle} col-span-4`}>1/3 width</div>
+        <div className={`${itemStyle} col-span-8`}>2/3 width</div>
+
+        <div className={`${itemStyle} col-span-6`}>1/2 width</div>
+        <div className={`${itemStyle} col-span-6`}>1/2 width</div>
+
+        <div className={`${itemStyle} col-span-3`}>1/4 width</div>
+        <div className={`${itemStyle} col-span-9`}>3/4 width</div>
+      </Grid>
+    </div>
+  ),
+}
+
+export const ResponsiveFractionalWidthItems: Story = {
+  render: () => (
+    <div className="flex flex-col gap-lg">
+      <h3 className="text-lg font-medium mb-sm">Responsive grid with fractional widths</h3>
+      <p className="text-sm text-muted-foreground mb-md">
+        Items span different fractions of the grid depending on screen size using <code>col-span-*</code> with breakpoints.
+      </p>
+
+      <Grid columns={12} gap="md" className="border border-dashed border-muted-foreground p-md">
+        <div className={`${itemStyle} col-span-12 sm:col-span-4`}>1/3 on sm+, full on xs</div>
+        <div className={`${itemStyle} col-span-12 sm:col-span-8`}>2/3 on sm+, full on xs</div>
+
+        <div className={`${itemStyle} col-span-12 md:col-span-6`}>1/2 on md+, full on xs/sm</div>
+        <div className={`${itemStyle} col-span-12 md:col-span-6`}>1/2 on md+, full on xs/sm</div>
+
+        <div className={`${itemStyle} col-span-12 lg:col-span-3`}>1/4 on lg+, full on smaller</div>
+        <div className={`${itemStyle} col-span-12 lg:col-span-9`}>3/4 on lg+, full on smaller</div>
+      </Grid>
     </div>
   ),
 }

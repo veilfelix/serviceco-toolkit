@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react'
 import { X, ChevronDown } from 'lucide-react'
+import { cn } from '@/utils/classNames'
+import Calendar from '@/components/composed/Calendar/Calendar'
+import { Popover } from '@/components/composed/Popover/Popover'
+import Input from '@/components/ui/Input/Input'
+import Button from '@/components/ui/Button/Button'
+
 // Note: The date-fns package is required for this component.
 // For now, we'll implement basic date formatting functions
 // Until the package is installed: npm install date-fns
@@ -53,12 +59,6 @@ const isValid = (date: Date): boolean => {
 const isDate = (value: unknown): boolean => {
   return value instanceof Date && !isNaN(value.getTime())
 }
-
-import { cn } from '@/utils/classNames'
-import Calendar from '@/components/ui/Calendar/Calendar'
-import { Popover } from '@/components/composed/Popover/Popover'
-import Input from '@/components/ui/Input/Input'
-import Button from '@/components/ui/Button/Button'
 
 export interface DatePickerProps {
   /**

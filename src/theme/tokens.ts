@@ -130,6 +130,14 @@ export const tokens = {
     calendarEventBg: 'hsl(var(--calendar-event-bg))',
     calendarEventText: 'hsl(var(--calendar-event-text))',
     calendarWeekday: 'hsl(var(--calendar-weekday-color))',
+    // Sidebar Colors
+    sidebarBackground: 'hsl(var(--sidebar-background))',
+    sidebarForeground: 'hsl(var(--sidebar-foreground))',
+    sidebarBorder: 'var(--sidebar-border-color)',
+    sidebarItemColor: 'var(--sidebar-item-color)',
+    sidebarItemHoverBg: 'var(--sidebar-item-hover-bg)',
+    sidebarItemActiveBg: 'var(--sidebar-item-active-bg)',
+    sidebarItemActiveColor: 'var(--sidebar-item-active-color)',
   },
   // Switch Sizes
   switch: {
@@ -220,6 +228,7 @@ export const tokens = {
     },
     hoverBackgroundOpacity: 'var(--button-hover-background-opacity)',
     disabledCursor: 'var(--button-disabled-cursor)',
+    smOffset: 'var(--button-sm-offset)',
   },
   // Card
   card: {
@@ -440,5 +449,60 @@ export const tokens = {
     closeSize: 'var(--drawer-close-size)',
     closeIconSize: 'var(--drawer-close-icon-size)',
     animationDuration: 'var(--drawer-animation-duration)',
-  }
+  },
+  // Separator
+  separator: {
+    thicknessRegular: 'var(--separator-thickness-regular)',
+    thicknessThick: 'var(--separator-thickness-thick)',
+    gap: 'var(--separator-gap)',
+    labelPaddingX: 'var(--separator-label-padding-x)',
+  },
+  // Sidebar
+  sidebar: {
+    width: 'var(--sidebar-width)',
+    collapsedWidth: 'var(--sidebar-collapsed-width)',
+    zIndex: 'var(--sidebar-z-index)',
+    background: 'hsl(var(--sidebar-background))',
+    foreground: 'hsl(var(--sidebar-foreground))',
+    borderColor: 'var(--sidebar-border-color)',
+    paddingX: 'var(--sidebar-padding-x)',
+    paddingY: 'var(--sidebar-padding-y)',
+    gap: 'var(--sidebar-gap)',
+    transitionDuration: 'var(--sidebar-transition-duration)',
+    shadow: 'var(--sidebar-shadow)',
+    headerHeight: 'var(--sidebar-header-height)',
+    footerHeight: 'var(--sidebar-footer-height)',
+    item: {
+      height: 'var(--sidebar-item-height)',
+      paddingX: 'var(--sidebar-item-padding-x)',
+      paddingY: 'var(--sidebar-item-padding-y)',
+      radius: 'var(--sidebar-item-radius)',
+      gap: 'var(--sidebar-item-gap)',
+      color: 'var(--sidebar-item-color)',
+      hoverBg: 'var(--sidebar-item-hover-bg)',
+      activeBg: 'var(--sidebar-item-active-bg)',
+      activeColor: 'var(--sidebar-item-active-color)',
+    },
+    section: {
+      paddingY: 'var(--sidebar-section-padding-y)',
+    },
+  },
+  // Carousel
+  carousel: {
+    itemGap: 'var(--carousel-item-gap)',
+    controlSize: 'var(--carousel-control-size)',
+    controlBg: 'var(--carousel-control-bg)',
+    controlHoverBg: 'var(--carousel-control-hover-bg)',
+    controlColor: 'var(--carousel-control-color)',
+    indicatorSize: 'var(--carousel-indicator-size)',
+    indicatorActiveSize: 'var(--carousel-indicator-active-size)',
+    indicatorGap: 'var(--carousel-indicator-gap)',
+    indicatorColor: 'var(--carousel-indicator-color)',
+    indicatorActiveColor: 'var(--carousel-indicator-active-color)',
+    slideTransitionDuration: 'var(--carousel-slide-transition-duration)',
+    slideTransitionTiming: 'var(--carousel-slide-transition-timing)',
+    paddingX: 'var(--carousel-padding-x)',
+    paddingY: 'var(--carousel-padding-y)',
+    height: 'var(--carousel-height)',
+  },
 }

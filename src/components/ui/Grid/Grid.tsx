@@ -107,6 +107,25 @@ export type GridProps = AsComponentProps
  * </Grid>
  * ```
  *
+ * To create columns with **fractional widths**, use `columns={12}` and apply Tailwind’s `col-span-*` classes to each child:
+ *
+ * ```tsx
+ * <Grid columns={12} gap="md">
+ *   <div className="col-span-4">1/3 width</div>
+ *   <div className="col-span-8">2/3 width</div>
+ * </Grid>
+ * ```
+ *
+ * You can also use **responsive spans** to adapt layout at breakpoints:
+ *
+ * ```tsx
+ * <Grid columns={12} gap="md">
+ *   <div className="col-span-12 sm:col-span-6 md:col-span-4">Responsive item</div>
+ * </Grid>
+ * ```
+ *
+ * Ensure your Tailwind config includes a safelist for `col-span-*` if used dynamically or outside of static files (like in Storybook).
+ *
  * For full documentation, see: ./docs/grid-stack-system.md
  */
 const Grid = forwardRef<HTMLElement, GridProps>(

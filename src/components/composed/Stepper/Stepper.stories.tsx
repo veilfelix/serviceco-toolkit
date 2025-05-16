@@ -5,7 +5,7 @@ import Button from '@/components/ui/Button/Button'
 import { AlertCircle, ArrowRight, Check, Home, PackageOpen, Send, Store, Truck, User } from 'lucide-react'
 
 const meta: Meta<typeof Stepper> = {
-  title: 'UI/Stepper',
+  title: 'Composed/Stepper',
   component: Stepper,
   parameters: {
     layout: 'centered',

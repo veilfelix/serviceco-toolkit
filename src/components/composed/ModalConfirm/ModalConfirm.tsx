@@ -64,6 +64,7 @@ export interface ModalConfirmProps {
  * A confirmation modal component that extends Dialog with confirm/cancel actions.
  * 
  * Example:
+ * 
  * ```tsx
  * const [open, setOpen] = useState(false)
  * 

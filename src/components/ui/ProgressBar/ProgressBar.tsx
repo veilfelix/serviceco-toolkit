@@ -52,6 +52,7 @@ export interface ProgressBarProps extends HTMLAttributes<HTMLDivElement> {
  * A progress bar component that can be determinate (with a numeric progress) or indeterminate.
  * 
  * Example:
+ * 
  * ```tsx
  * <ProgressBar value={75} label="Loading..." color="primary" />
  * <ProgressBar indeterminate color="secondary" label="Processing" />

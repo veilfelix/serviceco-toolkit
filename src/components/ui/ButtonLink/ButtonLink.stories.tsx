@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import ButtonLink from './ButtonLink'
 
 const meta: Meta<typeof ButtonLink> = {
-  title: 'Components/UI/ButtonLink',
+  title: 'UI/ButtonLink',
   component: ButtonLink,
   tags: ['autodocs'],
   argTypes: {

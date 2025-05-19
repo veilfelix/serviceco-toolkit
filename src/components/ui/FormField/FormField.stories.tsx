@@ -3,7 +3,7 @@ import FormField from '@/components/ui/FormField/FormField'
 import Input from '@/components/ui/Input/Input'
 
 const meta: Meta<typeof FormField> = {
-  title: 'Components/UI/FormField',
+  title: 'UI/FormField',
   component: FormField,
   parameters: {
     layout: 'centered',

@@ -1,6 +1,6 @@
 import { cn } from '@/utils/classNames'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 export function getButtonClassNames({
@@ -39,6 +39,7 @@ export function getButtonClassNames({
       'bg-secondary text-secondary-foreground border border-border hover:bg-secondary/[var(--button-hover-background-opacity)]',
     tertiary:
       'bg-transparent text-primary border border-primary hover:bg-primary/10',
+    ghost: 'bg-transparent text-primary hover:bg-primary/5',
   }
 
   return cn(base, sizeStyles[size], variantStyles[variant], disabled && 'cursor-[var(--button-disabled-cursor)]', className)

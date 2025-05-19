@@ -2,9 +2,26 @@ import Head from 'next/head'
 import { JSX } from 'react'
 
 type SeoProps = {
+  /**
+   * Page title to display in the browser tab and search engine results.
+   * Will be combined with the site name to form the full title.
+   */
   title: string
+  /**
+   * Meta description for the page, used by search engines and social media previews.
+   * If not provided, a default description will be used.
+   */
   description?: string
+  /**
+   * URL of the image used for social sharing (Open Graph and Twitter cards).
+   * If not provided, a default favicon will be used.
+   */
   image?: string
+  /**
+   * If true, prevents the page from being indexed by search engines.
+   * Adds a "noindex, nofollow" robots meta tag.
+   * @default false
+   */
   noIndex?: boolean
 }
 

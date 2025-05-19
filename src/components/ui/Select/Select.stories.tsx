@@ -3,7 +3,7 @@ import Select from '@/components/ui/Select/Select'
 import Label from '../Label/Label'
 
 const meta: Meta<typeof Select> = {
-  title: 'Components/UI/Select',
+  title: 'UI/Select',
   component: Select,
   parameters: {
     layout: 'centered',

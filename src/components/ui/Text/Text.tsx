@@ -22,6 +22,7 @@ export type TextProps = {
  * Applies default foreground color, and can be rendered as `p`, `span`, or `div`.
  *
  * Example:
+ * 
  * ```tsx
  * <Text as="p">Some paragraph text</Text>
  * ```

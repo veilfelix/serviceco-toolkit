@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Footer from '@/components/composed/Layout/Footer/Footer'
 
 const meta: Meta<typeof Footer> = {
-  title: 'Components/Composed/Layout/Footer',
+  title: 'Composed/Layout/Footer',
   component: Footer,
   tags: ['autodocs'],
   parameters: {

@@ -3,7 +3,7 @@ import Card from '@/components/ui/Card/Card'
 import Button from '@/components/ui/Button/Button'
 
 const meta: Meta<typeof Card> = {
-  title: 'Components/UI/Card',
+  title: 'UI/Card',
   component: Card,
   parameters: {
     layout: 'centered',

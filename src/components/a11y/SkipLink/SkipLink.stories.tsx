@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import SkipLink from '@/components/a11y/SkipLink'
+import SkipLink from '@/components/a11y/SkipLink/SkipLink'
 
 const meta: Meta<typeof SkipLink> = {
-  title: 'Components/Accessibility/SkipLink',
+  title: 'Accessibility/SkipLink',
   component: SkipLink,
   tags: ['autodocs'],
 }

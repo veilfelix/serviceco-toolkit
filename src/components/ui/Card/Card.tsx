@@ -146,7 +146,7 @@ const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
     return (
       <div
         ref={ref}
-        className={cn('p-md pt-[theme(card.footer-content-top)]]', className)}
+        className={cn('p-md pt-[theme(card.content-padding-top)]]', className)}
         {...props}
       >
         {children}

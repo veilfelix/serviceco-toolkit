@@ -29,6 +29,18 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
+    
+    /* Slider */
+    --slider-track-bg: 210 40% 96.1%;
+    --slider-range-bg: 221.2 83.2% 53.3%;
+    --slider-thumb-bg: 0 0% 100%;
+    --slider-thumb-border: 221.2 83.2% 53.3%;
+    --slider-track-height: 0.25rem;
+    --slider-thumb-size: 1rem;
+    --slider-thumb-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+    --slider-thumb-ring-width: 2px;
+    --slider-tooltip-bg: 222.2 84% 4.9%;
+    --slider-tooltip-text: 0 0% 100%;
 
     /* Alert Colors */
     --alert-success-bg: 138 76% 95%;
@@ -131,6 +143,9 @@
     --button-padding-y-lg: 0.75rem;
     --button-hover-background-opacity: 0.9;
     --button-disabled-cursor: not-allowed;
+    --button-sm-offset: calc(
+      var(--button-padding-y-sm) * 2 + var(--font-sm) * 2.5
+    );
 
     /* Card */
     --card-shadow: 0 1px 3px rgba(0,0,0,0.12); 
@@ -187,6 +202,222 @@
     --avatar-fallback-color-yellow-text: 39 100% 20%;
     --avatar-fallback-color-red-bg: 0 100% 90%;
     --avatar-fallback-color-red-text: 0 100% 30%;
+    
+    /* Table & TableResponsive */
+    --table-border-color: hsl(var(--border));
+    --table-header-bg: hsl(var(--muted));
+    --table-header-font-weight: 600;
+    --table-row-hover-bg: hsl(var(--muted), 0.5);
+    --table-row-stripe-bg: hsl(var(--muted));
+    --table-sticky-header-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --table-responsive-card-padding: 0.75rem;
+    --table-responsive-stacked-spacing: 0.5rem;
+    --table-responsive-breakpoint: var(--breakpoint-md);
+    
+    /* Pagination */
+    --pagination-item-size: 2.25rem;
+    --pagination-item-radius: 0.25rem;
+    --pagination-item-margin: 0.125rem;
+    --pagination-font-size: 0.875rem;
+    --pagination-font-weight: 500;
+    --pagination-active-bg: hsl(var(--primary));
+    --pagination-active-text: hsl(var(--primary-foreground));
+    --pagination-hover-bg: hsl(var(--muted));
+    --pagination-disabled-opacity: 0.5;
+    --pagination-icon-size: 1rem;
+    --pagination-selector-min-width: 6rem;
+    
+    /* Skeleton */
+    --skeleton-bg: 214 5% 91%;
+    --skeleton-highlight: 0 0% 96%;
+    --skeleton-animation-duration: 1.5s;
+    --skeleton-border-radius: 0.25rem;
+    --skeleton-circle-border-radius: 9999px;
+    --skeleton-pulse-opacity-from: 0.5;
+    --skeleton-pulse-opacity-to: 0.9;
+    --skeleton-wave-from: -200%;
+    --skeleton-wave-to: 200%;
+    
+    /* ProgressBar */
+    --progress-height: 0.5rem;
+    --progress-border-radius: 9999px;
+    --progress-bg: 214 5% 91%;
+    --progress-primary-color: 221.2 83.2% 53.3%;
+    --progress-secondary-color: 178 72% 50%;
+    --progress-success-color: 142 71% 45%;
+    --progress-warning-color: 38 92% 50%;
+    --progress-danger-color: 0 84.2% 60.2%;
+    --progress-indeterminate-animation-duration: 1.5s;
+    --progress-label-font-size: 0.875rem;
+    --progress-label-font-weight: 500;
+    --progress-text-margin: 0.25rem;
+    
+    /* Toast */
+    --toast-z-index: 100;
+    --toast-width: 380px;
+    --toast-gap: 0.5rem;
+    --toast-padding: 1rem;
+    --toast-border-radius: 0.375rem;
+    --toast-border-width: 1px;
+    --toast-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --toast-font-size: 0.875rem;
+    --toast-line-height: 1.5;
+    --toast-title-font-weight: 600;
+    --toast-description-opacity: 0.9;
+    --toast-animation-duration: 300ms;
+    --toast-background: 0 0% 100%;
+    --toast-foreground: 222.2 84% 4.9%;
+    --toast-success-bg: 138 76% 95%;
+    --toast-success-text: 138 12% 20%;
+    --toast-success-border: 138 40% 75%;
+    --toast-warning-bg: 47 100% 95%;
+    --toast-warning-text: 35 100% 18%;
+    --toast-warning-border: 47 87% 80%;
+    --toast-error-bg: 0 85% 95%;
+    --toast-error-text: 0 63% 41%;
+    --toast-error-border: 0 63% 75%;
+    --toast-info-bg: 210 100% 95%;
+    --toast-info-text: 210 92% 30%;
+    --toast-info-border: 210 88% 80%;
+    --toast-auto-dismiss-duration: 5000ms;
+    --toast-transition-duration: 200ms;
+    --toast-max-height: 600px;
+    --toast-icon-size: 1rem;
+    --toast-action-gap: 0.5rem;
+    --toast-action-hover-opacity: 0.8;
+
+    /* Stepper */
+    --stepper-icon-size-sm: 1.5rem;
+    --stepper-icon-size-md: 2rem;
+    --stepper-icon-size-lg: 2.5rem;
+    --stepper-font-size-sm: 0.75rem;
+    --stepper-font-size-md: 0.875rem;
+    --stepper-font-size-lg: 1rem;
+    --stepper-label-font-weight: 500;
+    --stepper-description-font-weight: 400;
+    --stepper-description-color: 215.4 16.3% 46.9%;
+    --stepper-spacing-sm: 1rem;
+    --stepper-spacing-md: 1.5rem;
+    --stepper-spacing-lg: 2rem;
+    --stepper-inactive-bg: var(--muted);
+    --stepper-inactive-text: var(--muted-foreground);
+    --stepper-active-bg: 221.2 83.2% 53.3%;
+    --stepper-active-text: 210 40% 98%;
+    --stepper-complete-bg: 142 71% 45%;
+    --stepper-complete-text: 0 0% 100%;
+    --stepper-error-bg: 0 84.2% 60.2%;
+    --stepper-error-text: 210 40% 98%;
+    --stepper-disabled-opacity: 0.5;
+    --stepper-border-radius: 9999px;
+    --stepper-transition-duration: 150ms;
+
+    /* Calendar */
+    --calendar-cell-size: 2.5rem;
+    --calendar-header-padding: 1rem;
+    --calendar-border-radius: 0.375rem;
+    --calendar-width: 100%;
+    --calendar-max-width: 20rem;
+    --calendar-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --calendar-day-hover-bg: 214.3 31.8% 91.4%;
+    --calendar-day-active-bg: 221.2 83.2% 53.3%;
+    --calendar-day-active-text: 210 40% 98%;
+    --calendar-today-border-color: 221.2 83.2% 53.3%;
+    --calendar-selected-bg: 221.2 83.2% 53.3%;
+    --calendar-selected-text: 210 40% 98%;
+    --calendar-disabled-opacity: 0.4;
+    --calendar-outside-month-opacity: 0.3;
+    --calendar-event-bg: 221.2 83.2% 53.3%;
+    --calendar-event-text: 210 40% 98%;
+    --calendar-nav-button-size: 1.5rem;
+    --calendar-transition-duration: 150ms;
+    --calendar-heading-font-weight: 500;
+    --calendar-day-font-size: 0.875rem;
+    --calendar-weekday-font-size: 0.75rem;
+    --calendar-weekday-font-weight: 500;
+    --calendar-weekday-color: 215.4 16.3% 46.9%;
+    
+    /* DatePicker */
+    --datepicker-width: 100%;
+    --datepicker-max-width: 24rem;
+    --datepicker-icon-size: 1rem;
+    --datepicker-input-padding-right: 2.5rem;
+    --datepicker-trigger-width: 2rem;
+    --datepicker-clear-button-size: 1.5rem;
+    --datepicker-clear-icon-size: 0.875rem;
+    --datepicker-clear-color: 215.4 16.3% 46.9%;
+    --datepicker-trigger-color: 215.4 16.3% 46.9%;
+    --datepicker-dropdown-width: auto;
+    --datepicker-dropdown-padding: 0;
+    --datepicker-dropdown-margin-top: 0.25rem;
+    --datepicker-dropdown-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    /* Drawer */
+    --drawer-overlay-background: rgba(0, 0, 0, 0.5);
+    --drawer-overlay-blur: 4px;
+    --drawer-overlay-z-index: 40;
+    --drawer-content-z-index: 50;
+    --drawer-width-side: 80vw;
+    --drawer-max-width-side: 24rem;
+    --drawer-height-bottom: 40vh;
+    --drawer-max-height-bottom: 20rem;
+    --drawer-content-gap: 1rem;
+    --drawer-content-padding: 1.5rem;
+    --drawer-content-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --drawer-title-font-size: 1.125rem;
+    --drawer-title-font-weight: 600;
+    --drawer-close-right: 1rem;
+    --drawer-close-top: 1rem;
+    --drawer-close-size: 2rem;
+    --drawer-close-icon-size: 1rem;
+    --drawer-animation-duration: 300ms;
+
+    /* Separator */
+    --separator-thickness-regular: 1.5px;
+    --separator-thickness-thick: 3px;
+    --separator-gap: 0.75rem;
+    --separator-label-padding-x: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-width: 16rem;
+    --sidebar-collapsed-width: 4.5rem;
+    --sidebar-z-index: 40;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-border-color: hsl(var(--border));
+    --sidebar-padding-x: 1rem;
+    --sidebar-padding-y: 1rem;
+    --sidebar-gap: 0.5rem;
+    --sidebar-transition-duration: 200ms;
+    --sidebar-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --sidebar-header-height: 3.5rem;
+    --sidebar-footer-height: 3rem;
+    --sidebar-item-height: 2.5rem;
+    --sidebar-item-padding-x: 0.75rem;
+    --sidebar-item-padding-y: 0.5rem;
+    --sidebar-item-radius: 0.25rem;
+    --sidebar-item-gap: 0.5rem;
+    --sidebar-item-color: hsl(var(--foreground));
+    --sidebar-item-hover-bg: hsl(var(--muted));
+    --sidebar-item-active-bg: hsl(var(--primary));
+    --sidebar-item-active-color: hsl(var(--primary-foreground));
+    --sidebar-section-padding-y: 0.75rem;
+    
+    /* Carousel */
+    --carousel-item-gap: 1rem;
+    --carousel-control-size: 2.5rem;
+    --carousel-control-bg: hsl(0 0% 100% / 0.8);
+    --carousel-control-hover-bg: hsl(0 0% 100% / 0.9);
+    --carousel-control-color: hsl(var(--foreground));
+    --carousel-indicator-size: 0.5rem;
+    --carousel-indicator-active-size: 0.75rem;
+    --carousel-indicator-gap: 0.5rem;
+    --carousel-indicator-color: hsl(var(--muted-foreground) / 0.5);
+    --carousel-indicator-active-color: hsl(var(--primary));
+    --carousel-slide-transition-duration: 300ms;
+    --carousel-slide-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --carousel-padding-x: 1.5rem;
+    --carousel-padding-y: 1rem;
+    --carousel-height: auto;
 
     /* Radii */
     --radius-sm: 4px;

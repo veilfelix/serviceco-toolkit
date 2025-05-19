@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button/Button'
 import type { Decorator } from '@storybook/react'
 
 const meta: Meta<typeof Tooltip.Content> = {
-  title: 'Components/Composed/Tooltip',
+  title: 'Composed/Tooltip',
   component: Tooltip.Content,
   parameters: {
     layout: 'centered',

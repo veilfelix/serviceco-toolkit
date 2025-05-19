@@ -3,7 +3,7 @@ import { Dialog } from '@/components/composed/Dialog/Dialog'
 import Button from '@/components/ui/Button/Button'
 
 const meta: Meta = {
-  title: 'Components/Composed/Dialog',
+  title: 'Composed/Dialog',
   component: Dialog.Root,
 }
 

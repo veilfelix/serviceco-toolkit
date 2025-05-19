@@ -5,60 +5,8 @@ import Calendar from '@/components/composed/Calendar/Calendar'
 import { Popover } from '@/components/composed/Popover/Popover'
 import Input from '@/components/ui/Input/Input'
 import Button from '@/components/ui/Button/Button'
-
-// Note: The date-fns package is required for this component.
-// For now, we'll implement basic date formatting functions
-// Until the package is installed: npm install date-fns
-
-// Basic implementations to replace date-fns functions
-// This is temporary until date-fns is installed
-const format = (date: Date, formatString: string): string => {
-  // Basic formatting for 'yyyy-MM-dd'
-  try {
-    const year = date.getFullYear()
-    const month = String(date.getMonth() + 1).padStart(2, '0')
-    const day = String(date.getDate()).padStart(2, '0')
-    
-    if (formatString === 'yyyy-MM-dd') {
-      return `${year}-${month}-${day}`
-    } else if (formatString === 'MM/dd/yyyy') {
-      return `${month}/${day}/${year}`
-    } else {
-      // Fallback to locale string
-      return date.toLocaleDateString()
-    }
-  } catch (e) {
-    console.error(`Failed to format date "${date}" with format "${formatString}"`, e)
-    return ''
-  }
-}
-
-const parse = (dateString: string, formatString: string, baseDate: Date): Date => {
-  // Basic parsing for common formats
-  try {
-    if (formatString === 'yyyy-MM-dd') {
-      const [year, month, day] = dateString.split('-').map(Number)
-      return new Date(year, month - 1, day)
-    } else if (formatString === 'MM/dd/yyyy') {
-      const [month, day, year] = dateString.split('/').map(Number)
-      return new Date(year, month - 1, day)
-    } else {
-      // Fallback
-      return new Date(dateString)
-    }
-  } catch (e) {
-    console.error(`Failed to parse date string "${dateString}" with format "${formatString}" and base date "${baseDate.toISOString()}"`, e)
-    return new Date(NaN) // Invalid date
-  }
-}
-
-const isValid = (date: Date): boolean => {
-  return !isNaN(date.getTime())
-}
-
-const isDate = (value: unknown): boolean => {
-  return value instanceof Date && !isNaN(value.getTime())
-}
+import { format, parse, isValid, isDate } from 'date-fns'
+import { enUS, frCA } from 'date-fns/locale'
 
 export interface DatePickerProps {
   /**
@@ -131,6 +79,17 @@ export interface DatePickerProps {
   'aria-label'?: string
 }
 
+const resolveLocale = (locale: string) => {
+  switch (locale) {
+  case 'fr-CA':
+    return frCA
+  case 'en-US':
+  default:
+    return enUS
+  }
+}
+
+
 /**
  * DatePicker component providing a form control for selecting dates, with optional time selection.
  * Integrates with the Calendar component and uses Popover for the dropdown interface.
@@ -155,7 +114,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
   locale = 'en-US',
   time = false,
   format: formatString = 'yyyy-MM-dd',
-  placeholder = 'Select date...',
+  placeholder,
   label,
   error = false,
   errorMessage,
@@ -167,6 +126,10 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
   'aria-label': ariaLabel,
   ...props
 }, ref) => {
+
+  const resolvedLocale = resolveLocale(locale)
+  const resolvedFormat = formatString || 'P' // P = locale-aware pattern
+
   // Convert value to Date if it's a string
   const parseDate = (dateValue: Date | string | null): Date | null => {
     if (!dateValue) return null
@@ -183,16 +146,17 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
 
   const [date, setDate] = useState<Date | null>(parseDate(value))
   const [inputValue, setInputValue] = useState<string>(
-    date ? format(date, formatString) : ''
+    date ? format(date, resolvedFormat, { locale: resolvedLocale }) : ''
   )
   const [open, setOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const resolvedPlaceholder = placeholder ?? format(new Date(2000, 0, 22), resolvedFormat, { locale: resolvedLocale })
 
   // Update internal state when value prop changes
   useEffect(() => {
     const newDate = parseDate(value)
     setDate(newDate)
-    setInputValue(newDate ? format(newDate, formatString) : '')
+    setInputValue(newDate ? format(newDate, resolvedFormat, { locale: resolvedLocale }) : '')
   // parseDate is defined inline and does not change — safe to omit from deps
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, formatString])
@@ -200,7 +164,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
   // Handle selecting a date from the calendar
   const handleSelect = (selectedDate: Date) => {
     setDate(selectedDate)
-    setInputValue(format(selectedDate, formatString))
+    setInputValue(format(selectedDate, resolvedFormat, { locale: resolvedLocale }))
     
     if (onChange) {
       onChange(selectedDate)
@@ -309,7 +273,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
                 value={inputValue}
                 onChange={handleInputChange}
                 onBlur={handleBlur}
-                placeholder={placeholder}
+                placeholder={resolvedPlaceholder}
                 disabled={disabled}
                 required={required}
                 error={hasError}

@@ -49,7 +49,6 @@ jest.mock('@/components/composed/Popover/Popover', () => {
 })
 
 
-
 // Mock the Calendar component
 jest.mock('@/components/composed/Calendar/Calendar', () => {
   return jest.fn(({ selected, onSelect }) => (
@@ -74,10 +73,11 @@ jest.mock('@/components/composed/Calendar/Calendar', () => {
 describe('DatePicker component', () => {
   it('renders with default props', () => {
     render(<DatePicker />)
-    
-    // Input with placeholder should be visible
-    expect(screen.getByRole('textbox')).toBeInTheDocument()
-    expect(screen.getByRole('textbox')).toHaveAttribute('placeholder', 'Select date...')
+
+    const input = screen.getByRole('textbox')
+    expect(input).toBeInTheDocument()
+    expect(input).toHaveAttribute('placeholder')
+    expect(input.getAttribute('placeholder')).not.toBe('')
   })
   
   it('renders with label', () => {

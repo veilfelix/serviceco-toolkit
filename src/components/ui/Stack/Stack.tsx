@@ -12,36 +12,30 @@ interface BaseStackProps extends HTMLAttributes<HTMLElement> {
    * The content to be arranged in the stack
    */
   children: ReactNode
-
   /**
    * The direction to arrange children - vertical (column) or horizontal (row)
    * @default 'column'
    */
   direction?: StackDirection
-
   /**
    * The amount of space between child elements
    * @default 'md'
    */
   gap?: StackGap
-
   /**
    * Cross-axis alignment of children
    * @default 'stretch'
    */
   align?: StackAlign
-
   /**
    * Main-axis alignment of children
    * @default 'start'
    */
   justify?: StackJustify
-
   /**
    * Additional CSS class to apply
    */
   className?: string
-
   /**
    * Breakpoint at which to switch from vertical to horizontal layout
    * Only applies when direction starts as 'column'

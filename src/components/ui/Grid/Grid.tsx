@@ -15,7 +15,6 @@ interface BaseGridProps extends HTMLAttributes<HTMLElement> {
    * The content to be arranged in the grid
    */
   children: ReactNode
-
   /**
    * The number of columns to create
    * Special values:
@@ -24,49 +23,41 @@ interface BaseGridProps extends HTMLAttributes<HTMLElement> {
    * @default 1
    */
   columns?: GridColumns
-
   /**
    * The number of columns at each breakpoint
    * e.g., { sm: 2, md: 3, lg: 4 }
    */
   responsive?: Partial<Record<GridResponsiveBreakpoint, GridColumns>>
-
   /**
    * The gap between grid items
    * @default 'md'
    */
   gap?: GridGap
-
   /**
    * Different column and row gap values
    * e.g., { column: 'md', row: 'lg' }
    */
   gapX?: GridGap
   gapY?: GridGap
-  
   /**
    * Cross-axis alignment of children (align-items)
    * @default 'stretch'
    */
   align?: GridAlign
-  
   /**
    * Main-axis alignment of children (justify-items)
    * @default 'start'
    */
   justify?: GridJustify
-  
   /**
    * Flow direction of the grid
    */
   flow?: GridFlow
-  
   /**
    * Minimum size of auto-generated columns (for auto-fill/auto-fit)
    * @default '250px'
    */
   minColWidth?: string
-  
   /**
    * Additional CSS class to apply
    */

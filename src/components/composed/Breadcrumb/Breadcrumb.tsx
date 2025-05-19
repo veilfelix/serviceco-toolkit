@@ -11,17 +11,41 @@ const BreadcrumbContext = createContext<{
 
 // Main Breadcrumb component props
 export interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
+  /**
+   * Separator element to display between breadcrumb items.
+   * Accepts a string or any React node.
+   * @default '/'
+   */
   separator?: React.ReactNode
+  /**
+   * Breadcrumb items to render inside the navigation.
+   * Typically composed of Breadcrumb.Item components.
+   */
   children: React.ReactNode
+  /**
+   * Additional class names to apply to the breadcrumb container.
+   */
   className?: string
 }
 
 // Breadcrumb Item props
 export interface BreadcrumbItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
+  /**
+   * URL to link to. If provided and `isCurrent` is false, the item will render as a clickable link.
+   */
   href?: string
+  /**
+   * Marks the item as the current page in the breadcrumb.
+   * When true, the item is not clickable and will receive `aria-current="page"`.
+   * @default false
+   */
   isCurrent?: boolean
+  /**
+   * Additional class names to apply to the breadcrumb item.
+   */
   className?: string
 }
+
 
 // Main breadcrumb container
 const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(

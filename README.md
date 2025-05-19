@@ -9,7 +9,7 @@ A starter kit to build service company websites using Next.js 13 with the Pages 
 - **ESLint + Prettier** - Code linting and formatting
 - **Jest + Testing Library** - Unit testing framework
 - **Storybook** - Component documentation and development
-- **Modular Design System** – React components styled with Tailwind, Radix UI, and CSS tokens for accessibility and full customization. See our [Design System Guidelines](./docs/design-system.md) for how we structure, style, and override UI components using tokens and Tailwind. For layout patterns, check out our [Grid & Stack System](./docs/grid-stack-system.md) documentation.
+- **Modular Design System** - React components styled with Tailwind, Radix UI, and CSS tokens for accessibility and full customization. See our [Design System Guidelines](./docs/design-system.md) for how we structure, style, and override UI components using tokens and Tailwind. For layout patterns, check out our [Grid & Stack System](./docs/grid-stack-system.md) documentation.
 - **Husky** - Git hooks for code quality
 - **Bundle Analyzer** - Interactive visual reports to inspect the weight and composition of client, server, and edge bundles (`npm run analyze`)
 

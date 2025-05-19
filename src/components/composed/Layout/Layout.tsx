@@ -4,6 +4,9 @@ import Footer from '@/components/composed/Layout/Footer/Footer'
 import SkipLink from '@/components/a11y/SkipLink/SkipLink'
 
 type LayoutProps = {
+  /**
+   * Children props allowing to add custom content
+   */
   children: React.ReactNode
 }
 

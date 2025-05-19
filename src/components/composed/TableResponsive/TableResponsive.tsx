@@ -88,7 +88,7 @@ export interface TableResponsiveProps<T> {
    * Additional CSS classes
    */
   className?: string
- /**
+  /**
    * Visual variant
    */
   variant?: TableVariant

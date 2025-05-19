@@ -6,12 +6,10 @@ interface BaseVisuallyHiddenProps extends HTMLAttributes<HTMLElement> {
    * Additional CSS class to apply
    */
   className?: string
-  
   /**
    * Content to hide visually but keep accessible to screen readers
    */
   children: React.ReactNode
-  
   /**
    * HTML "for" attribute - used when rendering as a label
    */

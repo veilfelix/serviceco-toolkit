@@ -10,13 +10,11 @@ interface BaseSpacerProps extends HTMLAttributes<HTMLElement> {
    * @default 'md'
    */
   size?: SpacerSize
-
   /**
    * The orientation of the spacer - determines if it creates horizontal or vertical space
    * @default 'vertical'
    */
   orientation?: SpacerOrientation
-
   /**
    * Additional CSS class to apply
    */

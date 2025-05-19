@@ -10,97 +10,80 @@ export interface SliderProps {
    * Current value of the slider (for single-value slider)
    */
   value?: number
-
   /**
    * Range values for dual-handle slider (overrides value when provided)
    */
   range?: [number, number]
-
   /**
    * Callback when slider value changes for single value
    */
   onChange?: (value: number) => void
-
   /**
    * Callback when slider range changes for dual handles
    */
   onRangeChange?: (range: [number, number]) => void
-
   /**
    * Minimum value of the slider
    * @default 0
    */
   min?: number
-
   /**
    * Maximum value of the slider
    * @default 100
    */
   max?: number
-
   /**
    * Step size for value changes
    * @default 1
    */
   step?: number
-
   /**
    * Size variant of the slider
    * @default 'md'
    */
   size?: SliderSize
-
   /**
    * Color variant of the slider
    * @default 'default'
    */
   variant?: SliderVariant
-
   /**
    * Label for the slider (for accessibility)
    */
   label?: string
-
   /**
    * Format function for displaying values in tooltip and aria-valuetext
    */
   formatValue?: (value: number) => string
-
   /**
    * Whether to show the tooltip with current value
    * @default false
    */
   showTooltip?: boolean | 'always' | 'focus'
-
   /**
    * Whether to show min and max labels
    * @default false
    */
   showMinMaxLabels?: boolean
-
   /**
    * Whether to show ticks on the track
    * @default false
    */
   showTicks?: boolean
-
   /**
    * Number of ticks to show (evenly distributed)
    * @default 5
    */
   tickCount?: number
-
   /**
    * Whether the slider is disabled
    * @default false
    */
   disabled?: boolean
-
   /**
    * Additional CSS class to apply
    */
   className?: string
-
   /**
    * ID for the slider element
    */

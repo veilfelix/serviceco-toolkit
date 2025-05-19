@@ -295,7 +295,6 @@ export interface SidebarHeaderProps extends HTMLAttributes<HTMLDivElement> {
    * The content of the header
    */
   children: ReactNode
-  
   /**
    * Additional CSS class for the header
    */
@@ -354,12 +353,10 @@ export interface SidebarSectionProps extends HTMLAttributes<HTMLDivElement> {
    * Title of the section
    */
   title?: string
-  
   /**
    * Children items or content
    */
   children: ReactNode
-  
   /**
    * Additional CSS class for section
    */
@@ -396,39 +393,32 @@ export interface SidebarItemBaseProps extends HTMLAttributes<HTMLDivElement> {
    * The href for the item (converts it to a Link)
    */
   href?: string
-  
   /**
    * Icon to display at the start of the item
    */
   icon?: ReactNode
-  
   /**
    * The label text for the item
    */
   children: ReactNode
-  
   /**
    * Whether the item is currently active
    * @default false
    */
   active?: boolean
-  
   /**
    * Whether the item is disabled
    * @default false
    */
   disabled?: boolean
-  
   /**
    * Additional CSS class for item
    */
   className?: string
-  
   /**
    * Callback when the item is clicked
    */
   onClick?: () => void
-  
   /**
    * External link
    * @default false
@@ -522,13 +512,11 @@ export interface SidebarFooterProps extends HTMLAttributes<HTMLDivElement> {
    * Content of the footer
    */
   children: ReactNode
-  
   /**
    * Whether to show a separator above the footer
    * @default true
    */
   withSeparator?: boolean
-  
   /**
    * Additional CSS class for footer
    */

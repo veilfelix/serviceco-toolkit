@@ -6,12 +6,10 @@ export type ContainerProps = {
    * The content to render inside the container
    */
   children: React.ReactNode
-
   /**
    * Additional classes to apply on the container wrapper
    */
   className?: string
-
   /**
    * Whether the container should span the full width of the screen
    */

@@ -6,13 +6,11 @@ interface BaseAspectRatioProps extends HTMLAttributes<HTMLElement> {
    * The content to display in the aspect ratio container
    */
   children: React.ReactNode
-
   /**
    * The ratio to maintain, expressed as width/height (e.g., 16/9, 1, 4/3)
    * @default 1
    */
   ratio?: number
-
   /**
    * Additional CSS class to apply
    */

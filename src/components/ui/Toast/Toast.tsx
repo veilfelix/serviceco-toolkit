@@ -1,7 +1,10 @@
+'use client'
+
 import * as React from 'react'
 import * as ToastPrimitives from '@radix-ui/react-toast'
 import { X, AlertCircle, CheckCircle, AlertTriangle, Info } from 'lucide-react'
 import { cn } from '@/utils/classNames'
+import { useTranslation } from 'next-i18next'
 
 export type ToastVariant = 'default' | 'success' | 'error' | 'warning' | 'info'
 
@@ -41,6 +44,7 @@ export function Toast({
   action,
   ...props
 }: ToastProps) {
+  const { t } = useTranslation('ui')
   // Variant styles map
   const variantStyles: Record<ToastVariant, string> = {
     default: 'bg-toast-background text-toast-foreground border-border',
@@ -122,7 +126,7 @@ export function Toast({
           'hover:text-foreground focus:opacity-100 focus:outline-none',
           'group-hover:opacity-100'
         )}
-        aria-label="Close"
+        aria-label={t('toast.close')}
       >
         <X className="h-4 w-4" />
       </ToastPrimitives.Close>
@@ -153,6 +157,7 @@ export function ToastAction({
   altText,
   ...props
 }: ToastActionProps) {
+  const { t } = useTranslation('ui')
   return (
     <ToastPrimitives.Action
       className={cn(
@@ -164,7 +169,7 @@ export function ToastAction({
         className
       )}
       // Use children as altText if not explicitly provided for better accessibility
-      altText={altText || (typeof children === 'string' ? children : 'Toast action')}
+      altText={altText || (typeof children === 'string' ? children : t('toast.action'))}
       {...props}
     >
       {children}

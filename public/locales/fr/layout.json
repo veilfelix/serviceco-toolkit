@@ -1,0 +1,13 @@
+{
+  "header": {
+    "siteTitle": "ServiceCo",
+    "nav": {
+      "services": "Services",
+      "blog": "Blog",
+      "contact": "Contact"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} ServiceCo. Tous droits réservés."
+  }
+}

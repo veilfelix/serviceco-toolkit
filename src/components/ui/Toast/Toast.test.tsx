@@ -2,13 +2,48 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Toast } from './Toast'
 import { ToastProvider, useSimplifiedToast } from './ToastProvider'
+import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import { initTestI18n } from '@/utils/i18n'
+
+function renderWithProvider(ui: React.ReactElement) {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>)
+}
 
 // Mock timers for testing animations and auto-dismiss
 jest.useFakeTimers()
 
 describe('Toast', () => {
+  beforeEach(() => {
+    initTestI18n({
+      en: {
+        ui: {
+          requiredIndicator: '*',
+          toast: {
+            dismiss: 'Dismiss',
+          },
+        },
+        datePicker: {
+          clearDate: 'Clear date',
+          selectDate: 'Select date',
+        },
+      },
+      fr: {
+        ui: {
+          toast: {
+            dismiss: 'Fermer',
+          },
+        },
+        datePicker: {
+          clearDate: 'Effacer la date',
+          selectDate: 'Choisir une date',
+        },
+      },
+    })
+  })
+
   it('renders toast with content correctly', () => {
-    render(
+    renderWithProvider(
       <ToastProvider>
         <Toast>Toast message</Toast>
       </ToastProvider>
@@ -18,7 +53,7 @@ describe('Toast', () => {
   })
 
   it('renders toast with title when provided', () => {
-    render(
+    renderWithProvider(
       <ToastProvider>
         <Toast title="Toast Title">Toast message</Toast>
       </ToastProvider>
@@ -31,7 +66,7 @@ describe('Toast', () => {
   it('renders toast with custom icon when provided', () => {
     const icon = <svg data-testid="test-icon" />
     
-    render(
+    renderWithProvider(
       <ToastProvider>
         <Toast icon={icon}>Toast with icon</Toast>
       </ToastProvider>
@@ -41,7 +76,7 @@ describe('Toast', () => {
   })
 
   it('renders default icon based on variant', () => {
-    const { rerender } = render(
+    const { rerender } = renderWithProvider(
       <ToastProvider>
         <Toast variant="success">Success toast</Toast>
       </ToastProvider>
@@ -80,7 +115,7 @@ describe('Toast', () => {
   it('calls onOpenChange when close button is clicked', () => {
     const mockOnOpenChange = jest.fn()
     
-    render(
+    renderWithProvider(
       <ToastProvider>
         <Toast onOpenChange={mockOnOpenChange}>Dismissible toast</Toast>
       </ToastProvider>
@@ -110,7 +145,7 @@ describe('useToastAPI hook', () => {
   }
 
   it('shows toasts using useToastAPI with correct variants', () => {
-    render(
+    renderWithProvider(
       <ToastProvider>
         <ToastAPIDemo />
       </ToastProvider>

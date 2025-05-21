@@ -1,6 +1,9 @@
+'use client'
+
 import { cn } from '@/utils/classNames'
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
+import { useTranslation } from 'next-i18next'
 
 /**
  * Accessible Dialog (modal) using Radix UI with Tailwind styling and token-based theming.
@@ -42,34 +45,38 @@ export const Dialog = {
     title?: string
     description?: string
     className?: string
-  } & RadixDialog.DialogContentProps) => (
-    <RadixDialog.Portal>
-      <Dialog.Overlay />
-      <RadixDialog.Content
-        className={cn(
-          'fixed left-1/2 top-1/2 z-[var(--dialog-content-z-index)] grid w-[var(--dialog-content-width)] max-w-[var(--dialog-content-max-width)] -translate-x-1/2 -translate-y-1/2 gap-[var(--dialog-content-gap)] border bg-background p-[var(--dialog-content-padding)] shadow-lg duration-200 data-[state=open]:animate-fade-in rounded-[var(--dialog-content-border-radius)]',
-          className
-        )}
-        {...rest}
-      >
-        {title && (
-          <RadixDialog.Title className="text-[var(--dialog-title-font-size)] font-[var(--dialog-title-font-weight)]">
-            {title}
-          </RadixDialog.Title>
-        )}
-        {description && (
-          <RadixDialog.Description className="sr-only">
-            {description}
-          </RadixDialog.Description>
-        )}
-        {children}
-        <RadixDialog.Close 
-          className="absolute right-[var(--dialog-close-right)] top-[var(--dialog-close-top)] text-dialog-close-text-color hover:text-foreground"
-          aria-label="Close"
+  } & RadixDialog.DialogContentProps) => {
+    const { t } = useTranslation('composed')
+    
+    return (
+      <RadixDialog.Portal>
+        <Dialog.Overlay />
+        <RadixDialog.Content
+          className={cn(
+            'fixed left-1/2 top-1/2 z-[var(--dialog-content-z-index)] grid w-[var(--dialog-content-width)] max-w-[var(--dialog-content-max-width)] -translate-x-1/2 -translate-y-1/2 gap-[var(--dialog-content-gap)] border bg-background p-[var(--dialog-content-padding)] shadow-lg duration-200 data-[state=open]:animate-fade-in rounded-[var(--dialog-content-border-radius)]',
+            className
+          )}
+          {...rest}
         >
-          <X className="h-[var(--dialog-close-icon-size)] w-[var(--dialog-close-icon-size)]" />
-        </RadixDialog.Close>
-      </RadixDialog.Content>
-    </RadixDialog.Portal>
-  ),
+          {title && (
+            <RadixDialog.Title className="text-[var(--dialog-title-font-size)] font-[var(--dialog-title-font-weight)]">
+              {title}
+            </RadixDialog.Title>
+          )}
+          {description && (
+            <RadixDialog.Description className="sr-only">
+              {description}
+            </RadixDialog.Description>
+          )}
+          {children}
+          <RadixDialog.Close 
+            className="absolute right-[var(--dialog-close-right)] top-[var(--dialog-close-top)] text-dialog-close-text-color hover:text-foreground"
+            aria-label={t('dialog.close')}
+          >
+            <X className="h-[var(--dialog-close-icon-size)] w-[var(--dialog-close-icon-size)]" />
+          </RadixDialog.Close>
+        </RadixDialog.Content>
+      </RadixDialog.Portal>
+    )
+  },
 }

@@ -1,0 +1,34 @@
+{
+  "calendar": {
+    "previousYear": "Aller à l'année précédente",
+    "previousMonth": "Aller au mois précédent",
+    "goToToday": "Aller à aujourd'hui",
+    "today": "Aujourd'hui",
+    "nextMonth": "Aller au mois suivant",
+    "nextYear": "Aller à l'année suivante",
+    "selected": "(sélectionné)"
+  },
+  "carousel": {
+    "label": "carrousel",
+    "roledescription": "carrousel",
+    "slide": "diapositive",
+    "slidePosition": "Diapositive {{current}} sur {{total}}",
+    "previousSlide": "Diapositive précédente",
+    "nextSlide": "Diapositive suivante",
+    "goToSlide": "Aller à la diapositive {{number}}",
+    "slideCurrentPosition": "Diapositive {{number}} (actuelle)",
+    "slideNumber": "Diapositive {{number}}"
+  },
+  "datePicker": {
+    "dateSelection": "Sélection de date",
+    "showCalendar": "Afficher le calendrier",
+    "clearDate": "Effacer la date",
+    "timeSelectionNotImplemented": "La sélection de l'heure n'est pas encore implémentée"
+  },
+  "dialog": {
+    "close": "Fermer"
+  },
+  "drawer": {
+    "close": "Fermer"
+  }
+}

@@ -1,3 +1,5 @@
+'use client'
+
 import { HTMLAttributes, useCallback, useMemo } from 'react'
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react'
 import { cn } from '@/utils/classNames'

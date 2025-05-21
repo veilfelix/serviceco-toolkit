@@ -1,0 +1,34 @@
+{
+  "calendar": {
+    "previousYear": "Go to previous year",
+    "previousMonth": "Go to previous month",
+    "goToToday": "Go to today",
+    "today": "Today",
+    "nextMonth": "Go to next month",
+    "nextYear": "Go to next year",
+    "selected": "(selected)"
+  },
+  "carousel": {
+    "label": "carousel",
+    "roledescription": "carousel",
+    "slide": "slide",
+    "slidePosition": "Slide {{current}} of {{total}}",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "goToSlide": "Go to slide {{number}}",
+    "slideCurrentPosition": "Slide {{number}} (current)",
+    "slideNumber": "Slide {{number}}"
+  },
+  "datePicker": {
+    "dateSelection": "Date selection",
+    "showCalendar": "Show calendar",
+    "clearDate": "Clear date",
+    "timeSelectionNotImplemented": "Time selection is not yet implemented"
+  },
+  "dialog": {
+    "close": "Close"
+  },
+  "drawer": {
+    "close": "Close"
+  }
+}

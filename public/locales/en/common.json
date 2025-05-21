@@ -1,0 +1,18 @@
+{
+  "siteName": "ServiceCo Toolkit",
+  "slugs": {
+    "about": "About",
+    "contact": "Contact"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English",
+    "switch": "Changer language"
+  },
+  "meta": {
+    "home": {
+      "title": "ServiceCo Toolkit",
+      "description": "A modern starter kit for service company websites."
+    }
+  }
+}

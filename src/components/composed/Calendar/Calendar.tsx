@@ -1,7 +1,10 @@
+'use client'
+
 import React, { useState, useEffect, useMemo, forwardRef, createContext, useContext } from 'react'
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react'
 import { cn } from '@/utils/classNames'
 import Button from '@/components/ui/Button/Button'
+import { useTranslation } from 'next-i18next'
 
 // Types
 export interface CalendarEvent {
@@ -430,6 +433,8 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(({
     year: 'numeric',
   }).format(currentDate)
   
+  const { t } = useTranslation('composed')
+
   // Context value
   const contextValue: CalendarContextType = {
     currentDate,
@@ -466,7 +471,7 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(({
               <Button
                 variant="primary"
                 size="sm"
-                aria-label="Go to previous year"
+                aria-label={t('calendar.previousYear')}
                 onClick={goToPreviousYear}
                 className={cn(
                   'p-1',
@@ -478,7 +483,7 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(({
               <Button
                 variant="primary"
                 size="sm"
-                aria-label="Go to previous month"
+                aria-label={t('calendar.previousMonth')}
                 onClick={goToPreviousMonth}
                 className={cn(
                   'p-1',
@@ -490,19 +495,19 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(({
               <Button
                 variant="primary"
                 size="sm"
-                aria-label="Go to today"
+                aria-label={t('calendar.goToToday')}
                 onClick={goToToday}
                 className={cn(
                   'text-xs px-2 py-1',
                   buttonClasses
                 )}
               >
-                Today
+                {t('calendar.today')}
               </Button>
               <Button
                 variant="primary"
                 size="sm"
-                aria-label="Go to next month"
+                aria-label={t('calendar.nextMonth')}
                 onClick={goToNextMonth}
                 className={cn(
                   'p-1',
@@ -514,7 +519,7 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(({
               <Button
                 variant="primary"
                 size="sm"
-                aria-label="Go to next year bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))]/50"
+                aria-label={t('calendar.nextYear')}
                 onClick={goToNextYear}
                 className={cn(
                   'p-1',
@@ -593,6 +598,7 @@ export function CalendarDay({
   onClick,
 }: CalendarDayProps) {
   const { renderDay } = useCalendar()
+  const { t } = useTranslation('composed')
   
   const dayClasses = cn(
     'relative flex items-center justify-center rounded-[var(--calendar-border-radius)] h-[var(--calendar-cell-size)] w-full',
@@ -614,7 +620,7 @@ export function CalendarDay({
     <div
       role="button"
       aria-disabled={disabled}
-      aria-label={`${day.toLocaleDateString()} ${isSelected ? '(selected)' : ''}`}
+      aria-label={`${day.toLocaleDateString()} ${isSelected ? t('calendar.selected') : ''}`}
       tabIndex={disabled ? -1 : 0}
       className={dayClasses}
       onClick={!disabled ? onClick : undefined}

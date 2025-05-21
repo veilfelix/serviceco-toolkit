@@ -1,3 +1,5 @@
+'use client'
+
 import React, { forwardRef, useState, useEffect, ReactNode, Ref, JSX } from 'react'
 import { cn } from '@/utils/classNames'
 import {

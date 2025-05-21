@@ -1,5 +1,12 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import Slider from './Slider'
+import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import { initTestI18n } from '@/utils/i18n'
+
+function renderWithProvider(ui: React.ReactElement) {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>)
+}
 
 const mockRect = (element: Element, left: number, width: number) => {
   const originalGetBoundingClientRect = element.getBoundingClientRect
@@ -20,10 +27,27 @@ const mockRect = (element: Element, left: number, width: number) => {
 }
 
 describe('Slider', () => {
+  beforeEach(() => {
+    initTestI18n({
+      en: {
+        ui: {
+          requiredIndicator: '*',
+          tooltip: 'Tooltip',
+        },
+      },
+      fr: {
+        ui: {
+          requiredIndicator: '*',
+          tooltip: 'Info-bulle',
+        },
+      },
+    })
+  })
+
   // Single value slider tests
   describe('Single value slider', () => {
     it('renders correctly with default props', () => {
-      render(<Slider aria-label="Test slider" />)
+      renderWithProvider(<Slider aria-label="Test slider" />)
       const slider = screen.getByRole('slider')
       expect(slider).toBeInTheDocument()
       expect(slider).toHaveAttribute('aria-valuenow', '0')
@@ -32,14 +56,14 @@ describe('Slider', () => {
     })
 
     it('renders with provided value', () => {
-      render(<Slider value={50} aria-label="Test slider" />)
+      renderWithProvider(<Slider value={50} aria-label="Test slider" />)
       const slider = screen.getByRole('slider')
       expect(slider).toHaveAttribute('aria-valuenow', '50')
     })
 
     it('calls onChange when track is clicked', () => {
       const handleChange = jest.fn()
-      const { container } = render(
+      const { container } = renderWithProvider(
         <Slider value={0} onChange={handleChange} aria-label="Test slider" />
       )
       
@@ -58,7 +82,7 @@ describe('Slider', () => {
 
     it('updates value with keyboard arrow keys', async () => {
       const handleChange = jest.fn()
-      render(
+      renderWithProvider(
         <Slider 
           value={50} 
           onChange={handleChange} 
@@ -87,7 +111,7 @@ describe('Slider', () => {
     })
 
     it('displays label when provided', () => {
-      render(<Slider label="Volume" />)
+      renderWithProvider(<Slider label="Volume" />)
       const label = screen.getByText('Volume')
       expect(label).toBeInTheDocument()
       expect(label.tagName).toBe('LABEL')
@@ -97,7 +121,7 @@ describe('Slider', () => {
   // Range slider tests
   describe('Range slider', () => {
     it('renders with two thumbs for range values', () => {
-      render(<Slider range={[25, 75]} aria-label="Test range slider" />)
+      renderWithProvider(<Slider range={[25, 75]} aria-label="Test range slider" />)
       const thumbs = screen.getAllByRole('slider')
       expect(thumbs).toHaveLength(2)
       expect(thumbs[0]).toHaveAttribute('aria-valuenow', '25')
@@ -106,7 +130,7 @@ describe('Slider', () => {
 
     it('calls onRangeChange when track is clicked', () => {
       const handleRangeChange = jest.fn()
-      const { container } = render(
+      const { container } = renderWithProvider(
         <Slider range={[25, 75]} onRangeChange={handleRangeChange} aria-label="Test range slider" />
       )
       
@@ -129,7 +153,7 @@ describe('Slider', () => {
 
     it('updates range values with keyboard arrow keys', () => {
       const handleRangeChange = jest.fn()
-      render(
+      renderWithProvider(
         <Slider 
           range={[25, 75]} 
           onRangeChange={handleRangeChange} 
@@ -161,7 +185,7 @@ describe('Slider', () => {
   // Variant and size tests
   describe('Variants and sizes', () => {
     it('applies correct size classes', () => {
-      const { container, rerender } = render(<Slider size="sm" />)
+      const { container, rerender } = renderWithProvider(<Slider size="sm" />)
       let track = container.querySelector('div[role="presentation"]')
       expect(track).toHaveClass('h-[0.125rem]')
       
@@ -175,7 +199,7 @@ describe('Slider', () => {
     })
 
     it('applies variant classes correctly', () => {
-      const { container, rerender } = render(<Slider variant="primary" />)
+      const { container, rerender } = renderWithProvider(<Slider variant="primary" />)
       let track = container.querySelector('div[role="presentation"]')
       let range = track?.firstChild
       
@@ -194,7 +218,7 @@ describe('Slider', () => {
   // Accessibility tests
   describe('Accessibility', () => {
     it('has correct ARIA attributes', () => {
-      render(<Slider value={42} label="Volume control" />)
+      renderWithProvider(<Slider value={42} label="Volume control" />)
       const slider = screen.getByRole('slider')
       
       expect(slider).toHaveAttribute('aria-valuemin', '0')
@@ -206,7 +230,7 @@ describe('Slider', () => {
     })
 
     it('is focusable and navigable with keyboard', () => {
-      render(<Slider value={50} />)
+      renderWithProvider(<Slider value={50} />)
       const slider = screen.getByRole('slider')
       
       expect(slider).toHaveAttribute('tabIndex', '0')
@@ -215,7 +239,7 @@ describe('Slider', () => {
     })
 
     it('has correct disabled state', () => {
-      render(<Slider disabled value={50} />)
+      renderWithProvider(<Slider disabled value={50} />)
       const slider = screen.getByRole('slider')
       
       expect(slider).toHaveAttribute('aria-disabled', 'true')
@@ -224,7 +248,7 @@ describe('Slider', () => {
 
     it('formats values with formatValue prop', () => {
       const formatValue = (val: number) => `$${val}`
-      render(<Slider value={50} formatValue={formatValue} />)
+      renderWithProvider(<Slider value={50} formatValue={formatValue} />)
       
       const slider = screen.getByRole('slider')
       expect(slider).toHaveAttribute('aria-valuetext', '$50')
@@ -234,7 +258,7 @@ describe('Slider', () => {
   // Additional features tests
   describe('Additional features', () => {
     it('renders min/max labels when enabled', () => {
-      render(<Slider showMinMaxLabels min={10} max={90} />)
+      renderWithProvider(<Slider showMinMaxLabels min={10} max={90} />)
       
       expect(screen.getByText('10')).toBeInTheDocument()
       expect(screen.getByText('90')).toBeInTheDocument()
@@ -242,14 +266,14 @@ describe('Slider', () => {
 
     it('formats min/max labels with formatValue', () => {
       const formatValue = (val: number) => `$${val}`
-      render(<Slider showMinMaxLabels min={10} max={90} formatValue={formatValue} />)
+      renderWithProvider(<Slider showMinMaxLabels min={10} max={90} formatValue={formatValue} />)
       
       expect(screen.getByText('$10')).toBeInTheDocument()
       expect(screen.getByText('$90')).toBeInTheDocument()
     })
 
     it('shows tooltip on focus when showTooltip is "focus"', async () => {
-      render(<Slider value={50} showTooltip="focus" />)
+      renderWithProvider(<Slider value={50} showTooltip="focus" />)
       
       const slider = screen.getByRole('slider')
       fireEvent.focus(slider)
@@ -261,7 +285,7 @@ describe('Slider', () => {
     })
 
     it('shows tooltip always when showTooltip is "always"', () => {
-      render(<Slider value={50} showTooltip="always" />)
+      renderWithProvider(<Slider value={50} showTooltip="always" />)
       expect(screen.getByText('50')).toBeInTheDocument()
     })
   })

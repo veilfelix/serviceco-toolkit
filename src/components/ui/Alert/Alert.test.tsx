@@ -1,16 +1,51 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import Alert from './Alert'
+import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import { initTestI18n } from '@/utils/i18n'
+
+function renderWithProvider(ui: React.ReactElement) {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>)
+}
 
 describe('Alert', () => {
+  beforeEach(() => {
+    initTestI18n({
+      en: {
+        datePicker: {
+          clearDate: 'Clear date',
+          selectDate: 'Select date',
+        },
+        ui: {
+          alert: {
+            dismiss: 'Dismiss alert'
+          },
+          requiredIndicator: '*',
+        },
+      },
+      fr: {
+        datePicker: {
+          clearDate: 'Effacer la date',
+          selectDate: 'Choisir une date',
+        },
+        ui: {
+          alert: {
+            dismiss: 'Fermer l\'alerte'
+          }
+        },
+      },
+    })
+  })
+
   it('renders alert with content correctly', () => {
-    render(<Alert>Alert content</Alert>)
+    renderWithProvider(<Alert>Alert content</Alert>)
     
     expect(screen.getByRole('alert')).toBeInTheDocument()
     expect(screen.getByText('Alert content')).toBeInTheDocument()
   })
 
   it('renders alert with title when provided', () => {
-    render(<Alert title="Alert Title">Alert content</Alert>)
+    renderWithProvider(<Alert title="Alert Title">Alert content</Alert>)
     
     expect(screen.getByRole('alert')).toBeInTheDocument()
     expect(screen.getByText('Alert Title')).toBeInTheDocument()
@@ -20,7 +55,7 @@ describe('Alert', () => {
   it('renders alert with icon when provided', () => {
     const icon = <svg data-testid="test-icon" />
     
-    render(<Alert icon={icon}>Alert with icon</Alert>)
+    renderWithProvider(<Alert icon={icon}>Alert with icon</Alert>)
     
     expect(screen.getByRole('alert')).toBeInTheDocument()
     expect(screen.getByTestId('test-icon')).toBeInTheDocument()
@@ -29,7 +64,7 @@ describe('Alert', () => {
   it('renders dismissible alert with dismiss button when dismissible is true', () => {
     const mockOnDismiss = jest.fn()
     
-    render(
+    renderWithProvider(
       <Alert dismissible onDismiss={mockOnDismiss}>
         Dismissible alert
       </Alert>
@@ -42,7 +77,7 @@ describe('Alert', () => {
   it('calls onDismiss when dismiss button is clicked', () => {
     const mockOnDismiss = jest.fn()
     
-    render(
+    renderWithProvider(
       <Alert dismissible onDismiss={mockOnDismiss}>
         Dismissible alert
       </Alert>
@@ -57,7 +92,7 @@ describe('Alert', () => {
   it('does not render dismiss button when dismissible is false', () => {
     const mockOnDismiss = jest.fn()
     
-    render(
+    renderWithProvider(
       <Alert dismissible={false} onDismiss={mockOnDismiss}>
         Non-dismissible alert
       </Alert>
@@ -67,7 +102,7 @@ describe('Alert', () => {
   })
 
   it('does not render dismiss button when onDismiss is not provided', () => {
-    render(
+    renderWithProvider(
       <Alert dismissible>
         Alert without onDismiss
       </Alert>
@@ -77,7 +112,7 @@ describe('Alert', () => {
   })
 
   it('applies variant classes correctly', () => {
-    const { rerender, container } = render(<Alert variant="default">Default alert</Alert>)
+    const { rerender, container } = renderWithProvider(<Alert variant="default">Default alert</Alert>)
     
     let alert = container.firstChild as HTMLElement
     expect(alert.className).toContain('bg-muted')
@@ -100,7 +135,7 @@ describe('Alert', () => {
   })
 
   it('applies custom className correctly', () => {
-    const { container } = render(
+    const { container } = renderWithProvider(
       <Alert className="custom-alert-class">Custom class alert</Alert>
     )
     
@@ -109,7 +144,7 @@ describe('Alert', () => {
   })
 
   it('passes additional props to the alert div', () => {
-    render(<Alert data-testid="test-alert">Test Alert</Alert>)
+    renderWithProvider(<Alert data-testid="test-alert">Test Alert</Alert>)
     
     expect(screen.getByTestId('test-alert')).toBeInTheDocument()
     expect(screen.getByTestId('test-alert')).toHaveTextContent('Test Alert')

@@ -1,0 +1,20 @@
+{
+  "alert": {
+    "dismiss": "Dismiss alert"
+  },
+  "slider": {
+    "minimum": "Minimum",
+    "maximum": "Maximum",
+    "value": "Value",
+    "valueDisplay": "Value: {{value}}",
+    "valueMinMax": "{{type}} value: {{value}}"
+  },
+  "spinner": {
+    "loading": "Loading"
+  },
+  "toast": {
+    "close": "Close",
+    "action": "Toast action",
+    "notifications": "Notifications"
+  }
+}

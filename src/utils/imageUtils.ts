@@ -39,7 +39,7 @@ export const fallbackPlaceholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iND
  *
  * This function does NOT generate blurDataURLs dynamically.
  * For production images, you must pre-generate the blur using the CLI script:
- *   /scripts/generate-blur-placeholder.ts
+ *   /scripts/generate-blur-placeholder.js
  *
  * For full documentation and usage best practices, see:
  * docs/blur-placeholders.md

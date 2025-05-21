@@ -1,5 +1,8 @@
+'use client'
+
 import { HTMLAttributes, JSX } from 'react'
 import { cn } from '@/utils/classNames'
+import { useTranslation } from 'next-i18next'
 
 export type SpinnerSize = 'sm' | 'md' | 'lg' | 'xl'
 export type SpinnerVariant = 'primary' | 'secondary' | 'muted' | 'white'
@@ -45,10 +48,12 @@ export default function Spinner({
   size = 'md',
   variant = 'primary',
   className = '',
-  ariaLabel = 'Loading',
+  ariaLabel,
   layout = 'inline',
   ...props
 }: SpinnerProps): JSX.Element {
+  const { t } = useTranslation('ui')
+  const defaultAriaLabel = t('spinner.loading')
   const sizeStyles: Record<SpinnerSize, string> = {
     sm: 'h-4 w-4 border-2',
     md: 'h-6 w-6 border-2',
@@ -78,10 +83,10 @@ export default function Spinner({
         className
       )}
       role="status"
-      aria-label={ariaLabel}
+      aria-label={ariaLabel || defaultAriaLabel}
       {...props}
     >
-      <span className="sr-only">{ariaLabel}</span>
+      <span className="sr-only">{ariaLabel || defaultAriaLabel}</span>
     </div>
   )
 }

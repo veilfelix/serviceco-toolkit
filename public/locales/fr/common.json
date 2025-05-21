@@ -1,0 +1,18 @@
+{
+  "siteName": "Agno Starter Kit",
+  "slugs": {
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "Anglais",
+    "switch": "Changer de langue"
+  },
+  "meta": {
+    "home": {
+      "title": "ServiceCo Toolkit",
+      "description": "Un kit de démarrage moderne pour les sites de compagnies de services."
+    }
+  }
+}

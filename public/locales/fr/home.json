@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "title": "Bienvenue dans le ServiceCo Toolkit",
+    "subtitle": "Un kit de démarrage moderne pour les sites de compagnies de services",
+    "cta": "Ouvrir le dialogue"
+  },
+  "modal": {
+    "title": "Placeholders très utiles S01 E01 : Dialogue",
+    "description": "Voulez-vous fermer le dialogue ?",
+    "confirm": "Oui, bien sûr",
+    "cancel": "Non",
+    "switchLabel": "Dans ce cas, vous devez activer ce commutateur !",
+    "afterSwitch": "Vous m'avez fait confiance ? 🤡 Maintenant désactivez-le"
+  }
+}

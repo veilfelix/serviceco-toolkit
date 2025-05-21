@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next'
 import withBundleAnalyzer from '@next/bundle-analyzer'
+import i18nConfig from './next-i18next.config'
 
 const withAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -17,7 +18,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  ...i18nConfig,
 }
 
 export default withAnalyzer(nextConfig)
-

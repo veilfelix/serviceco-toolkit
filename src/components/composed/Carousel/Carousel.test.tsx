@@ -1,5 +1,12 @@
 import { render, screen, fireEvent, act } from '@testing-library/react'
 import Carousel from './Carousel'
+import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import { initTestI18n } from '@/utils/i18n'
+
+function renderWithProvider(ui: React.ReactElement) {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>)
+}
 
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root: Element | Document | null = null
@@ -35,6 +42,49 @@ describe('Carousel', () => {
   beforeEach(() => {
     jest.clearAllMocks()
     jest.useFakeTimers()
+    initTestI18n({
+      en: {
+        composed: {
+          carousel: {
+            label: 'carousel',
+            roledescription: 'carousel',
+            slide: 'slide',
+            slidePosition: 'Slide {{current}} of {{total}}',
+            previousSlide: 'Previous slide',
+            nextSlide: 'Next slide',
+            goToSlide: 'Go to slide {{number}}',
+            slideCurrentPosition: 'Slide {{number}} (current)',
+            slideNumber: 'Slide {{number}}'
+          }
+        },
+        datePicker: {
+          clearDate: 'Clear date',
+          selectDate: 'Select date',
+        },
+        ui: {
+          requiredIndicator: '*',
+        },
+      },
+      fr: {
+        composed: {
+          carousel: {
+            label: 'carrousel',
+            roledescription: 'carrousel',
+            slide: 'diapositive',
+            slidePosition: 'Diapositive {{current}} sur {{total}}',
+            previousSlide: 'Diapositive précédente',
+            nextSlide: 'Diapositive suivante',
+            goToSlide: 'Aller à la diapositive {{number}}',
+            slideCurrentPosition: 'Diapositive {{number}} (actuelle)',
+            slideNumber: 'Diapositive {{number}}'
+          }
+        },
+        datePicker: {
+          clearDate: 'Effacer la date',
+          selectDate: 'Choisir une date',
+        },
+      },
+    })
   })
 
   afterEach(() => {
@@ -42,7 +92,7 @@ describe('Carousel', () => {
   })
 
   it('renders the carousel with slides', () => {
-    render(
+    renderWithProvider(
       <Carousel data-testid="carousel">
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -56,7 +106,7 @@ describe('Carousel', () => {
   })
 
   it('renders navigation controls when showArrows is true', () => {
-    render(
+    renderWithProvider(
       <Carousel showArrows={true}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -68,7 +118,7 @@ describe('Carousel', () => {
   })
 
   it('does not render navigation controls when showArrows is false', () => {
-    render(
+    renderWithProvider(
       <Carousel showArrows={false}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -80,7 +130,7 @@ describe('Carousel', () => {
   })
 
   it('renders indicators when showIndicators is true', () => {
-    render(
+    renderWithProvider(
       <Carousel showIndicators={true}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -94,7 +144,7 @@ describe('Carousel', () => {
   })
 
   it('does not render indicators when showIndicators is false', () => {
-    render(
+    renderWithProvider(
       <Carousel showIndicators={false}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -105,7 +155,7 @@ describe('Carousel', () => {
   })
 
   it('navigates to the next slide when clicking the next button', () => {
-    render(
+    renderWithProvider(
       <Carousel>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -121,7 +171,7 @@ describe('Carousel', () => {
   })
 
   it('navigates to the previous slide when clicking the previous button', () => {
-    render(
+    renderWithProvider(
       <Carousel>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -141,7 +191,7 @@ describe('Carousel', () => {
   })
 
   it('advances slides automatically when autoplay is enabled', () => {
-    render(
+    renderWithProvider(
       <Carousel autoplay autoplayInterval={1000}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -161,7 +211,7 @@ describe('Carousel', () => {
   })
 
   it('navigates to a specific slide when clicking an indicator', () => {
-    render(
+    renderWithProvider(
       <Carousel>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -178,7 +228,7 @@ describe('Carousel', () => {
   })
 
   it('supports keyboard navigation when enabled', () => {
-    render(
+    renderWithProvider(
       <Carousel enableKeyboardNavigation={true}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -204,7 +254,7 @@ describe('Carousel', () => {
   })
 
   it('wraps around to the first slide when reaching the end with loop enabled', () => {
-    render(
+    renderWithProvider(
       <Carousel loop={true}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -221,7 +271,7 @@ describe('Carousel', () => {
   })
 
   it('stays on the last slide when reaching the end with loop disabled', () => {
-    render(
+    renderWithProvider(
       <Carousel loop={false}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -238,7 +288,7 @@ describe('Carousel', () => {
   })
 
   it('applies custom className to the carousel', () => {
-    const { container } = render(
+    const { container } = renderWithProvider(
       <Carousel className="test-custom-class">
         <Carousel.Item>Slide 1</Carousel.Item>
       </Carousel>
@@ -249,13 +299,13 @@ describe('Carousel', () => {
   })
 
   it('applies variant-specific styles', () => {
-    const { container: defaultContainer } = render(
+    const { container: defaultContainer } = renderWithProvider(
       <Carousel variant="default">
         <Carousel.Item>Default Variant</Carousel.Item>
       </Carousel>
     )
 
-    const { container: bannerContainer } = render(
+    const { container: bannerContainer } = renderWithProvider(
       <Carousel variant="banner">
         <Carousel.Item>Banner Variant</Carousel.Item>
       </Carousel>
@@ -271,7 +321,7 @@ describe('Carousel', () => {
   it('calls onSlideChange callback when the active slide changes', () => {
     const onSlideChangeMock = jest.fn()
 
-    render(
+    renderWithProvider(
       <Carousel onSlideChange={onSlideChangeMock}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -285,7 +335,7 @@ describe('Carousel', () => {
   })
 
   it('correctly handles touch swipe gestures when enableSwipe is true', () => {
-    render(
+    renderWithProvider(
       <Carousel enableSwipe={true}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -316,7 +366,7 @@ describe('Carousel', () => {
       </div>
     ))
 
-    render(
+    renderWithProvider(
       <Carousel renderSlide={customRenderSlide}>
         <Carousel.Item>Slide 1</Carousel.Item>
         <Carousel.Item>Slide 2</Carousel.Item>
@@ -331,7 +381,7 @@ describe('Carousel', () => {
   })
 
   it('renders CarouselItem correctly', () => {
-    const { container } = render(
+    const { container } = renderWithProvider(
       <Carousel.Item className="test-item-class">Test Content</Carousel.Item>
     )
 

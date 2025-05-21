@@ -1,6 +1,9 @@
+'use client'
+
 import { HTMLAttributes, JSX, ReactNode } from 'react'
 import { cn } from '@/utils/classNames'
 import { X } from 'lucide-react'
+import { useTranslation } from 'next-i18next'
 
 export type AlertVariant = 'default' | 'success' | 'warning' | 'error' | 'info'
 
@@ -56,6 +59,7 @@ export default function Alert({
   className,
   ...props
 }: AlertProps): JSX.Element {
+  const { t } = useTranslation('ui')
   const variantStyles: Record<AlertVariant, string> = {
     default: 'bg-muted text-foreground border-border',
     success: 'bg-alert-success-bg text-alert-success-text border-alert-success-border',
@@ -88,7 +92,7 @@ export default function Alert({
         {dismissible && onDismiss && (
           <button
             type="button"
-            aria-label="Dismiss alert"
+            aria-label={t('alert.dismiss')}
             onClick={onDismiss}
             className={cn(
               'inline-flex h-5 w-5 items-center justify-center rounded-full',

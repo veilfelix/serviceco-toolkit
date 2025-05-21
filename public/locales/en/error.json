@@ -1,0 +1,12 @@
+{
+  "500": {
+    "title": "500 - Server Error",
+    "message": "An error has occurred. Please try again later.",
+    "cta": "Back to home page"
+  },
+  "404": {
+    "title": "404 - Page Not Found",
+    "message": "Oops! The page you are looking for doesn't exist.",
+    "cta": "Back to home page"
+  }
+}

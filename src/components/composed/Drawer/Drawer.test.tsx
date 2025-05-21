@@ -3,10 +3,36 @@ import { Drawer } from './Drawer'
 import Button from '@/components/ui/Button/Button'
 import '@testing-library/jest-dom'
 import { useState } from 'react'
+import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import { initTestI18n } from '@/utils/i18n'
+
+function renderWithProvider(ui: React.ReactElement) {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>)
+}
 
 describe('Drawer component', () => {
+  beforeEach(() => {
+    initTestI18n({
+      en: {
+        composed: {
+          drawer: {
+            close: 'Close',
+          },
+        },
+      },
+      fr: {
+        composed: {
+          drawer: {
+            close: 'Fermer',
+          },
+        },
+      },
+    })
+  })
+
   it('renders the trigger and opens the drawer', async () => {
-    render(
+    renderWithProvider(
       <Drawer>
         <Drawer.Trigger asChild>
           <Button>Open Drawer</Button>
@@ -24,7 +50,7 @@ describe('Drawer component', () => {
   })
 
   it('respects the "side" prop visually', async () => {
-    render(
+    renderWithProvider(
       <Drawer side="left">
         <Drawer.Trigger asChild>
           <Button>Open Drawer</Button>
@@ -41,7 +67,7 @@ describe('Drawer component', () => {
   })
 
   it('does not render the overlay when showOverlay is false', async () => {
-    render(
+    renderWithProvider(
       <Drawer showOverlay={false} open>
         <Drawer.Trigger asChild>
           <Button>Open Drawer</Button>
@@ -62,7 +88,7 @@ describe('Drawer component', () => {
   it('calls onOpenChange when the drawer is toggled', () => {
     const handleOpenChange = jest.fn()
 
-    render(
+    renderWithProvider(
       <Drawer onOpenChange={handleOpenChange}>
         <Drawer.Trigger asChild>
           <Button>Toggle</Button>
@@ -90,7 +116,7 @@ describe('Drawer component', () => {
       )
     }
 
-    render(<Wrapper />)
+    renderWithProvider(<Wrapper />)
 
     expect(screen.getByText('Escape should close me')).toBeInTheDocument()
 

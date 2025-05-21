@@ -1,3 +1,5 @@
+'use-client'
+
 import { ElementType, HTMLAttributes, ReactNode, forwardRef } from 'react'
 import { cn } from '@/utils/classNames'
 
@@ -7,8 +9,7 @@ export type GridAlign = 'start' | 'center' | 'end' | 'stretch' | 'baseline'
 export type GridJustify = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
 export type GridResponsiveBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 export type GridFlow = 'row' | 'col' | 'dense' | 'row-dense' | 'col-dense'
-export type GridAutoColumns = 'auto' | 'min' | 'max' | 'fr'
-export type GridAutoRows = 'auto' | 'min' | 'max' | 'fr'
+
 
 interface BaseGridProps extends HTMLAttributes<HTMLElement> {
   /**

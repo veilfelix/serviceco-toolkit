@@ -1,6 +1,9 @@
+'use client'
+
 import { forwardRef, useEffect, useRef, useState, KeyboardEvent, useCallback } from 'react'
 import { cn } from '@/utils/classNames'
 import VisuallyHidden from '@/components/a11y/VisuallyHidden/VisuallyHidden'
+import { useTranslation } from 'next-i18next'
 
 export type SliderSize = 'sm' | 'md' | 'lg'
 export type SliderVariant = 'default' | 'primary' | 'secondary'
@@ -144,6 +147,7 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(({
   id,
   ...props
 }, ref) => {
+  const { t } = useTranslation('ui')
   // Refs for DOM elements
   const trackRef = useRef<HTMLDivElement>(null)
   const thumbRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -482,7 +486,7 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(({
               aria-valuemax={max}
               aria-valuenow={currentValues[index]}
               aria-valuetext={formatValueFn(currentValues[index])}
-              aria-label={label || `Slider ${isRangeSlider ? (index === 0 ? 'minimum' : 'maximum') : 'value'}`}
+              aria-label={label || t(isRangeSlider ? (index === 0 ? 'slider.minimum' : 'slider.maximum') : 'slider.value')}
               aria-disabled={disabled}
               aria-orientation="horizontal"
               className={cn(
@@ -518,8 +522,11 @@ const Slider = forwardRef<HTMLDivElement, SliderProps>(({
               
               <VisuallyHidden>
                 {isRangeSlider
-                  ? `${index === 0 ? 'Minimum' : 'Maximum'} value: ${formatValueFn(currentValues[index])}`
-                  : `Value: ${formatValueFn(currentValues[index])}`
+                  ? t('slider.valueMinMax', { 
+                    type: index === 0 ? t('slider.minimum') : t('slider.maximum'), 
+                    value: formatValueFn(currentValues[index]) 
+                  })
+                  : t('slider.valueDisplay', { value: formatValueFn(currentValues[index]) })
                 }
               </VisuallyHidden>
             </div>

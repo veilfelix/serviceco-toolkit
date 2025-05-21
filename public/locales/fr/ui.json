@@ -1,0 +1,20 @@
+{
+  "alert": {
+    "dismiss": "Fermer l'alerte"
+  },
+  "slider": {
+    "minimum": "Minimum",
+    "maximum": "Maximum",
+    "value": "Valeur",
+    "valueDisplay": "Valeur: {{value}}",
+    "valueMinMax": "Valeur {{type}}: {{value}}"
+  },
+  "spinner": {
+    "loading": "Chargement"
+  },
+  "toast": {
+    "close": "Fermer",
+    "action": "Action de notification",
+    "notifications": "Notifications"
+  }
+}

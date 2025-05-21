@@ -1,5 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import Layout from '@/components/composed/Layout/Layout'
+import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import { initTestI18n } from '@/utils/i18n'
+
+function renderWithProvider(ui: React.ReactElement) {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>)
+}
 
 // Mock Header and Footer to isolate Layout rendering
 jest.mock('./Header/Header', () => {
@@ -15,8 +22,49 @@ jest.mock('./Footer/Footer', () => {
 })
 
 describe('Layout', () => {
+  beforeEach(() => {
+    initTestI18n({
+      en: {
+        common: {
+          language: {
+            fr: 'Français',
+            en: 'English',
+            switch: 'Change language',
+          },
+          meta: {
+            home: {
+              title: 'ServiceCo Toolkit',
+              description: 'A modern starter kit for service company websites.',
+            },
+          },
+        },
+        a11y: {
+          skipToMain: 'Skip to main content',
+        },
+      },
+      fr: {
+        common: {
+          language: {
+            fr: 'Français',
+            en: 'Anglais',
+            switch: 'Changer la langue',
+          },
+          meta: {
+            home: {
+              title: 'ServiceCo Toolkit',
+              description: 'Un kit de démarrage moderne pour sites de services',
+            },
+          },
+        },
+        a11y: {
+          skipToMain: 'Aller au contenu principal',
+        },
+      },
+    })
+  })
+
   it('renders Header, children, and Footer in correct order', () => {
-    render(
+    renderWithProvider(
       <Layout>
         <div data-testid="layout-children">Page Content</div>
       </Layout>

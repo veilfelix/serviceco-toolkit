@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "title": "Welcome to ServiceCo Toolkit",
+    "subtitle": "A modern starter kit for service company websites",
+    "cta": "Open Dialog"
+  },
+  "modal": {
+    "title": "Very Useful Placeholders S01 E01: Dialog",
+    "description": "Do you want to close the Dialog?",
+    "confirm": "Yes, of course",
+    "cancel": "No",
+    "switchLabel": "If so, you must turn this switch on!",
+    "afterSwitch": "You trusted me? 🤡 Now turn it off"
+  }
+}

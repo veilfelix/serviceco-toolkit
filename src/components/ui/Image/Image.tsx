@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef, JSX, useState } from 'react'
 import NextImage, { ImageLoaderProps, ImageProps as NextImageProps } from 'next/image'
 import { cn } from '@/utils/classNames'

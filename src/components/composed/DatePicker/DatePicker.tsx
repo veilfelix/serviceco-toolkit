@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect, useRef, forwardRef } from 'react'
 import { X, ChevronDown } from 'lucide-react'
 import { cn } from '@/utils/classNames'
@@ -7,6 +9,7 @@ import Input from '@/components/ui/Input/Input'
 import Button from '@/components/ui/Button/Button'
 import { format, parse, isValid, isDate } from 'date-fns'
 import { enUS, frCA } from 'date-fns/locale'
+import { useTranslation } from 'next-i18next'
 
 export interface DatePickerProps {
   /**
@@ -126,6 +129,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
   'aria-label': ariaLabel,
   ...props
 }, ref) => {
+  const { t } = useTranslation('composed')
 
   const resolvedLocale = resolveLocale(locale)
   const resolvedFormat = formatString || 'P' // P = locale-aware pattern
@@ -279,7 +283,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
                 error={hasError}
                 aria-invalid={hasError ? 'true' : 'false'}
                 aria-describedby={hasError ? errorId : undefined}
-                aria-label={ariaLabel || label || 'Date selection'}
+                aria-label={ariaLabel || label || t('datePicker.dateSelection')}
                 className={cn(
                   'pr-[var(--datepicker-input-padding-right)]'
                 )}
@@ -293,7 +297,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
                   className={cn(
                     'h-full w-[var(--datepicker-trigger-width)] text-[var(--datepicker-trigger-color)]'
                   )}
-                  aria-label='Show calendar'
+                  aria-label={t('datePicker.showCalendar')}
                   tabIndex={-1}
                 >
                   <ChevronDown className='h-[var(--datepicker-icon-size)] w-[var(--datepicker-icon-size)]' />
@@ -312,7 +316,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
                 'absolute right-[var(--datepicker-trigger-width)] h-full',
                 'w-[var(--datepicker-clear-button-size)] text-[var(--datepicker-clear-color)]'
               )}
-              aria-label="Clear date"
+              aria-label={t('datePicker.clearDate')}
             >
               <X className="h-[var(--datepicker-clear-icon-size)] w-[var(--datepicker-clear-icon-size)]" />
             </Button>
@@ -345,7 +349,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(({
           {time && date && (
             <div className="p-3 border-t border-border">
               {/* Time picker implementation */}
-              <span className="text-sm text-muted-foreground">Time selection is not yet implemented</span>
+              <span className="text-sm text-muted-foreground">{t('datePicker.timeSelectionNotImplemented')}</span>
             </div>
           )}
         </Popover.Content>

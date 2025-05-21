@@ -25,6 +25,6 @@
     },
     "types": ["jest"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "scripts/lint-use-client.js", "scripts/generate-blur-placeholder.js"],
   "exclude": ["node_modules"]
 }

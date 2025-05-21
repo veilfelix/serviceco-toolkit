@@ -1,6 +1,9 @@
+'use client'
+
 import React, { createContext, useContext, useState, useCallback } from 'react'
 import * as ToastPrimitives from '@radix-ui/react-toast'
 import { Toast, ToastAction, ToastProps, ToastVariant, ToastViewport } from './Toast'
+import { useTranslation } from 'next-i18next'
 
 export { Toast, ToastAction, ToastViewport }
 export type { ToastProps, ToastVariant }
@@ -98,6 +101,7 @@ export function ToastProviderComponent({
   swipeDirection = 'right',
   hotkeys,
 }: ToastProviderComponentProps) {
+  const { t } = useTranslation('ui')
   const [toasts, setToasts] = useState<Toast[]>([])
 
   // Add a new toast
@@ -148,7 +152,7 @@ export function ToastProviderComponent({
   const providerProps: React.ComponentPropsWithoutRef<typeof ToastPrimitives.Provider> = {
     duration: defaultDuration,
     swipeDirection: getSwipeDirection(),
-    label: 'Notifications',
+    label: t('toast.notifications'),
   }
 
   // Cast to any to allow hotkeys to be passed if defined

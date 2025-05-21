@@ -9,7 +9,8 @@ A starter kit to build service company websites using Next.js 13 with the Pages 
 - **ESLint + Prettier** - Code linting and formatting
 - **Jest + Testing Library** - Unit testing framework
 - **Storybook** - Component documentation and development
-- **Modular Design System** - React components styled with Tailwind, Radix UI, and CSS tokens for accessibility and full customization. See our [Design System Guidelines](./docs/design-system.md) for how we structure, style, and override UI components using tokens and Tailwind. For layout patterns, check out our [Grid & Stack System](./docs/grid-stack-system.md) documentation.
+- **Modular Design System** - React components styled with Tailwind, Radix UI, and CSS tokens for accessibility and full customization. See our [Design System Guidelines](./docs/design-system.md) for how we structure, style, and override UI components using tokens and Tailwind. For layout patterns, check out our [Grid & Stack System](./docs/grid-stack-system.md) documentation
+- **Internationalization (i18n)** – Built-in support for localized UI using `next-i18next`, with auto-typed namespaces and server-side translations (`withSharedNamespaces`) for seamless SSR and hydration-safe components. See our [i18n documentation](./docs/i18n.md)
 - **Husky** - Git hooks for code quality
 - **Bundle Analyzer** - Interactive visual reports to inspect the weight and composition of client, server, and edge bundles (`npm run analyze`)
 
@@ -95,15 +96,24 @@ Below is a list of useful commands to run, test, and validate the project during
 |`npm run storybook`|Starts the Storybook UI at `localhost:6006`.|
 |`npm run build-storybook`|Builds a static version of the Storybook UI.|
 
-### Code Quality
+### Internationalization
 
 |Command|Description|
 |---|---|
-|`npm run lint`|Runs ESLint to check for linting issues.|
-|`npm run lint:fix`|Fixes fixable lint issues automatically.|
-|`npm run format`|Formats code using Prettier.|
-|`npm run format:check`|Checks formatting without writing changes.|
-|`npm run check`|Runs TypeScript, ESLint, and tests together.|
+|`node scripts/generate-default-namespaces.js`|Scans your `/public/locales` folders and updates the list of shared i18n namespaces (`defaultNamespaces` in `/utils/i18nNamespaces.generated.ts`) used in SSR (`withSharedNamespaces`). Helps ensure hydration-safe translations by keeping server-side and client-side namespaces in sync.|
+| See [docs/i18n.md](./docs/i18n.md) for full details. |
+
+### Code Quality
+
+| Command | Description |
+|--|--|
+| `npm run lint` | Runs ESLint to check for code style and best practices. |
+| `npm run lint:fix` | Automatically fixes fixable linting issues. |
+| `npm run lint:use-client` | Ensures all client-side components are properly annotated with `'use client'`. See [docs/use-client.md](./docs/use-client.md) for full details. |
+| `npm run format` | Formats all code using Prettier. |
+| `npm run format:check` | Checks formatting without writing changes (CI-friendly). |
+| `npm run typecheck` | Runs the TypeScript compiler in strict mode without emitting files. |
+| `npm run check` | Runs `typecheck`, `lint`, `lint:use-client`, and `test` in one command. Ideal for CI and pre-commit hooks. |
 
 ### Testing
 
@@ -121,9 +131,9 @@ Below is a list of useful commands to run, test, and validate the project during
 
 ### Image Placeholders
 
-|Command|Description|
-|---|---|
-|`npx ts-node scripts/generate-blur-placeholder.ts <image-url>`|Generates a base64 blurDataURL from an image URL for use with the Image component. See [docs/blur-placeholders.md](./docs/blur-placeholders.md) for full details.|
+| Command | Description |
+|--|--|
+| `node scripts/generate-blur-placeholder.js <image-url>` | Generates a base64 `blurDataURL` from an image URL for use with the `Image` component. See [docs/blur-placeholder.md](./docs/blur-placeholder.md) for full details. |
 
 
 ## Project Structure
@@ -131,12 +141,13 @@ Below is a list of useful commands to run, test, and validate the project during
 ```
 /
 ├── .husky/                                 # Git hooks (e.g., pre-commit hook to run lint/tests)
-│   └── pre-commit                          # Executes lint + tests before commit
+│   └── pre-commit                          # Executes lint + tests + namespace sync script before commit
 ├── .storybook/                             # Storybook configuration (used for component documentation/dev)
 │   ├── main.ts                             # Entry point and plugin config
 │   └── preview.ts                          # Global decorators and styling
 ├── public/                                 # Static files (served as-is)
-│   └── favicon.ico                         # Site favicon
+│   ├── favicon.ico                         # Site favicon
+│   └── locales/                            # Translation files by locale (e.g. /locales/en/common.json)
 ├── src/                                    # All source files live here after migration
 │   ├── components/                     
 │   │   └── a11y/                           # Accessibility component utilities
@@ -155,7 +166,10 @@ Below is a list of useful commands to run, test, and validate the project during
 │   │       │   ├── button.stories.tsx      # Button stories for Storybook
 │   │       │   └── button.test.tsx         # Button unit tests using Jest and @testing-library
 │   │       └── ...
-│   ├── hooks/                              # Custom React hooks (empty for now)
+|   ├── scripts/
+│   │   ├── generate-default-namespaces.js  # CLI to detect and sync namespaces in /public/locales/
+│   │   └── lint-use-client.js              # CLI to enforce 'use client' on layout-level i18n components
+│   ├── hooks/                              # Custom React hooks
 │   ├── lib/                                # Application logic or API fetchers
 │   │   └── api/                            # Contentful or internal API utils
 │   │       └── contentful.ts               # Contentful client instance for fetching data from CMS
@@ -174,6 +188,8 @@ Below is a list of useful commands to run, test, and validate the project during
 │   │   └── tokens.ts                       # JS-accessible tokens (colors, spacing, fonts)
 │   └── utils/                              
 │       ├── classNames.ts                   # Helper to combine conditional Tailwind classNames
+│       ├── i18n.ts                         # i18n utilities (initTestI18n, withSharedNamespaces, defaultNamespaces array)
+│       ├── i18nSSR.ts                         # i18n utilities for SSR only
 │       └── getButtonClassNames.ts          # Returns Tailwind classes for Button + ButtonLink
 ├── jest.config.ts                          # Jest configuration
 ├── jest.setup.ts                           # Jest test setup file (e.g., mocks, extensions)

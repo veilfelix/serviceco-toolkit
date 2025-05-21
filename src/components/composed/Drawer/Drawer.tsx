@@ -1,9 +1,12 @@
+'use client'
+
 import { cn } from '@/utils/classNames'
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
 import { forwardRef } from 'react'
 import Button from '@/components/ui/Button/Button'
 import React from 'react'
+import { useTranslation } from 'next-i18next'
 
 export type DrawerSide = 'left' | 'right' | 'bottom'
 
@@ -174,6 +177,7 @@ const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
     children, 
     ...props 
   }, ref) => {
+    const { t } = useTranslation('composed')
     const sideStyles = {
       left: [
         'left-0 top-0 h-full',
@@ -234,7 +238,7 @@ const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
                 size="sm" 
                 variant="ghost" 
                 className="h-[var(--drawer-close-size)] w-[var(--drawer-close-size)] rounded-full p-0" 
-                aria-label="Close"
+                aria-label={t('drawer.close')}
               >
                 <X className="h-[var(--drawer-close-icon-size)] w-[var(--drawer-close-icon-size)]" />
               </Button>

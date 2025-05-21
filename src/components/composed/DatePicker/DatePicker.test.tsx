@@ -3,6 +3,13 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import DatePicker from './DatePicker'
+import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
+import { initTestI18n } from '@/utils/i18n'
+
+function renderWithProvider(ui: React.ReactElement) {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>)
+}
 
 jest.mock('@/components/composed/Popover/Popover', () => {
   /* eslint-disable @typescript-eslint/no-require-imports */
@@ -71,8 +78,28 @@ jest.mock('@/components/composed/Calendar/Calendar', () => {
 })
 
 describe('DatePicker component', () => {
+  beforeEach(() => {
+    initTestI18n({
+      en: {
+        datePicker: {
+          clearDate: 'Clear date',
+          selectDate: 'Select date',
+        },
+        ui: {
+          requiredIndicator: '*',
+        },
+      },
+      fr: {
+        datePicker: {
+          clearDate: 'Effacer la date',
+          selectDate: 'Choisir une date',
+        },
+      },
+    })
+  })
+
   it('renders with default props', () => {
-    render(<DatePicker />)
+    renderWithProvider(<DatePicker />)
 
     const input = screen.getByRole('textbox')
     expect(input).toBeInTheDocument()
@@ -81,7 +108,7 @@ describe('DatePicker component', () => {
   })
   
   it('renders with label', () => {
-    render(<DatePicker label="Event Date" id="event-date" />)
+    renderWithProvider(<DatePicker label="Event Date" id="event-date" />)
     
     // Label should be visible and connected to input
     const label = screen.getByText('Event Date')
@@ -93,14 +120,14 @@ describe('DatePicker component', () => {
   })
   
   it('renders with required indicator', () => {
-    render(<DatePicker label="Event Date" required />)
+    renderWithProvider(<DatePicker label="Event Date" required />)
     
     const label = screen.getByText('Event Date')
     expect(label.innerHTML).toContain('*')
   })
   
   it('renders in error state', () => {
-    render(<DatePicker error errorMessage="This field is required" />)
+    renderWithProvider(<DatePicker error errorMessage="This field is required" />)
     
     const input = screen.getByRole('textbox')
     expect(input).toHaveAttribute('aria-invalid', 'true')
@@ -111,7 +138,7 @@ describe('DatePicker component', () => {
   })
   
   it('renders in disabled state', () => {
-    render(<DatePicker disabled />)
+    renderWithProvider(<DatePicker disabled />)
     
     const input = screen.getByRole('textbox')
     expect(input).toBeDisabled()
@@ -119,7 +146,7 @@ describe('DatePicker component', () => {
   
   it('displays the provided date value', () => {
     const testDate = new Date(2023, 4, 15) // May 15, 2023
-    render(<DatePicker value={testDate} format="yyyy-MM-dd" />)
+    renderWithProvider(<DatePicker value={testDate} format="yyyy-MM-dd" />)
     
     const input = screen.getByRole('textbox')
     expect(input).toHaveValue('2023-05-15')
@@ -127,7 +154,7 @@ describe('DatePicker component', () => {
   
   it('accepts manual input and formats properly', async () => {
     const onChangeMock = jest.fn()
-    render(<DatePicker onChange={onChangeMock} format="MM/dd/yyyy" />)
+    renderWithProvider(<DatePicker onChange={onChangeMock} format="MM/dd/yyyy" />)
     
     const input = screen.getByRole('textbox')
     
@@ -144,7 +171,7 @@ describe('DatePicker component', () => {
   })
   
   it('clears invalid input on blur', async () => {
-    render(<DatePicker format="MM/dd/yyyy" />)
+    renderWithProvider(<DatePicker format="MM/dd/yyyy" />)
     
     const input = screen.getByRole('textbox')
     
@@ -159,7 +186,7 @@ describe('DatePicker component', () => {
   
   it('allows selecting a date from the calendar', async () => {
     const onChangeMock = jest.fn()
-    render(<DatePicker onChange={onChangeMock} format="MM/dd/yyyy" />)
+    renderWithProvider(<DatePicker onChange={onChangeMock} format="MM/dd/yyyy" />)
     
     // Open the calendar by clicking the trigger
     const input = screen.getByRole('textbox')
@@ -178,7 +205,7 @@ describe('DatePicker component', () => {
   
   it('allows clearing the selected date', async () => {
     const onChangeMock = jest.fn()
-    render(<DatePicker 
+    renderWithProvider(<DatePicker 
       value={new Date(2023, 4, 15)} 
       onChange={onChangeMock} 
       format="MM/dd/yyyy" 
@@ -189,7 +216,7 @@ describe('DatePicker component', () => {
     expect(input).toHaveValue('05/15/2023')
     
     // Find the clear button and click it
-    const clearButton = screen.getByLabelText('Clear date')
+    const clearButton = screen.getByLabelText(i18n.t('datePicker.clearDate'))
     fireEvent.click(clearButton)
     
     // Verify onChange was called with null
@@ -201,7 +228,7 @@ describe('DatePicker component', () => {
   
   it('formats dates according to the format prop', () => {
     const testDate = new Date(2023, 4, 15) // May 15, 2023
-    const { rerender } = render(<DatePicker value={testDate} format="MM/dd/yyyy" />)
+    const { rerender } = renderWithProvider(<DatePicker value={testDate} format="MM/dd/yyyy" />)
     
     let input = screen.getByRole('textbox')
     expect(input).toHaveValue('05/15/2023')
@@ -220,7 +247,7 @@ describe('DatePicker component', () => {
   
   it('updates when value prop changes', () => {
     const initialDate = new Date(2023, 4, 15) // May 15, 2023
-    const { rerender } = render(<DatePicker value={initialDate} format="MM/dd/yyyy" />)
+    const { rerender } = renderWithProvider(<DatePicker value={initialDate} format="MM/dd/yyyy" />)
     
     let input = screen.getByRole('textbox')
     expect(input).toHaveValue('05/15/2023')
@@ -240,7 +267,7 @@ describe('DatePicker component', () => {
   })
   
   it('has proper accessibility attributes', () => {
-    render(<DatePicker 
+    renderWithProvider(<DatePicker 
       label="Event Date" 
       id="event-date"
       required

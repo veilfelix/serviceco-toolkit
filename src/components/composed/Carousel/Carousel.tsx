@@ -1,9 +1,12 @@
+'use client'
+
 import { HTMLAttributes, ReactNode, TouchEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/utils/classNames'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import VisuallyHidden from '@/components/a11y/VisuallyHidden/VisuallyHidden'
 import Button from '@/components/ui/Button/Button'
+import { useTranslation } from 'next-i18next'
 
 export type CarouselVariant = 'default' | 'banner'
 
@@ -124,6 +127,7 @@ function Carousel({
   className,
   ...props
 }: CarouselProps) {
+  const { t } = useTranslation('composed')
   const slides = Array.isArray(children) ? children : [children]
   const [activeIndex, setActiveIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -281,7 +285,7 @@ function Carousel({
     <div
       ref={carouselRef}
       role={(enableKeyboardNavigation || enableSwipe) ? 'region' : undefined}
-      aria-label={(enableKeyboardNavigation || enableSwipe) ? 'carousel' : undefined}
+      aria-label={(enableKeyboardNavigation || enableSwipe) ? t('carousel.label') : undefined}
       tabIndex={(enableKeyboardNavigation || enableSwipe) ? 0 : undefined}
       className={cn(
         'relative w-full overflow-hidden',
@@ -293,7 +297,7 @@ function Carousel({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      aria-roledescription="carousel"
+      aria-roledescription={t('carousel.roledescription')}
       {...props}
     >
       <div className="relative h-full w-full">
@@ -313,8 +317,8 @@ function Carousel({
               <div
                 key={index}
                 className="min-w-full flex-shrink-0 flex-grow-0"
-                aria-roledescription="slide"
-                aria-label={`Slide ${index + 1} of ${slides.length}`}
+                aria-roledescription={t('carousel.slide')}
+                aria-label={t('carousel.slidePosition', { current: index + 1, total: slides.length })}
                 aria-hidden={!isActive}
               >
                 {slide}
@@ -329,14 +333,14 @@ function Carousel({
             <Button
               className="absolute left-4 top-1/2 h-[var(--carousel-control-size)] w-[var(--carousel-control-size)] -translate-y-1/2 rounded-full bg-carousel-control-bg p-0 text-carousel-control-color hover:bg-carousel-control-hover-bg"
               onClick={goToPrevious}
-              aria-label="Previous slide"
+              aria-label={t('carousel.previousSlide')}
             >
               <ChevronLeft />
             </Button>
             <Button
               className="absolute right-4 top-1/2 h-[var(--carousel-control-size)] w-[var(--carousel-control-size)] -translate-y-1/2 rounded-full bg-carousel-control-bg p-0 text-carousel-control-color hover:bg-carousel-control-hover-bg"
               onClick={goToNext}
-              aria-label="Next slide"
+              aria-label={t('carousel.nextSlide')}
             >
               <ChevronRight />
             </Button>
@@ -356,13 +360,13 @@ function Carousel({
                     : 'bg-carousel-indicator-color'
                 )}
                 onClick={() => goToSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={t('carousel.goToSlide', { number: index + 1 })}
                 aria-current={index === activeIndex}
               >
                 <VisuallyHidden>
                   {index === activeIndex
-                    ? `Slide ${index + 1} (current)`
-                    : `Slide ${index + 1}`}
+                    ? t('carousel.slideCurrentPosition', { number: index + 1 })
+                    : t('carousel.slideNumber', { number: index + 1 })}
                 </VisuallyHidden>
               </button>
             ))}

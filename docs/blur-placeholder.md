@@ -17,7 +17,7 @@ In Next.js, you can show a low-quality image preview (LQIP) while the full image
   placeholder="blur"
   blurDataURL="data:image/jpeg;base64,..."
 />
-```
+````
 
 The `blurDataURL` is a base64-encoded preview image. But it must be generated in advance since Next.js does not create it automatically.
 
@@ -32,7 +32,7 @@ To ensure performance, security, and maintainability, this project uses the foll
 We provide a script to generate `blurDataURL`s:
 
 ```bash
-npx ts-node scripts/generate-blur-placeholder.ts <image-url>
+node scripts/generate-blur-placeholder.js <image-url>
 ```
 
 This script:
@@ -100,9 +100,9 @@ We don’t include CMS-specific logic in this starter to keep it portable.
 src/
 ├── components/
 │   └── ui/
-│       └── Image/       ← Image component
+│       └── Image/             ← Image component
 ├── utils/
-│   └── imageUtils.ts   ← Blur data logic (mock/fallback)
+│   └── imageUtils.ts         ← Blur data logic (mock/fallback)
 scripts/
-└── generate-blur-placeholder.ts ← CLI to generate blurDataURL
+└── generate-blur-placeholder.js ← CLI to generate blurDataURL
 ```
